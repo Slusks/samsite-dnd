@@ -1,0 +1,27 @@
+.container{
+    padding-top:20px;
+}
+
+.header-css-tag .mat-expansion-panel-header-title,
+.header-css-tag .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.header-css-tag .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .jumbotron {
+      height: 100vh;
+  }
+
+  #action-jumbotron{
+      margin:0px;
+      float: left;
+      padding-left: 0px;
+  }
+
+  #accordion {
+      margin-left: 400px;
+  }

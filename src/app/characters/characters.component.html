@@ -1,0 +1,28 @@
+<div class="cardsWrapper">
+    <app-char-cards *ngFor="let card of cards" [cardData]="cards"></app-char-cards>
+</div>
+<!--<img src="http://127.0.0.1:8887/rimrockknight.jpg" style="width: 200px" >-->
+
+
+    <div class="row">
+        <button mat-flat-button (click)="addCard('oh-pro')">Oh-Pro</button>
+        <button mat-flat-button (click)="addCard('the hermit')">The Hermit</button>
+    </div>
+
+    <div class="row">
+        <button mat-flat-button (click)="addCard('clud')">Clud</button>
+        <button mat-flat-button (click)="addCard('omaric')">Omaric</button>
+    </div>
+
+    <div class="row">
+        <button mat-button (click)="addCard('clear')">Clear</button>
+    </div>
+
+
+
+
+
+
+
+
+

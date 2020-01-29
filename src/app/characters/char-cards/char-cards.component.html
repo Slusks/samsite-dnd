@@ -1,0 +1,15 @@
+
+<mat-card class="card">
+    <mat-card-header>
+        <h3>{{this.cardData[0].cardTitle}}</h3>
+    </mat-card-header>
+    <img mat-card-image src={{this.cardData[0].cardImage}}>
+    <mat-card-content>
+        <ul style="list-style-type:disc;">
+        <li>Affiliation: {{this.cardData[0].cardAffiliation}}</li>
+        <li>Class: {{this.cardData[0].cardClass}} </li>
+        <li>Likes: {{this.cardData[0].cardLikes}}</li>
+        <li>Dislikes: {{this.cardData[0].cardDislikes}}</li>
+        </ul>
+    </mat-card-content>
+</mat-card>
