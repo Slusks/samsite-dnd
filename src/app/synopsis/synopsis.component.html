@@ -19,6 +19,8 @@
             </mat-form-field><br>
         <button mat-raised-button type="submit" value="Add Panel">More Story! <i class="fas fa-feather-alt fa-2x"></i></button>
       </form>
+      <br>
+      <h3 *ngIf = "isAdded">{{confirmationString}}</h3>
       </div>
 
     </div>
