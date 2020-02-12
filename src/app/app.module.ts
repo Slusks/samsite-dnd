@@ -27,6 +27,10 @@ import { MatExpansionModule} from '@angular/material/expansion';
 import { StoryPanelComponent } from './synopsis/story-panel/story-panel.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
+import { NgPartnersModule } from 'ng-partners';
+
+import { NgImageSliderModule } from 'ng-image-slider';
+
 
 
 
@@ -41,7 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
     CharactersComponent,
     CharCardsComponent,
     SynopsisComponent,
-    StoryPanelComponent,
+    StoryPanelComponent
     
 
  
@@ -68,7 +72,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgPartnersModule,  //https://www.npmjs.com/package/@fortawesome/angular-fontawesome
+    NgImageSliderModule
     
 
     

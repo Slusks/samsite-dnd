@@ -7,31 +7,52 @@
             </div>
             <ul>
             <li> Some information and links it might be good to have:
-                    <a class="special" href="https://static1.squarespace.com/static/5c2a76484611a0ff5d604514/t/5dc8bd1f3287191960b0deec/1573436704803/5e+Player+Reference+v1-9.pdf">
+                    <a class="special" target="_blank" href="https://static1.squarespace.com/static/5c2a76484611a0ff5d604514/t/5dc8bd1f3287191960b0deec/1573436704803/5e+Player+Reference+v1-9.pdf">
                     Full 5e Reference Sheet</a>
                     </li>
-                <li>True Random Rolls: <a class="special" href="Random.org">Random.org</a></li>
+                <li>True Random Rolls: <a class="special" href="Random.org" target="_blank" >Random.org</a></li>
                 
-                <li>Character sheets and builders: <a class="special" href="https://www.dndbeyond.com/characters/builder#/">D&D Beyond</a></li>
-                <li>Where to play: <a class="special" href="roll20.com">Roll20</a></li>
+                <li>Character sheets and builders: <a class="special" target="_blank"  href="https://www.dndbeyond.com/characters/builder#/">D&D Beyond</a></li>
+                <li>Where to play: <a class="special" target="_blank"  href="roll20.com">Roll20</a></li>
             </ul>
+            <div class="container" id="ngImageSliderContainer">
+                <!-- slideshow maybe? Note that I want the width of all the pics to be 450, but then scaled-->
+                <ng-image-slider 
+                    [images]="imageObject"
+                    [animationSpeed]="0.1"
+                    [imageSize]="{width:400, height:auto, space:30}"
+                    [showArrow]="false"
+                    [infinite]="true"
+                     #nav id="ngImageSlider">
+                </ng-image-slider>
+                <button mat-stroked-button (click)="prevImageClick()" id='fancy'>Left</button>
+                <button mat-stroked-button (click)="nextImageClick()" id='fancy'>Right</button>
+
+            </div>
+
         </div>
         <!--==================-->
         <!-- Column 2-->
         <div class="col" id="col2">
-            <img id ="D20rolls" src="http://127.0.0.1:8887/valley.jpg" style="width:500px;height:600px;">
+            <img id ="D20rolls" src="assets/pics/valley.jpg" style="width:500px;height:600px;">
             <figcaption>Photo by Jonathan Auh on Unsplash</figcaption>
-
-    
         </div>
             <!-- Using google webserver for chrome linked to the pics folder to get this to work-->
+            <!-- No longer using Google Webserver - 2/7/2020-->
 
         <!--==================-->
         <!-- Column 3-->
         <div class="col" id="col3">
             <div class="container text-center">
-                <h2>Character Info</h2>
-                <app-characters></app-characters>
+                <h2>Campaign Info</h2>
+                <div class="jumbotron" id="campaignDescription1">
+                    <div class="container">
+                    <h3>Thursday Campaign!</h3>
+                    <p id='fancy'>Four intrepid heros travel the wastes of some place that I dont remember the name of
+                        in order to I guess help out some people that I honestly dont know the importance of
+                    </p>
+                </div>
+                </div>
             </div>
             
         </div>

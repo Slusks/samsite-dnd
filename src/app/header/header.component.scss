@@ -1,6 +1,4 @@
-.sidenav-container {
-  height: 100vh;
-}
+
 
 .sidenav {
   width: 200px;
@@ -13,12 +11,9 @@
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 9999999;
 }
 
-.jumbotron-fluid{
-  height: 100vh;
-}
 
 .navbar {
   margin-bottom: 0px;

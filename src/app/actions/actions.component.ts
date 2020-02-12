@@ -12,9 +12,7 @@ export class ActionsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log("opened actions")
-
-    
+   console.log('my instructions work though')
     
   }
 

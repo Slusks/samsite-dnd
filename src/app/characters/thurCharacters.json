@@ -2,7 +2,7 @@
   {"oh-pro":
     {
       "name": "Oh-pro Buffington",
-      "portrait": "http://127.0.0.1:8887/rimrockknight.jpg",
+      "portrait": "assets/pics/rimrockknight.jpg",
       "affiliation": "Emerald Enclave",
       "class": "Cleric",
       "likes":[
@@ -17,7 +17,7 @@
     "the hermit":
     {
     "name": "The Hermit",
-    "portrait": "http://127.0.0.1:8887/derangedhermit.jpg",
+    "portrait": "assets/pics/derangedhermit.jpg",
     "affiliation": "Emerald Enclave",
     "class": "Rogue",
     "likes":[
@@ -31,7 +31,7 @@
     "clud":
     {
     "name": "Clud",
-    "portrait": "http://127.0.0.1:8887/clud2.png",
+    "portrait": "assets/pics/clud2.png",
     "affiliation": "unknown",
     "class": "Artificer/Artifact",
     "likes":[
@@ -46,7 +46,7 @@
     "omaric":
     {
     "name": "Omaric",
-    "portrait": "http://127.0.0.1:8887/omaric.jpg",
+    "portrait": "assets/pics/omaric.jpg",
     "affiliation": "Himself",
     "class": "Wild Sorcerer",
     "likes":[

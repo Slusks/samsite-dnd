@@ -5,10 +5,21 @@ button.mat-flat-button{
     border-color: #000000;
 }
 
+.body{
+    background-color: black
+}
 
-
+.mat-raised-button{
+    margin: 10px;
+}
 
 .row {
     margin: auto;
     display: block;
+}
+
+.containerCard {
+    padding-top: 50px;
+    height: 800px;
+    background-image: linear-gradient(#d9f2d9,#ccccff, #e6ccff);
 }

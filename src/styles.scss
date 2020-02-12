@@ -1,4 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~ng-partners/scss/to-core.scss";
+@import "~ng-partners/scss/to-core.materials.scss";
+
+@import url('https://fonts.googleapis.com/css?family=MedievalSharp');
+
+//@import url('https://unsplash.com/photos/YAYEXA93pbc');
+
+
+
+
+
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+#fancy {
+    font-family: 'MedievalSharp';
+    
+}
+

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http'
 
-// For this to work, in terminal, navigate to C:\USers\sam\webdev\samsite-dnd and run 'json-server --watch db.json'
+
+// For this to work, in terminal, navigate to samsite-dnd and run 'json-server --watch db.json'
 // the json file is located in samsite-dnd
 // utilizing: https://github.com/typicode/json-server
 
@@ -12,7 +13,7 @@ import { HttpClient } from '@angular/common/http'
   styleUrls: ['./synopsis.component.scss']
 })
 export class SynopsisComponent implements OnInit {
-
+  
 
   constructor(private http: HttpClient) { }
 
@@ -26,14 +27,14 @@ export class SynopsisComponent implements OnInit {
       "tagline": panel.tagline,
       "content": panel.content,
     }
-    this.http.post("http://localhost:3000/panel", this.panelObject).subscribe((po:Response) => {console.log(po)})
+    
+    this.http.post("http://localhost:3000/panel", this.panelObject).subscribe((po:Response) => {console.log("po",po)})
     this.isAdded = true;
     location.reload(true)
   }
 
 
   ngOnInit() {
-
 
   }
 
