@@ -17,7 +17,7 @@
     "the hermit":
     {
     "name": "The Hermit",
-    "portrait": "assets/pics/derangedhermit.jpg",
+    "portrait": "assets/pics/Derangedhermit.jpg",
     "affiliation": "Emerald Enclave",
     "class": "Rogue",
     "likes":[
@@ -31,7 +31,7 @@
     "clud":
     {
     "name": "Clud",
-    "portrait": "assets/pics/clud2.png",
+    "portrait": "assets/pics/clud2.PNG",
     "affiliation": "unknown",
     "class": "Artificer/Artifact",
     "likes":[
