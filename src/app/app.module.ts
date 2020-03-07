@@ -30,6 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgPartnersModule } from 'ng-partners';
 
 import { NgImageSliderModule } from 'ng-image-slider';
+import { MapCompComponent } from './map-comp/map-comp.component';
+import { DndDatabaseService } from './dnd-database.service';
 
 
 
@@ -45,7 +47,8 @@ import { NgImageSliderModule } from 'ng-image-slider';
     CharactersComponent,
     CharCardsComponent,
     SynopsisComponent,
-    StoryPanelComponent
+    StoryPanelComponent,
+    MapCompComponent
     
 
  
@@ -74,13 +77,15 @@ import { NgImageSliderModule } from 'ng-image-slider';
     FormsModule,
     ReactiveFormsModule,
     NgPartnersModule,  //https://www.npmjs.com/package/@fortawesome/angular-fontawesome
-    NgImageSliderModule
+    NgImageSliderModule,
+    BrowserAnimationsModule
     
 
     
     
   ],
-  providers: [],
+  providers: [
+    DndDatabaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

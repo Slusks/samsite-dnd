@@ -5,14 +5,15 @@ import { HeaderComponent } from './header/header.component';
 import { SynopsisComponent } from './synopsis/synopsis.component';
 import { CharactersComponent } from './characters/characters.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { MapCompComponent } from './map-comp/map-comp.component';
 
 
 
 const routes: Routes = [
-  {
-    path:'',
-    component: HomepageComponent
-  },
+{
+  path:'',
+  component: HomepageComponent
+},
 {
   path:'factions',
   component: ActionsComponent
@@ -24,6 +25,10 @@ const routes: Routes = [
 {
   path:'characters',
   component: CharactersComponent
+},
+{
+  path:'Map',
+  component: MapCompComponent
 }
 ];
 
