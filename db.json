@@ -37,6 +37,24 @@
     }
   ],
   "mapMarker": [
+    {
+      "description": "North Carolina",
+      "yPos": 482,
+      "xPos": 1241,
+      "id": 1
+    },
+    {
+      "description": "Charlotte",
+      "yPos": 509,
+      "xPos": 1216,
+      "id": 2
+    },
+    {
+      "description": "durdle",
+      "yPos": 424,
+      "xPos": 537,
+      "id": 3
+    }
   ],
   "characters": [
     {

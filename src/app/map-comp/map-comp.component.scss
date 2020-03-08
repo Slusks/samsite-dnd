@@ -27,6 +27,11 @@ h1{
   position:fixed;
   z-index: 9;
 }
+#markerCard {
+  display: none;
+  position:fixed;
+  z-index: 9;
+}
 
 /* Add styles to the form container */
 .form-container {
@@ -80,7 +85,6 @@ h1{
 }
 
 #mapContainer{
-  background-color: grey;
   text-align: center;
   vertical-align: middle;
   font-display: block;
@@ -97,4 +101,8 @@ h1{
 #bodyContainer {
   font-display:block;
   text-align: center;
+}
+
+.markerIMG{
+  cursor: pointer;
 }

@@ -3,7 +3,7 @@ import { DndDatabaseService } from '../dnd-database.service';
 import { HttpClient } from '@angular/common/http';
 import { markerData } from './markerData';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-map-comp',
   templateUrl: './map-comp.component.html',
@@ -31,7 +31,9 @@ ngOnInit(){
       this.http.get<markerData[]>('http://localhost:3000/mapMarker')
       .subscribe(posts => {
           posts.forEach(post=>{
-                this.setMarker(post)})})     
+                this.setMarker(post)})})    
+  
+
 }
 
   // Prevents the set marker function from loading a marker that already exists
@@ -47,8 +49,8 @@ ngOnInit(){
    setMarker(post){
     console.log("function started", post.id)
     if (post.id > 0){
-      var x = post.xPos;
-      var y = post.yPos;
+      var x = post.xPos-10;
+      var y = post.yPos-80;
       var img = document.createElement("img");
       img.src = "../assets/img/marker.jpg";
       img.width = 20;
@@ -57,6 +59,7 @@ ngOnInit(){
       img.style.left= (x)+'px';
       img.style.top=(y)+'px';
       img.id = post.id
+      img.setAttribute("class","markerIMG")
       console.log("img.id is", img.id)
       //add img to map element
       document.getElementById('mapContainer').appendChild(img);
@@ -66,8 +69,14 @@ ngOnInit(){
 
     // Each marker should have a function that triggers onclick, need to add that attribute here
     // and then make the function below
+    img.setAttribute('(onclick)','showCard($event)') //https://stackoverflow.com/questions/50289095/trying-to-add-attribute-onclick-to-a-html-img-element-created-by-javascript
 
+  }
 
+  showCard(e) {
+    document.getElementById("markerCard").style.display = "block";
+    document.getElementById('markerCard').style.top = this.yPosition +'px'; // sets the form y coordinate
+    document.getElementById('markerCard').style.left = this.xPosition +'px'; // sets the form x coordinate
   }
 
   logCursorPosition(e){
@@ -75,7 +84,7 @@ ngOnInit(){
       var x = e.clientX;
       this.xPosition = x;
       var y = e.clientY;
-      this.yPosition = y - 40;
+      this.yPosition = y;
       console.log("X Position "+ x + " Y Position" +y);
       //Create Temp icon with Attributes
       var img = document.createElement("img");
@@ -84,7 +93,7 @@ ngOnInit(){
       img.height= 20;
       img.style.position="absolute";
       img.style.left= (x-10)+'px';
-      img.style.top=(y-40)+'px';
+      img.style.top=(y-80)+'px';
       document.getElementById('mapContainer').appendChild(img);
       img.id="currentMarker"
       //Open Form
