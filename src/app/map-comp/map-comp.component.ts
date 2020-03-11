@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { DndDatabaseService } from '../dnd-database.service';
 import { HttpClient } from '@angular/common/http';
 import { markerData } from './markerData';
@@ -15,6 +15,9 @@ export class MapCompComponent implements OnInit {
   xPosition:number;
   yPosition:number;
   id:boolean;
+  posts;
+  counter:number;
+  cardDescription:string;
 
   
   constructor(
@@ -25,15 +28,14 @@ export class MapCompComponent implements OnInit {
   
 
 ngOnInit(){
+      this.counter = 1;
       const iconImage = new Image();
       iconImage.src = "../assets/img/marker.jpg"
       //subscribes to the JSON file
       this.http.get<markerData[]>('http://localhost:3000/mapMarker')
-      .subscribe(posts => {
+      .subscribe(posts => {(this.posts = posts),
           posts.forEach(post=>{
-                this.setMarker(post)})})    
-  
-
+                this.setMarker(post)})})
 }
 
   // Prevents the set marker function from loading a marker that already exists
@@ -58,8 +60,8 @@ ngOnInit(){
       img.style.position="absolute";
       img.style.left= (x)+'px';
       img.style.top=(y)+'px';
-      img.id = post.id
-      img.setAttribute("class","markerIMG")
+      img.id = post.id // this is to attack other functions too
+      img.setAttribute("class","markerIMG") // this is for the event listener specifically
       console.log("img.id is", img.id)
       //add img to map element
       document.getElementById('mapContainer').appendChild(img);
@@ -67,17 +69,15 @@ ngOnInit(){
     } 
     else {console.log ("post is undefined"); this.id = false; return;}
 
-    // Each marker should have a function that triggers onclick, need to add that attribute here
-    // and then make the function below
-    img.setAttribute('(onclick)','showCard($event)') //https://stackoverflow.com/questions/50289095/trying-to-add-attribute-onclick-to-a-html-img-element-created-by-javascript
-
+    console.log("counter", this.counter)
+    console.log("pl", this.posts[post.id-1])
+    if ( this.posts.length / this.counter === 1){
+      document.querySelectorAll('.markerIMG').forEach(marker => {
+      marker.addEventListener('click', event => {this.showCard(marker.id)})})
+    } else { this.counter = this.counter + 1}
   }
 
-  showCard(e) {
-    document.getElementById("markerCard").style.display = "block";
-    document.getElementById('markerCard').style.top = this.yPosition +'px'; // sets the form y coordinate
-    document.getElementById('markerCard').style.left = this.xPosition +'px'; // sets the form x coordinate
-  }
+
 
   logCursorPosition(e){
       //Get Cursor Location
@@ -136,6 +136,27 @@ markerFormSubmit(marker){
     document.getElementById("myForm").style.display = "none";
 }
 
-  
+
+
+showCard(postID) {
+    console.log("this.posts[postID-1]", this.posts[postID-1])
+
+    this.cardDescription = this.posts[postID-1].description
+    const cardXPosition = this.posts[postID-1].xPos;
+
+    const cardYPosition = this.posts[postID-1].yPos;
+    //const marker = document.getElementById(postID)
+    //alert("you have selected marker ID:"+ postID)
+
+    document.getElementById('markerCard').style.display = "block";
+    document.getElementById('markerCard').style.top = cardYPosition +'px'; // sets the form y coordinate
+    document.getElementById('markerCard').style.left = cardXPosition +'px'; // sets the form x coordinate
+    console.log("description", this.cardDescription)
+    return this.cardDescription;
+  }
 }
+
+
+     //https://stackoverflow.com/questions/50289095/trying-to-add-attribute-onclick-to-a-html-img-element-created-by-javascript
+
 
