@@ -66,6 +66,24 @@
       "yPos": 301,
       "xPos": 681,
       "id": 5
+    },
+    {
+      "description": "Corona",
+      "yPos": 233,
+      "xPos": 379,
+      "id": 6
+    },
+    {
+      "description": "kansas",
+      "yPos": 383,
+      "xPos": 776,
+      "id": 7
+    },
+    {
+      "description": "texass",
+      "yPos": 553,
+      "xPos": 696,
+      "id": 8
     }
   ],
   "characters": [

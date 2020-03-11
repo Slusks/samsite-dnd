@@ -62,7 +62,6 @@ ngOnInit(){
       img.style.top=(y)+'px';
       img.id = post.id // this is to attack other functions too
       img.setAttribute("class","markerIMG") // this is for the event listener specifically
-      console.log("img.id is", img.id)
       //add img to map element
       document.getElementById('mapContainer').appendChild(img);
       this.id = true;
@@ -70,8 +69,7 @@ ngOnInit(){
     else {console.log ("post is undefined"); this.id = false; return;}
 
     console.log("counter", this.counter)
-    console.log("pl", this.posts[post.id-1])
-    if ( this.posts.length / this.counter === 1){
+    if (this.posts.length / this.counter === 1){
       document.querySelectorAll('.markerIMG').forEach(marker => {
       marker.addEventListener('click', event => {this.showCard(marker.id)})})
     } else { this.counter = this.counter + 1}
@@ -103,15 +101,16 @@ ngOnInit(){
   }
 
 //function that opens and closes the form for the icons
-closeForm() {
-  document.getElementById("myForm").style.display = "none";
+closeForm(elementID) {
+  document.getElementById(elementID).style.display = "none";
+  if (elementID == "myForm"){
   document.getElementById("currentMarker").remove()
+  } else {return;}
 }
 
 
 //Form that submits marker data to db
 markerFormSubmit(marker){
-      console.log(this.id)
       this.iconDescription ={
         "description": marker.description,
         "yPos":this.yPosition,
@@ -128,25 +127,18 @@ markerFormSubmit(marker){
       alert("description is too short")
     }
     //draw markers with validation to avoid displaying existing markers
-      console.log("post validation get")
       this.http.get<markerData[]>('http://localhost:3000/mapMarker')
-      .subscribe(posts => {posts.forEach(post=>{this.postValidation(post)})})
+      .subscribe(posts => {(this.posts = posts), posts.forEach(post=>{this.postValidation(post)})})
 
     document.getElementById("currentMarker").remove()
     document.getElementById("myForm").style.display = "none";
 }
 
 
-
 showCard(postID) {
-    console.log("this.posts[postID-1]", this.posts[postID-1])
-
     this.cardDescription = this.posts[postID-1].description
     const cardXPosition = this.posts[postID-1].xPos;
-
     const cardYPosition = this.posts[postID-1].yPos;
-    //const marker = document.getElementById(postID)
-    //alert("you have selected marker ID:"+ postID)
 
     document.getElementById('markerCard').style.display = "block";
     document.getElementById('markerCard').style.top = cardYPosition +'px'; // sets the form y coordinate
@@ -154,7 +146,38 @@ showCard(postID) {
     console.log("description", this.cardDescription)
     return this.cardDescription;
   }
+
+deleteMarker(){
+  if (confirm("delete marker?")){
+    var card = document.getElementById("cardContent").innerText
+    console.log("card", card)
+    console.log("posts", this.posts)
+    var deleteMarkerID = this.posts.forEach( object =>{ 
+      if (object.description === card){
+        return object.id ;
+      } else {console.log("object", object);}})
+    console.log(deleteMarkerID.object.id)
+    document.getElementById(deleteMarkerID.object.id).remove
+    
+    
+  }
+
+
+
+
+
+  // deletePanel(id){
+  //   if (confirm("Are you sure?")) {
+  //     const deleteItemURL = `http://localhost:3000/panel/${id}`;
+  //     return this.http.delete(deleteItemURL, {headers: this.headers}).toPromise().then(()=> {this.panelArr = this.fetchData()})
+  //   }
+  //}
+  }
+  
+
+
 }
+
 
 
      //https://stackoverflow.com/questions/50289095/trying-to-add-attribute-onclick-to-a-html-img-element-created-by-javascript
