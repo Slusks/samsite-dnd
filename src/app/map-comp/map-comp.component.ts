@@ -18,12 +18,15 @@ export class MapCompComponent implements OnInit {
   posts;
   counter:number;
   cardDescription:string;
+  
 
   
   constructor(
     private dndDatabaseService: DndDatabaseService,
     private http: HttpClient
     ){};
+
+    private headers = ({'Content-Type': 'application/json'});
   
   
 
@@ -136,10 +139,15 @@ markerFormSubmit(marker){
 
 
 showCard(postID) {
-    this.cardDescription = this.posts[postID-1].description
-    const cardXPosition = this.posts[postID-1].xPos;
-    const cardYPosition = this.posts[postID-1].yPos;
 
+  console.log("showcard post id", postID)
+    for (var item of this.posts){
+      if (item.id == postID){
+        this.cardDescription = item.description;
+        var cardXPosition = item.xPos;
+        var cardYPosition = item.yPos;
+      }
+    }
     document.getElementById('markerCard').style.display = "block";
     document.getElementById('markerCard').style.top = cardYPosition +'px'; // sets the form y coordinate
     document.getElementById('markerCard').style.left = cardXPosition +'px'; // sets the form x coordinate
@@ -148,16 +156,22 @@ showCard(postID) {
   }
 
 deleteMarker(){
+  let deleteMarkerID = 0;
   if (confirm("delete marker?")){
     var card = document.getElementById("cardContent").innerText
     console.log("card", card)
     console.log("posts", this.posts)
-    var deleteMarkerID = this.posts.forEach( object =>{ 
+    this.posts.forEach( (object) =>{ 
       if (object.description === card){
-        return object.id ;
-      } else {console.log("object", object);}})
-    console.log(deleteMarkerID.object.id)
-    document.getElementById(deleteMarkerID.object.id).remove
+        return deleteMarkerID = object.id ;
+      } else {return;}})
+
+
+    const deleteMarkerURL=`http://localhost:3000/mapMarker/${deleteMarkerID}`;
+    this.http.delete<markerData[]>(deleteMarkerURL, {headers: this.headers}).subscribe() 
+    console.log("delete marker id string version", deleteMarkerID.toString())
+    document.getElementById('markerCard').style.display="none"
+    document.getElementById(deleteMarkerID.toString()).remove()
     
     
   }

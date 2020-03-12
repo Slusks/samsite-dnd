@@ -36,56 +36,7 @@
       "id": 7
     }
   ],
-  "mapMarker": [
-    {
-      "description": "1",
-      "yPos": 398,
-      "xPos": 337,
-      "id": 1
-    },
-    {
-      "description": "Twenty",
-      "yPos": 449,
-      "xPos": 635,
-      "id": 2
-    },
-    {
-      "description": "three hundred",
-      "yPos": 462,
-      "xPos": 946,
-      "id": 3
-    },
-    {
-      "description": "I dont fucking know man",
-      "yPos": 354,
-      "xPos": 1113,
-      "id": 4
-    },
-    {
-      "description": "everyone?",
-      "yPos": 301,
-      "xPos": 681,
-      "id": 5
-    },
-    {
-      "description": "Corona",
-      "yPos": 233,
-      "xPos": 379,
-      "id": 6
-    },
-    {
-      "description": "kansas",
-      "yPos": 383,
-      "xPos": 776,
-      "id": 7
-    },
-    {
-      "description": "texass",
-      "yPos": 553,
-      "xPos": 696,
-      "id": 8
-    }
-  ],
+  "mapMarker": [],
   "characters": [
     {
       "name": "this is also all for later",

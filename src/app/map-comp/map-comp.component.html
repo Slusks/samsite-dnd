@@ -18,11 +18,13 @@
 <!--Card Form Information-->
 <mat-card id="markerCard">
   <mat-card-content id="cardContent">
-  {{cardDescription}}
+    <p id="fancy">
+      {{cardDescription}}
+    </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="closeForm('markerCard')">Close</button>
-    <button mat-raised-button (click)="deleteMarker()">Delete Marker</button>
+    <button mat-raised-button color="warn" id="close" (click)="closeForm('markerCard')">Close</button>
+    <button mat-raised-button color="primary" id="deleteMarker" (click)="deleteMarker()">Delete Marker</button>
   </mat-card-actions>
 </mat-card>
 
