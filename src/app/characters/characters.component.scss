@@ -6,7 +6,7 @@ button.mat-flat-button{
 }
 
 .body{
-    background-color: black
+    background-image: url("/src/assets/pics/harpers-background.jpg");
 }
 
 .mat-raised-button{
@@ -21,5 +21,4 @@ button.mat-flat-button{
 .containerCard {
     padding-top: 50px;
     height: 800px;
-    background-image: linear-gradient(#d9f2d9,#ccccff, #e6ccff);
 }

@@ -61,8 +61,8 @@ ngOnInit(){
       img.width = 20;
       img.height= 20;
       img.style.position="absolute";
-      img.style.left= (x)+'px';
-      img.style.top=(y)+'px';
+      img.style.left= (x-10)+'px';
+      img.style.top=(y+15)+'px';
       img.id = post.id // this is to attack other functions too
       img.setAttribute("class","markerIMG") // this is for the event listener specifically
       //add img to map element
@@ -94,7 +94,7 @@ ngOnInit(){
       img.height= 20;
       img.style.position="absolute";
       img.style.left= (x-10)+'px';
-      img.style.top=(y-80)+'px';
+      img.style.top=(y+200)+'px';
       document.getElementById('mapContainer').appendChild(img);
       img.id="currentMarker"
       //Open Form

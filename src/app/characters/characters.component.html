@@ -1,7 +1,9 @@
 
 
 <body>
+<div class="container" id="bodyContainer">
 <mat-card class="containerCard text-center">
+    <img src="/src/assets/pics/harpers-background.jpg">
     <div class="cardsWrapper">
         <h5>Thursday Campaign Characters</h5>
         <app-char-cards *ngFor="let card of cards" [cardData]="cards"></app-char-cards>
@@ -17,6 +19,7 @@
             <button mat-button (click)="addCard('clear')">Clear</button>
         </div>
 </mat-card>
+</div>
 </body>
 
 
