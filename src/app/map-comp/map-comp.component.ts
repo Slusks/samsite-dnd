@@ -18,6 +18,7 @@ export class MapCompComponent implements OnInit {
   posts;
   counter:number;
   cardDescription:string;
+  mousePos;
   
 
   
@@ -32,19 +33,32 @@ export class MapCompComponent implements OnInit {
 
 ngOnInit(){
       this.counter = 1;
+
       const iconImage = new Image();
       iconImage.src = "../assets/img/marker.jpg"
 
       const mapImage = new Image();
       mapImage.src = "../assets/img/dessarinValley.jpg"
 
-
+      //Draw the map to canvas to use canvas grid system
       var canvas =<HTMLCanvasElement> document.getElementById("myCanvas");
       var ctx = canvas.getContext("2d");
       mapImage.onload = function(){
         ctx.drawImage(mapImage,0,0, canvas.width, canvas.height)}
 
-      
+      function getMousePos(canvas, e){
+        var rect = canvas.getBoundingClientRect();
+        return {
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top
+        }
+      }
+
+      canvas.addEventListener('mousemove', function(e) {
+        var mousePos = getMousePos(canvas, e);
+        var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+        console.log(message)
+      })
 
 
       //subscribes to the JSON file
@@ -100,7 +114,7 @@ ngOnInit(){
 
   logCursorPosition(e){
       //Get Cursor Location
-      var x = e.pageX;
+      var x = this.mousePos.x;
       this.xPosition = x;
       var y = e.pageY;
       this.yPosition = y;
