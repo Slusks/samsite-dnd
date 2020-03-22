@@ -47,6 +47,12 @@
     }
   ],
   "mapMarker": [
+    {
+      "description": "test",
+      "yPos": 819,
+      "xPos": 1037,
+      "id": 1
+    }
   ],
   "characters": [
     {

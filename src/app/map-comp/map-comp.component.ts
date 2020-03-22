@@ -34,11 +34,29 @@ ngOnInit(){
       this.counter = 1;
       const iconImage = new Image();
       iconImage.src = "../assets/img/marker.jpg"
+
+      const mapImage = new Image();
+      mapImage.src = "../assets/img/dessarinValley.jpg"
+
+
+      var canvas =<HTMLCanvasElement> document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+      mapImage.onload = function(){
+        ctx.drawImage(mapImage,0,0, canvas.width, canvas.height)}
+
+      
+
+
       //subscribes to the JSON file
       this.http.get<markerData[]>('http://localhost:3000/mapMarker')
       .subscribe(posts => {(this.posts = posts),
           posts.forEach(post=>{
                 this.setMarker(post)})})
+
+
+
+     
+
 }
 
   // Prevents the set marker function from loading a marker that already exists
@@ -55,7 +73,7 @@ ngOnInit(){
     console.log("function started", post.id)
     if (post.id > 0){
       var x = post.xPos-10;
-      var y = post.yPos-80;
+      var y = post.yPos-85;
       var img = document.createElement("img");
       img.src = "../assets/img/marker.jpg";
       img.width = 20;
@@ -82,9 +100,9 @@ ngOnInit(){
 
   logCursorPosition(e){
       //Get Cursor Location
-      var x = e.clientX;
+      var x = e.pageX;
       this.xPosition = x;
-      var y = e.clientY;
+      var y = e.pageY;
       this.yPosition = y;
       console.log("X Position "+ x + " Y Position" +y);
       //Create Temp icon with Attributes
@@ -94,13 +112,13 @@ ngOnInit(){
       img.height= 20;
       img.style.position="absolute";
       img.style.left= (x-10)+'px';
-      img.style.top=(y+200)+'px';
+      img.style.top=(y-85)+'px';
       document.getElementById('mapContainer').appendChild(img);
       img.id="currentMarker"
       //Open Form
       document.getElementById("myForm").style.display = "block"; //Opens the form
-      document.getElementById('myForm').style.top = y +'px'; // sets the form y coordinate
-      document.getElementById('myForm').style.left = x +'px'; // sets the form x coordinate
+      document.getElementById('myForm').style.top = y-85 +'px'; // sets the form y coordinate
+      document.getElementById('myForm').style.left = x-10 +'px'; // sets the form x coordinate
   }
 
 //function that opens and closes the form for the icons
