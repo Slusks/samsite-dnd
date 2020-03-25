@@ -40,27 +40,6 @@ ngOnInit(){
       const mapImage = new Image();
       mapImage.src = "../assets/img/dessarinValley.jpg"
 
-      //Draw the map to canvas to use canvas grid system
-      var canvas =<HTMLCanvasElement> document.getElementById("myCanvas");
-      var ctx = canvas.getContext("2d");
-      mapImage.onload = function(){
-        ctx.drawImage(mapImage,0,0, canvas.width, canvas.height)}
-
-      function getMousePos(canvas, e){
-        var rect = canvas.getBoundingClientRect();
-        return {
-          x: e.clientX - rect.left,
-          y: e.clientY - rect.top
-        }
-      }
-
-      canvas.addEventListener('mousemove', function(e) {
-        var mousePos = getMousePos(canvas, e);
-        var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-        console.log(message)
-      })
-
-
       //subscribes to the JSON file
       this.http.get<markerData[]>('http://localhost:3000/mapMarker')
       .subscribe(posts => {(this.posts = posts),
@@ -114,9 +93,9 @@ ngOnInit(){
 
   logCursorPosition(e){
       //Get Cursor Location
-      var x = this.mousePos.x;
+      var x = e.clientX;
       this.xPosition = x;
-      var y = e.pageY;
+      var y = e.clientY;
       this.yPosition = y;
       console.log("X Position "+ x + " Y Position" +y);
       //Create Temp icon with Attributes
@@ -212,12 +191,7 @@ deleteMarker(){
 
 
 
-  // deletePanel(id){
-  //   if (confirm("Are you sure?")) {
-  //     const deleteItemURL = `http://localhost:3000/panel/${id}`;
-  //     return this.http.delete(deleteItemURL, {headers: this.headers}).toPromise().then(()=> {this.panelArr = this.fetchData()})
-  //   }
-  //}
+
   }
   
 
@@ -229,3 +203,27 @@ deleteMarker(){
      //https://stackoverflow.com/questions/50289095/trying-to-add-attribute-onclick-to-a-html-img-element-created-by-javascript
 
 
+//CANVAS STUFF
+      /*Draw the map to canvas to use canvas grid system
+      var canvas =<HTMLCanvasElement> document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+      mapImage.onload = function(){
+        ctx.drawImage(mapImage,0,0, canvas.width, canvas.height)}
+
+      function getMousePos(canvas, e){
+        var rect = canvas.getBoundingClientRect();
+        return {
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top
+        }
+      }
+            canvas.addEventListener('mousemove', function(e) {
+        var mousePos = getMousePos(canvas, e);
+        var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+        console.log(message)
+      })
+      
+      
+      
+      
+      */
