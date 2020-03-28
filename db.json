@@ -48,10 +48,58 @@
   ],
   "mapMarker": [
     {
-      "description": "test",
-      "yPos": 819,
+      "description": "This is where our heroes met and Clud and Oh-pro became bestest friends",
+      "yPos": 981,
+      "xPos": 747,
+      "id": 6
+    },
+    {
+      "description": "this is about where we had our first bandit-fight and The hermit/Omaric smoked some noobs, with Clud showing himself to be suprisingly bloodthirsty for something with no blood",
+      "yPos": 906,
+      "xPos": 860,
+      "id": 7
+    },
+    {
+      "description": "This is where we met that elf and kind of Dulc!",
+      "yPos": 817,
       "xPos": 1037,
-      "id": 1
+      "id": 8
+    },
+    {
+      "description": "Found the dead mirribar delegation",
+      "yPos": 910,
+      "xPos": 1030,
+      "id": 9
+    },
+    {
+      "description": "Weathervale Knight Tower",
+      "yPos": 967,
+      "xPos": 840,
+      "id": 10
+    },
+    {
+      "description": "Riverguard Keep",
+      "yPos": 1002,
+      "xPos": 956,
+      "id": 11
+    },
+    {
+      "description": "I think this is where the BlackEarth Monastary is. It could be on the other side of the river, but it was dead west from the death of the delegation",
+      "yPos": 921,
+      "xPos": 948,
+      "id": 12
+    },
+    {
+      "description": "Killed the Manticore!",
+      "yPos": 924,
+      "xPos": 903,
+      "id": 13
+    },
+    {
+      "description": "Found a bunch of other dead bodies",
+      "yPos": 1017,
+      "xPos": 913,
+      "id": 14
     }
   ],
   "characters": [

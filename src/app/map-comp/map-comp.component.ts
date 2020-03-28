@@ -46,11 +46,9 @@ ngOnInit(){
           posts.forEach(post=>{
                 this.setMarker(post)})})
 
+      
+      }
 
-
-     
-
-}
 
   // Prevents the set marker function from loading a marker that already exists
   postValidation(post){
@@ -65,15 +63,15 @@ ngOnInit(){
    setMarker(post){
     console.log("function started", post.id)
     if (post.id > 0){
-      var x = post.xPos-10;
-      var y = post.yPos-85;
+      var x = post.xPos;
+      var y = post.yPos;
       var img = document.createElement("img");
       img.src = "../assets/img/marker.jpg";
       img.width = 20;
       img.height= 20;
       img.style.position="absolute";
       img.style.left= (x-10)+'px';
-      img.style.top=(y+15)+'px';
+      img.style.top=(y-85)+'px';
       img.id = post.id // this is to attack other functions too
       img.setAttribute("class","markerIMG") // this is for the event listener specifically
       //add img to map element
@@ -93,9 +91,9 @@ ngOnInit(){
 
   logCursorPosition(e){
       //Get Cursor Location
-      var x = e.clientX;
+      var x = e.pageX;
       this.xPosition = x;
-      var y = e.clientY;
+      var y = e.pageY;
       this.yPosition = y;
       console.log("X Position "+ x + " Y Position" +y);
       //Create Temp icon with Attributes
@@ -110,15 +108,18 @@ ngOnInit(){
       img.id="currentMarker"
       //Open Form
       document.getElementById("myForm").style.display = "block"; //Opens the form
-      document.getElementById('myForm').style.top = y-85 +'px'; // sets the form y coordinate
+      document.getElementById('myForm').style.top = y +'px'; // sets the form y coordinate
       document.getElementById('myForm').style.left = x-10 +'px'; // sets the form x coordinate
   }
 
-//function that opens and closes the form for the icons
+//function that opens and closes the form for the icons, the if statement is there so that it will also delete the marker if 
+// the form being closed is the input form.
 closeForm(elementID) {
   document.getElementById(elementID).style.display = "none";
   if (elementID == "myForm"){
-  document.getElementById("currentMarker").remove()
+  document.getElementById("currentMarker").remove();
+  var formReset = <HTMLFormElement>document.getElementById("formContainer")
+  formReset.reset()
   } else {return;}
 }
 
@@ -146,6 +147,11 @@ markerFormSubmit(marker){
 
     document.getElementById("currentMarker").remove()
     document.getElementById("myForm").style.display = "none";
+    var formReset = <HTMLFormElement>document.getElementById("formContainer")
+    formReset.reset()
+    
+
+
 }
 
 
@@ -160,8 +166,8 @@ showCard(postID) {
       }
     }
     document.getElementById('markerCard').style.display = "block";
-    document.getElementById('markerCard').style.top = cardYPosition +'px'; // sets the form y coordinate
-    document.getElementById('markerCard').style.left = cardXPosition +'px'; // sets the form x coordinate
+    document.getElementById('markerCard').style.top = cardYPosition/2 +'px'; // sets the card y coordinate
+    document.getElementById('markerCard').style.left = cardXPosition +'px'; // sets the card x coordinate
     console.log("description", this.cardDescription)
     return this.cardDescription;
   }
@@ -222,8 +228,48 @@ deleteMarker(){
         var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
         console.log(message)
       })
+      //////////
       
-      
-      
-      
+      /////STUFF FOR CALCULATING MARGIN WIDTH AND WHAT HAPPENS WHEN IT CHANGES
+      ngAfterViewInit(){
+
+      var resizeId;
+      let OGbox = document.querySelector("#mapContainer");
+      console.log("box", OGbox)
+      let OGstyle = getComputedStyle(OGbox)
+      let OGMRight = parseInt(OGstyle.marginRight)
+      let OGMLeft = parseInt(OGstyle.marginLeft)
+
+      window.addEventListener("resize", showMarginResize)   
+
+      function showMarginResize(){
+        clearTimeout(resizeId)
+        resizeId = setTimeout(showMargin, 200)
+        var relocateMarkers = document.getElementsByClassName("markerIMG")
+        console.log(relocateMarkers)
+        for (var marker in relocateMarkers){
+          
+        }
+
+        function showMargin(){
+            let box = document.querySelector("#mapContainer");
+            console.log("box", box)
+            let style = getComputedStyle(box)
+
+
+            let marginRight = parseInt(style.marginRight)
+            let marginLeft = parseInt(style.marginLeft)
+
+
+
+
+            return (console.log("Right Margin", marginRight),
+            console.log("Left Margin", marginLeft))
+            }
+      }
+}
+//////////      
+
+
+
       */

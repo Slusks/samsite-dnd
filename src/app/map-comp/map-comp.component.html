@@ -1,6 +1,7 @@
-<div class="jumbotron" id="bodycontainer" style="position: relative">
+<div class="jumbotron" id="bodycontainer" style="position: relative" >
+    
+  <div class="container" id="mapContainer" width=1000>
     <h1>Mark The Map!</h1>
-  <div class="container" id="mapContainer">
     <!--Map image-->
     <img (click)="logCursorPosition($event)" id="map" src="../assets/img/dessarinValley.jpg" width="1000" height="1270">
     <!--<canvas id="myCanvas" width="1000" height="1270" style="border:1px solid #000000;" (click)="logCursorPosition($event)"></canvas>-->
@@ -8,8 +9,8 @@
 
 <!--form appears on marker placement-->
 <div class="form-popup" id="myForm">
-  <form class="form-container" #mapMarker="ngForm" (ngSubmit)="markerFormSubmit(mapMarker.value)">
-    <input type="text" required minlength="3" class="form-control" placeholder="Enter Description" name="description" ngModel>
+  <form class="form-container" id="formContainer" #mapMarker="ngForm" (ngSubmit)="markerFormSubmit(mapMarker.value)">
+    <input type="text" required minlength="3" class="form-control" placeholder="Enter Description" name="description" id="description" ngModel>
     <button type="submit" class="btn btn-sm">Submit</button>
     <button type="button" class="btn cancel btn-sm" (click)="closeForm('myForm')">Close</button>
     <button type="button" class="btn delete btn-sm">Delete</button>

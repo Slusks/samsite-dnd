@@ -24,14 +24,14 @@ h1{
 /* The popup form - hidden by default */
 .form-popup {
   display: none;
-  position:fixed;
+  position:absolute;
   z-index: 9;
 }
                                                                       #markerCard {
                                                                         display: none;
                                                                         position:fixed;
                                                                         z-index: 9;
-                                                                        height: 150px;
+                                                                        max-height: 300px;
                                                                         width: 250px;
                                                                         font-size: 16px;
 
@@ -120,6 +120,8 @@ h1{
   text-align: center;
   vertical-align: middle;
   font-display: block;
+  margin: 0px 350px 0px 350px;
+  min-width: 1140px
 }
 
 
@@ -130,4 +132,5 @@ h1{
 
 .markerIMG{
   cursor: pointer;
+  position: relative;
 }
