@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaderResponse } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
+import { DndDatabaseService } from 'src/app/dnd-database.service';
 
-//https://scotch.io/courses/build-your-first-angular-website/creating-a-user-service-to-connect-to-github
-//https://scotch.io/courses/build-your-first-angular-website/showing-a-list-of-github-users
 
 @Component({
   selector: 'app-story-panel',
@@ -12,7 +11,7 @@ import { Routes, RouterModule } from '@angular/router';
 })
 export class StoryPanelComponent implements OnInit {
 
-  constructor(private http:HttpClient) { }
+  constructor(private dndDatabaseService: DndDatabaseService) { }
 
   id:number;
   private headers = ({'Content-Type': 'application/json'});
@@ -20,24 +19,18 @@ export class StoryPanelComponent implements OnInit {
   configURL = "http://localhost:3000/panel";
   panelArr;
 
-  fetchData(){
-    return this.http.get(this.configURL)
-  }
 
 
-  deletePanel(id){
+  removePanel(id){
     if (confirm("Are you sure?")) {
-      const deleteItemURL = `http://localhost:3000/panel/${id}`;
-      return this.http.delete(deleteItemURL, {headers: this.headers}).toPromise().then(()=> {this.panelArr = this.fetchData()})
+      this.dndDatabaseService.deletePanel(id).toPromise().then(()=> {this.panelArr})
     }
   }
 
 
   ngOnInit() {
+    this.panelArr = this.dndDatabaseService.getPanel();
 
-    this.fetchData()//.subscribe(panels => { console.log(panels)}); not sure if it's bad that I'm no longer doing this
-    this.panelArr = this.fetchData();
-    //console.log("panelArr", this.panelArr) this only needs to be enabled for troubleshooting
   }
   //=========================================================================================
   //functions for going back and forth between panels with button

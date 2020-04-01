@@ -41,7 +41,7 @@ ngOnInit(){
       mapImage.src = "../assets/img/dessarinValley.jpg"
 
       //subscribes to the JSON file
-      this.http.get<markerData[]>('http://localhost:3000/mapMarker')
+      this.dndDatabaseService.getMapMarker()
       .subscribe(posts => {(this.posts = posts),
           posts.forEach(post=>{
                 this.setMarker(post)})})
@@ -137,13 +137,13 @@ markerFormSubmit(marker){
       }
     //only post new icon info of sufficient length
     if (marker.description.length >= 3){
-    this.http.post("http://localhost:3000/mapMarker", this.iconDescription).subscribe((po:Response) => {console.log("po",po)})
+    this.http.post("http://localhost:3000/mapMarker", this.iconDescription).subscribe((po:Response) => {console.log("po",po)}) ////////SERVICE HERE
     alert("Successfully Added")} else {
       alert("description is too short")
     }
     //draw markers with validation to avoid displaying existing markers
-      this.http.get<markerData[]>('http://localhost:3000/mapMarker')
-      .subscribe(posts => {(this.posts = posts), posts.forEach(post=>{this.postValidation(post)})})
+    this.dndDatabaseService.getMapMarker()
+      .subscribe(posts => {(this.posts = posts), posts.forEach(post=>{this.postValidation(post)})}) ////////SERVICE HERE
 
     document.getElementById("currentMarker").remove()
     document.getElementById("myForm").style.display = "none";
@@ -184,92 +184,14 @@ deleteMarker(){
       } else {return;}})
 
 
-    const deleteMarkerURL=`http://localhost:3000/mapMarker/${deleteMarkerID}`;
-    this.http.delete<markerData[]>(deleteMarkerURL, {headers: this.headers}).subscribe() 
+   
+    this.dndDatabaseService.deleteMapMarker(deleteMarkerID).subscribe()
+
     console.log("delete marker id string version", deleteMarkerID.toString())
     document.getElementById('markerCard').style.display="none"
     document.getElementById(deleteMarkerID.toString()).remove()
     
     
   }
-
-
-
-
-
-
   }
-  
-
-
-}
-
-
-
-     //https://stackoverflow.com/questions/50289095/trying-to-add-attribute-onclick-to-a-html-img-element-created-by-javascript
-
-
-//CANVAS STUFF
-      /*Draw the map to canvas to use canvas grid system
-      var canvas =<HTMLCanvasElement> document.getElementById("myCanvas");
-      var ctx = canvas.getContext("2d");
-      mapImage.onload = function(){
-        ctx.drawImage(mapImage,0,0, canvas.width, canvas.height)}
-
-      function getMousePos(canvas, e){
-        var rect = canvas.getBoundingClientRect();
-        return {
-          x: e.clientX - rect.left,
-          y: e.clientY - rect.top
-        }
-      }
-            canvas.addEventListener('mousemove', function(e) {
-        var mousePos = getMousePos(canvas, e);
-        var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-        console.log(message)
-      })
-      //////////
-      
-      /////STUFF FOR CALCULATING MARGIN WIDTH AND WHAT HAPPENS WHEN IT CHANGES
-      ngAfterViewInit(){
-
-      var resizeId;
-      let OGbox = document.querySelector("#mapContainer");
-      console.log("box", OGbox)
-      let OGstyle = getComputedStyle(OGbox)
-      let OGMRight = parseInt(OGstyle.marginRight)
-      let OGMLeft = parseInt(OGstyle.marginLeft)
-
-      window.addEventListener("resize", showMarginResize)   
-
-      function showMarginResize(){
-        clearTimeout(resizeId)
-        resizeId = setTimeout(showMargin, 200)
-        var relocateMarkers = document.getElementsByClassName("markerIMG")
-        console.log(relocateMarkers)
-        for (var marker in relocateMarkers){
-          
-        }
-
-        function showMargin(){
-            let box = document.querySelector("#mapContainer");
-            console.log("box", box)
-            let style = getComputedStyle(box)
-
-
-            let marginRight = parseInt(style.marginRight)
-            let marginLeft = parseInt(style.marginLeft)
-
-
-
-
-            return (console.log("Right Margin", marginRight),
-            console.log("Left Margin", marginLeft))
-            }
-      }
-}
-//////////      
-
-
-
-      */
+  }

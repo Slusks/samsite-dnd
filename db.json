@@ -41,7 +41,7 @@
       "id": 8
     },
     {
-      "tagline": "I dont know",
+      "tagline": "I Dont Know",
       "content": "Huh, so we find the flat earth society and we we're like \"hey, let us in\". They did not want too, likely because we accused them of murder and kidnapping. They did, however, want us to murderkill some waterbenders they had just sent away (people from the riverguard keep). We didn't... quite... agree to kill them, but we did go after them, finding them to be a tough bunch of idiots, led by the largest and most capable idiot, uncle gargas. We ask uncle gargas what they were doing and they told us they had been there to collect money for a job. Unfortunately, he didn't know how much he was supposed to get... and then he didn't get it anyways. His boss was going to be not happy. His brainless syncophants nodded in agreement. We dragged UG back to the flat earther monastary to try and figure out what the fuck happened. The hermit snuck into the monastary while our parties frustration mounted at nobody know anything about what was going on. Ugh. Clud got tired of this and started stabbing ripjaw rapter, which precipitated what most people would refer to as \"a brawl\". Obviously the huge amount of fire and death our team is able to bring to bear made medium work of Uncle Gargas and the lethal interjection crew. The details are unimportant, but there was definitely someone from the Earth Kingdom who knows their way around the pointy end of a daggar. That could become important.",
       "id": 9
     }
@@ -103,66 +103,61 @@
     }
   ],
   "characters": [
-    {"oh-pro":
-      {
+    {
+      "oh-pro": {
         "name": "Oh-pro Buffington",
         "portrait": "assets/pics/rimrockknight.jpg",
         "affiliation": "Emerald Enclave",
         "class": "Cleric",
-        "likes":[
+        "likes": [
           "Helping people",
           " Robots"
         ],
-        "dislikes":[
-            "Evil"
+        "dislikes": [
+          "Evil"
         ]
       },
-  
-      "the hermit":
-      {
-      "name": "The Hermit",
-      "portrait": "assets/pics/Derangedhermit.jpg",
-      "affiliation": "Emerald Enclave",
-      "class": "Rogue",
-      "likes":[
-        "Sitting by himself",
-        " Stealing"
-      ],
-      "dislikes":[
+      "the hermit": {
+        "name": "The Hermit",
+        "portrait": "assets/pics/Derangedhermit.jpg",
+        "affiliation": "Emerald Enclave",
+        "class": "Rogue",
+        "likes": [
+          "Sitting by himself",
+          " Stealing"
+        ],
+        "dislikes": [
           "Sobriety"
-      ]
+        ]
       },
-      "clud":
-      {
-      "name": "Clud",
-      "portrait": "assets/pics/clud2.PNG",
-      "affiliation": "unknown",
-      "class": "Artificer/Artifact",
-      "likes":[
-        "Oh-pro Buffington",
-        " Eating and drinking"
-      ],
-      "dislikes":[
+      "clud": {
+        "name": "Clud",
+        "portrait": "assets/pics/clud2.PNG",
+        "affiliation": "unknown",
+        "class": "Artificer/Artifact",
+        "likes": [
+          "Oh-pro Buffington",
+          " Eating and drinking"
+        ],
+        "dislikes": [
           "Oh-pro Buffington",
           " Not being able to taste"
-      ]
+        ]
       },
-      "omaric":
-      {
-      "name": "Omaric",
-      "portrait": "assets/pics/omaric.jpg",
-      "affiliation": "Himself",
-      "class": "Wild Sorcerer",
-      "likes":[
-        "Not Exploding",
-        " Finding meaning in life"
-      ],
-      "dislikes":[
+      "omaric": {
+        "name": "Omaric",
+        "portrait": "assets/pics/omaric.jpg",
+        "affiliation": "Himself",
+        "class": "Wild Sorcerer",
+        "likes": [
+          "Not Exploding",
+          " Finding meaning in life"
+        ],
+        "dislikes": [
           "Exploding",
           "  -Ism's he just believes in himself"
-      ]
+        ]
       }
     }
-  
   ]
 }

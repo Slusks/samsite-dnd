@@ -1,0 +1,68 @@
+
+     //https://stackoverflow.com/questions/50289095/trying-to-add-attribute-onclick-to-a-html-img-element-created-by-javascript
+
+
+//CANVAS STUFF
+      /*Draw the map to canvas to use canvas grid system
+      var canvas =<HTMLCanvasElement> document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+      mapImage.onload = function(){
+        ctx.drawImage(mapImage,0,0, canvas.width, canvas.height)}
+
+      function getMousePos(canvas, e){
+        var rect = canvas.getBoundingClientRect();
+        return {
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top
+        }
+      }
+            canvas.addEventListener('mousemove', function(e) {
+        var mousePos = getMousePos(canvas, e);
+        var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+        console.log(message)
+      })
+      //////////
+      
+      /////STUFF FOR CALCULATING MARGIN WIDTH AND WHAT HAPPENS WHEN IT CHANGES
+      ngAfterViewInit(){
+
+      var resizeId;
+      let OGbox = document.querySelector("#mapContainer");
+      console.log("box", OGbox)
+      let OGstyle = getComputedStyle(OGbox)
+      let OGMRight = parseInt(OGstyle.marginRight)
+      let OGMLeft = parseInt(OGstyle.marginLeft)
+
+      window.addEventListener("resize", showMarginResize)   
+
+      function showMarginResize(){
+        clearTimeout(resizeId)
+        resizeId = setTimeout(showMargin, 200)
+        var relocateMarkers = document.getElementsByClassName("markerIMG")
+        console.log(relocateMarkers)
+        for (var marker in relocateMarkers){
+          
+        }
+
+        function showMargin(){
+            let box = document.querySelector("#mapContainer");
+            console.log("box", box)
+            let style = getComputedStyle(box)
+
+
+            let marginRight = parseInt(style.marginRight)
+            let marginLeft = parseInt(style.marginLeft)
+
+
+
+
+            return (console.log("Right Margin", marginRight),
+            console.log("Left Margin", marginLeft))
+            }
+      }
+}
+   
+
+
+
+      */
