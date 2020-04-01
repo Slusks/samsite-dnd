@@ -1,11 +1,17 @@
 .jumbotron-#campaignDescription1 {
     background-size: cover;
     padding: 5em ;
+    box-shadow: 10px 8px 4px 5px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .p-#fancy {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 20px;  
+}
+
+.border{
+    border-width: 10px;
+    border-color: black;
 }
 
 .col{
@@ -46,4 +52,15 @@
 
 .button{
     font-weight: bold;
+}
+
+
+#homeImage{
+    width: 250px;
+    box-shadow: 10px 8px 4px 5px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    border-radius: 10px;
+    background: black;
+    margin-top: 50px;
+
 }
