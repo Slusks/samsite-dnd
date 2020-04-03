@@ -1,7 +1,7 @@
 .jumbotron-#campaignDescription1 {
     background-size: cover;
     padding: 5em ;
-    box-shadow: 10px 8px 4px 5px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
 }
 
 .p-#fancy {
@@ -22,13 +22,17 @@
     margin-left: 10px;
     border-width: 100px;
     border-color: #0000;
-    background-color:rgb(180, 180, 180);
-    
+    background-color:rgb(253, 253, 253);
 
 }
 
+div#genInfo{
+    font-size: 18px;
+    font-weight: bold;
+}
+
 #col2 {
-    background-color: rgb(185, 185, 185);
+    background-color: rgb(250, 250, 250);
 
 }
 
@@ -41,14 +45,14 @@
 
 
 #col3 {
-    background-color:rgb(190,190,190);
+    background-color:rgb(253, 253, 253);
 }
 
 
 #ngImageSliderContainer{
     width: 500px;
     height: auto;
-    padding-top: 150px;
+    padding-top: 100px;
 }
 
 .button{
