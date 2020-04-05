@@ -6,6 +6,7 @@ import { SynopsisComponent } from './synopsis/synopsis.component';
 import { CharactersComponent } from './characters/characters.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { MapCompComponent } from './map-comp/map-comp.component';
+import { PlayersComponent } from './players/players.component';
 
 
 
@@ -29,6 +30,10 @@ const routes: Routes = [
 {
   path:'Map',
   component: MapCompComponent
+},
+{
+  path:'players',
+  component: PlayersComponent
 }
 ];
 

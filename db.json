@@ -118,6 +118,62 @@
       "id": 15
     }
   ],
+  "characters2": [
+      {
+        "name": "Oh-pro Buffington",
+        "portrait": "assets/pics/rimrockknight.jpg",
+        "affiliation": "Emerald Enclave",
+        "class": "Cleric",
+        "likes": [
+          "Helping people",
+          " Robots"
+                  ],
+        "dislikes": [
+          "Evil"
+                    ]
+      },
+      {
+        "name": "The Hermit",
+        "portrait": "assets/pics/Derangedhermit.jpg",
+        "affiliation": "Emerald Enclave",
+        "class": "Rogue",
+        "likes": [
+          "Sitting by himself",
+          " Stealing"
+                ],
+        "dislikes": [
+          "Sobriety"
+                    ]
+      },
+      {
+        "name": "Clud",
+        "portrait": "assets/pics/clud2.PNG",
+        "affiliation": "unknown",
+        "class": "Artificer/Artifact",
+        "likes": [
+          "Oh-pro Buffington",
+          " Eating and drinking"
+        ],
+        "dislikes": [
+          "Oh-pro Buffington",
+          " Not being able to taste"
+        ]
+      },
+      {
+        "name": "Omaric",
+        "portrait": "assets/pics/omaric.jpg",
+        "affiliation": "Himself",
+        "class": "Wild Sorcerer",
+        "likes": [
+          "Not Exploding",
+          " Finding meaning in life"
+        ],
+        "dislikes": [
+          "Exploding",
+          "  -Ism's he just believes in himself"
+                    ]
+      }
+  ],
   "characters": [
     {
       "oh-pro": {

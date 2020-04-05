@@ -24,6 +24,9 @@ export class CharactersComponent implements OnInit {
 
 
   addCard(charId:string) {
+    if (charId === "clear"){
+      this.cards.length =0
+    } else {
     this.cards.length = 0
     
     var JSONObject = thurCharacters
@@ -37,10 +40,8 @@ export class CharactersComponent implements OnInit {
       cardLikes: charData["likes"],
       cardDislikes: charData["dislikes"],});
     console.log("card:",this.cards)
-
-    if (charId === "clear"){
-      this.cards.length =0
     }
+
     }
   }
 

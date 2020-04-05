@@ -32,6 +32,8 @@ import { NgPartnersModule } from 'ng-partners';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { MapCompComponent } from './map-comp/map-comp.component';
 import { DndDatabaseService } from './dnd-database.service';
+import { PlayersComponent } from './players/players.component';
+import { PlayerCardComponent } from './players/player-card/player-card.component';
 
 
 
@@ -48,7 +50,9 @@ import { DndDatabaseService } from './dnd-database.service';
     CharCardsComponent,
     SynopsisComponent,
     StoryPanelComponent,
-    MapCompComponent
+    MapCompComponent,
+    PlayersComponent,
+    PlayerCardComponent
     
 
  

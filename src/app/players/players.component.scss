@@ -1,12 +1,4 @@
 
-
-
-button.mat-flat-button{
-    margin: 10px;
-    background-color:rgb(199, 209, 216);
-    border: 10px;
-    border-color: #000000;
-}
 #bodyContainer {
     position: relative;
     background-size: cover;
@@ -25,22 +17,4 @@ button.mat-flat-button{
     background-size: cover;
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
-}
-#cardContainer {
-    position: relative;
-}
-
-.mat-raised-button{
-    margin: 10px;
-}
-
-.row {
-    margin: auto;
-    display: block;
-}
-
-.containerCard {
-    padding-top: 50px;
-    height: 800px;
-    background-color: rgba(51, 170, 51, 0);
 }

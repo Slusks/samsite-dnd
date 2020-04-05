@@ -37,6 +37,6 @@ export class DndDatabaseService {
 
   //Character Services
   getCharacters(){
-    return this.http.get(`${this.baseURL}/characters`)
+    return this.http.get(`${this.baseURL}/characters2`)
   }
 }
