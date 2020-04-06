@@ -8,19 +8,23 @@ import { DndDatabaseService } from '../dnd-database.service';
 })
 export class PlayersComponent implements OnInit {
   characters;
+  
 
   constructor(private dndDatabaseService: DndDatabaseService) { }
 
   ngOnInit() {
 
-   this.dndDatabaseService.getCharacters().subscribe(character => {this.characters = character})
-
-   console.log(this.characters)
-
+   this.dndDatabaseService.getCharacters().subscribe(characters => {this.characters = characters as playerData[]})
     
-    
-
-
   }
 
+}
+
+export class playerData {
+  name: string;
+  potrait: string;
+  affiliation:string;
+  class: string;
+  likes: object;
+  dislikes: object;
 }
