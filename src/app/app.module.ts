@@ -35,6 +35,17 @@ import { DndDatabaseService } from './dnd-database.service';
 import { PlayersComponent } from './players/players.component';
 import { PlayerCardComponent } from './players/player-card/player-card.component';
 
+import { AngularFireAuthModule } from '@angular/fire/auth/';
+import { AngularFireDatabaseModule } from '@angular/fire/database'
+import { AngularFirestoreModule } from '@angular/fire/firestore'
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+
+import { ProfileComponent } from './AuthenticationPackage/profile/profile.component';
+import { RegisterComponent } from './AuthenticationPackage/register/register.component';
+import { LoginComponent } from './AuthenticationPackage/login/login.component';
+
+
 
 
 
@@ -52,7 +63,10 @@ import { PlayerCardComponent } from './players/player-card/player-card.component
     StoryPanelComponent,
     MapCompComponent,
     PlayersComponent,
-    PlayerCardComponent
+    PlayerCardComponent,
+    ProfileComponent,
+    RegisterComponent,
+    LoginComponent
     
 
  
@@ -82,14 +96,24 @@ import { PlayerCardComponent } from './players/player-card/player-card.component
     ReactiveFormsModule,
     NgPartnersModule,  //https://www.npmjs.com/package/@fortawesome/angular-fontawesome
     NgImageSliderModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
+   
+
+
+
+    
     
 
     
     
   ],
   providers: [
-    DndDatabaseService],
+    DndDatabaseService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
