@@ -1,12 +1,20 @@
 <body id="bodyContainer" style="height: 100vh">
     <div style="position: relative;">
-    <h1> Player Characters </h1>
+
+        <div class="container-fluid" id="cardContainer">
+        <app-player-card></app-player-card>
+        </div>
 
 
-    <div *ngFor = "let character of characters">
-        <h1>Character: {{character.name}}</h1>
-        <h1>Likes: {{character.likes}}</h1>
-    </div>
+
+
+
+
+
+    
+        <!--<h1>Character: {{character.name}}</h1>
+        <h1>Likes: {{character.likes}}</h1>-->
+    
 
 </div>
 </body>

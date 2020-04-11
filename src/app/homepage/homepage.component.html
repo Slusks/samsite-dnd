@@ -17,21 +17,6 @@
                 <li>Where to play: <a class="special" target="_blank"  href="roll20.net">Roll20</a></li>
             </ul>
         </div>
-            <div class="container" id="ngImageSliderContainer">
-                <!-- slideshow maybe? Note that I want the width of all the pics to be 450, but then scaled-->
-                <ng-image-slider 
-                    [images]="imageObject"
-                    [animationSpeed]="0.1"
-                    [imageSize]="{width:400, height:300, space:30}"
-                    [showArrow]="false"
-                    [infinite]="true"
-                     #nav id="ngImageSlider">
-                </ng-image-slider>
-                <button mat-stroked-button (click)="prevImageClick()" id='fancy'>Left</button>
-                <button mat-stroked-button (click)="nextImageClick()" id='fancy'>Right</button>
-
-            </div>
-
         </div>
 <!--==================-->
 <!-- Column 2-->
@@ -53,6 +38,25 @@
                     <h3>Thursday Campaign!</h3>
                     <p id='fancy'>Four intrepid heros travel the wastes of some place that I dont remember the name of
                         in order to I guess help out some people that I honestly dont know the importance of
+                    </p>
+                </div>
+                </div>
+                <div class="jumbotron" id="campaignDescription2">
+                    <div class="container">
+                    <h3>Adventures from the Menagerie Coast!</h3>
+                    <p id='fancy'>Our adventure begins on the beautiful shores of Wildemount where the deep emerald stretch of the Menagerie Coast
+                         meets the glimmering sapphire of the Lucidian Ocean. The war between the Dwendalian Empire and the Kryn Dynasty seems incredible 
+                         distant among the bustling and thriving cities that dot this most western edge of what is quickly becoming a war-torn land. 
+                         The life of trade and luxury enjoyed by the varied denizens of this veritable heart of commerce is nearly unchanged, the peace 
+                         being kept well by the dependable Zhelezo under the oversight of the Clovis Concord. It appears that the Coast will retain it's 
+                         independence and avoid any direct confrontation from the warring nations. Despite this air of hope though, the dark underbelly 
+                         is as active as ever, if not more so. Signs of the Myraid and the growing range of their control can be seen in every port, town, 
+                         and villiage up and down the shores of the Lucidian Ocean. The Revelry is similarly active, capitalizing on the increased sea trade 
+                         caused by the overland strife between the neighboring nations to up their nefarious profits. This is the world our intrepid adventure's 
+                         find themselves. In the city of Port Zoon, the center of knowledge and invention for the Clovis Concord, the common folk of the Menagerie 
+                         Coast can learn the trades of the many guilds. The most talented apprentices will find themselves calling Port Zoon home as they join their 
+                         guild mates in teaching and creating for the betterment of the Concord and the depth of their pockets. Our adventurers have found themselves 
+                         drawn to this hub of creation for a multitude of reasons, each as different as the questers themselves.
                     </p>
                 </div>
                 </div>

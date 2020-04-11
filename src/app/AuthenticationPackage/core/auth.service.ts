@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 
-
+import * as firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
-import * as firebase from 'firebase/app';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class AuthService {
   constructor(public afAuth: AngularFireAuth){}
 
   doGoogleAuth(){
-    return new Promise((resolve, reject) => {
+    return new Promise<any>((resolve, reject) => {
         let provider = new firebase.auth.GoogleAuthProvider();
         provider.addScope('profile');
         provider.addScope('email');
@@ -28,7 +28,7 @@ export class AuthService {
   }
 
   doGitHubAuth(){
-    return new Promise((resolve, reject) => {
+    return new Promise<any>((resolve, reject) => {
       let provider = new firebase.auth.GithubAuthProvider();
       provider.addScope('repo');
       this.afAuth

@@ -32,21 +32,21 @@ export class LoginComponent {
   gitHubLogin(){
     this.authService.doGitHubAuth()
     .then(res => {
-      this.router.navigate(['/profile']);
+      this.router.navigate(['/home']);
     })
   }
 
   googleLogin(){
     this.authService.doGoogleAuth()
     .then(res => {
-      this.router.navigate(['/profile']);
+      this.router.navigate(['/home']);
     })
   }
 
   tryLogin(value){
     this.authService.doLogin(value)
     .then(res => {
-      this.router.navigate(['/profile']);
+      this.router.navigate(['/home']);
     }, err => {
       console.log(err);
       this.errorMessage = err.message;

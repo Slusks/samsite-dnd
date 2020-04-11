@@ -16,7 +16,7 @@ canActivate(): Promise<any>{
   return new Promise((resolve, reject) => {
     this.userService.getCurrentUser()
     .then(user => {
-      this.router.navigate(['/profile']);
+      this.router.navigate(['/home']);
       return resolve(false);
     }, err => {
       return resolve(true);

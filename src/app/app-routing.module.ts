@@ -33,10 +33,10 @@ const routes: Routes = [
   path:'synopsis',
   component: SynopsisComponent
 },
-{
+/*{ Retired the Characters page in Favor of the Players Page
   path:'characters',
   component: CharactersComponent
-},
+},*/
 {
   path:'Map',
   component: MapCompComponent

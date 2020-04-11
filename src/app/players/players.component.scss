@@ -3,6 +3,7 @@
     position: relative;
     background-size: cover;
     background-image: url("src/assets/pics/mountain-white-sky.jpg");
+    background-attachment: fixed;
 }
 
 
@@ -17,4 +18,6 @@
     background-size: cover;
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
+    background-attachment: fixed;
 }
+

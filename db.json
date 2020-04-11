@@ -51,8 +51,8 @@
       "id": 10
     },
     {
-      "tagline": "I'm Here to Roll Dice",
-      "content": "Smash cut into the morning, the smell of immolated flesh wafting on the breeze like overcooked pancakes. We go and meet up with Jolliver in his like... kitchen dining area, and he is definitely going to betray us. Oh-pro considers attacking him before they get on the boat, but people's frantic head shaking convince him that maybe there are better ideas. They set sail and oh pro tries to get them to disembark early, but suddenly there are cliffs and shit so that idea sounds extra stupid. Oh-pro goes and stands on the front of the boat, humming Celine Mustard, beard flapping in the breeze. They disembark at the obvious place near the stone monastary and everyone kind of stands around looking shifty. Oh-pro cats Bane on Jolliver because lets fucking get this show on the road already. Interlude, Sholard, Jolliver's 1st mate, is apparently blue. Bane actually works for once! Awesome. Also the Hermit is hidden, he's worked so hard for this. Clud and the hermit hit Sholar and sholar throws a tidal wave at them. Rude. Then Omaric leaps into the frey and erupts into a hideous mass of necrotic angeldemon. Woah. Jolliver turns into a pig in response. It's kind of a weird shapeshiftoff. The bugbears beat on clud and omaric briefly but nobody dies. Oh-pro does his best hamlet impression and tolls a necrotic bell while pumping health into omaric. The hermit is here too. With a Walloping arrow the hermit reminds people that he is indeed here and capable of murder. Clud used thunder wave! It was somewhat effective. Clud also stands up. Shelder backs off like a bitch, and Omaric randomly teleports..... then fires a second level \"chromatic orb^squared\" which is very pretty. Oh, he also splits into 3 mirror images of himself. Guys, I think he's winning the transmorphagraphing\" game. The bugbears come in and hit people cause thats what they do, and oh pro unhits people. The hermit is still here! Which Shelder finally notices, and throws an exceptional barrage of magic missles at the hermit, who despite his best efforts, is not still hidden. The bad guys move up and using their evil mace's, bludgeon Clud to the ground. With a breathless scream of fear and outrage, Oh-pro lays his hands upon his more-inert-than-usual friend and pumps a whole bunch of nertness into him! Clud gets up and Oh-pro gives him a watery smile, which he returns with a thunderous wave. Shelder \"cool-guys-dont-look-at-explosions\" the hermit which could prove to be a problem. Then, things get hectic. Omaric goes to do.. something, and explodes, incinerating the remaining bugbear, Oh-pro, and blowing back clud, jolliver, omaric himself, and the hermits semi-lifeless form. Jolliver tiredly beats up Omaric, and now it's Clud vs the world. Clud makes a flamethrower turret, and it poofs at Jolliver and Shelder. It's close.... but not close enough, and jolliver kind of awkwardly bumps into Clud and now they are all unconscious.",
+      "tagline": "I'm here to Roll Dice",
+      "content": "Smash cut into the morning, the smell of immolated flesh wafting on the breeze like overcooked pancakes. We go and meet up with Jolliver in his like... kitchen dining area, and he is definitely going to betray us. Oh-pro considers attacking him before they get on the boat, but people's frantic head shaking convince him that maybe there are better ideas. They set sail and oh pro tries to get them to disembark early, but suddenly there are cliffs and shit so that idea sounds extra stupid. Oh-pro goes and stands on the front of the boat, humming Celine Mustard, beard flapping in the breeze. They disembark at the obvious place near the stone monastary and everyone kind of stands around looking shifty. Oh-pro cats Bane on Jolliver because lets fucking get this show on the road already. Interlude, Sholard, Jolliver's 1st mate, is apparently blue. Bane actually works for once! Awesome. Also the Hermit is hidden, he's worked so hard for this. Clud and the hermit hit Sholar and sholar throws a tidal wave at them. Rude. Then Omaric leaps into the frey and erupts into a hideous mass of necrotic angeldemon. Woah. Jolliver turns into a pig in response. It's kind of a weird shapeshiftoff. The bugbears beat on clud and omaric briefly but nobody dies. Oh-pro does his best hamlet impression and tolls a necrotic bell while pumping health into omaric. The hermit is here too. With a Walloping arrow the hermit reminds people that he is indeed here and capable of murder. Clud used thunder wave! It was somewhat effective. Clud also stands up. Shelder backs off like a bitch, and Omaric randomly teleports..... then fires a second level \"chromatic orb^squared\" which is very pretty. Oh, he also splits into 3 mirror images of himself. Guys, I think he's winning the transmorphagraphing\" game. The bugbears come in and hit people cause thats what they do, and oh pro unhits people. The hermit is still here! Which Shelder finally notices, and throws an exceptional barrage of magic missles at the hermit, who despite his best efforts, is not still hidden. The bad guys move up and using their evil mace's, bludgeon Clud to the ground. With a breathless scream of fear and outrage, Oh-pro lays his hands upon his more-inert-than-usual friend and pumps a whole bunch of nertness into him! Clud gets up and Oh-pro gives him a watery smile, which he returns with a thunderous wave. Shelder \"cool-guys-dont-look-at-explosions\" the hermit which could prove to be a problem. Then, things get hectic. Omaric goes to do.. something, and explodes, incinerating the remaining bugbear, Oh-pro, and blowing back clud, jolliver, omaric himself, and the hermits semi-lifeless form. Jolliver tiredly beats up Omaric, and now it's Clud vs the world. Clud makes a flamethrower turret, and it poofs at Jolliver and Shelder. It's close.... but not close enough, and jolliver kind of awkwardly bumps into Clud. It's enough to turn the tide and the banks of the river are where our adventurers lie.",
       "id": 11
     }
   ],
@@ -112,67 +112,71 @@
       "id": 14
     },
     {
-      "description": "I've decided that this is where we disembarked to throw down with Jolliver, Shelder, and his bugbears.",
-      "yPos": 932,
-      "xPos": 973,
+      "description": "This is where we disembarked to throw down with Jolliver, Sheldar, and a bunch of bugbears. It is our final resting place",
+      "yPos": 924,
+      "xPos": 974,
       "id": 15
     }
   ],
   "characters2": [
-      {
-        "name": "Oh-pro Buffington",
-        "portrait": "assets/pics/rimrockknight.jpg",
-        "affiliation": "Emerald Enclave",
-        "class": "Cleric",
-        "likes": [
-          "Helping people",
-          " Robots"
-                  ],
-        "dislikes": [
-          "Evil"
-                    ]
-      },
-      {
-        "name": "The Hermit",
-        "portrait": "assets/pics/Derangedhermit.jpg",
-        "affiliation": "Emerald Enclave",
-        "class": "Rogue",
-        "likes": [
-          "Sitting by himself",
-          " Stealing"
-                ],
-        "dislikes": [
-          "Sobriety"
-                    ]
-      },
-      {
-        "name": "Clud",
-        "portrait": "assets/pics/clud2.PNG",
-        "affiliation": "unknown",
-        "class": "Artificer/Artifact",
-        "likes": [
-          "Oh-pro Buffington",
-          " Eating and drinking"
-        ],
-        "dislikes": [
-          "Oh-pro Buffington",
-          " Not being able to taste"
-        ]
-      },
-      {
-        "name": "Omaric",
-        "portrait": "assets/pics/omaric.jpg",
-        "affiliation": "Himself",
-        "class": "Wild Sorcerer",
-        "likes": [
-          "Not Exploding",
-          " Finding meaning in life"
-        ],
-        "dislikes": [
-          "Exploding",
-          "  -Ism's he just believes in himself"
-                    ]
-      }
+    {
+      "index": 1,
+      "name": "Oh-pro Buffington",
+      "portrait": "assets/pics/rimrockknight.jpg",
+      "affiliation": "Emerald Enclave",
+      "class": "Cleric",
+      "likes": [
+        "Helping people",
+        " Robots"
+      ],
+      "dislikes": [
+        "Evil"
+      ]
+    },
+    {
+      "index": 2,
+      "name": "The Hermit",
+      "portrait": "assets/pics/Derangedhermit.jpg",
+      "affiliation": "Emerald Enclave",
+      "class": "Rogue",
+      "likes": [
+        "Sitting by himself",
+        " Stealing"
+      ],
+      "dislikes": [
+        "Sobriety"
+      ]
+    },
+    {
+      "index": 3,
+      "name": "Clud",
+      "portrait": "assets/pics/clud2.PNG",
+      "affiliation": "unknown",
+      "class": "Artificer/Artifact",
+      "likes": [
+        "Oh-pro Buffington",
+        " Eating and drinking"
+      ],
+      "dislikes": [
+        "Oh-pro Buffington",
+        " Not being able to taste"
+      ]
+    },
+    {
+      "index": 4,
+      "name": "Omaric",
+      "portrait": "assets/pics/omaric.jpg",
+      "affiliation": "Himself",
+      "class": "Wild Sorcerer",
+      "likes": [
+        "Not Exploding",
+        " Finding meaning in life"
+      ],
+      "dislikes": [
+        "Exploding",
+        "  -Ism's he just believes in himself"
+      ]
+    }
   ],
   "characters": [
     {
