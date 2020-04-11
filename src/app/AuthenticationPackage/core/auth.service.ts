@@ -16,7 +16,7 @@ export class AuthService {
         let provider = new firebase.auth.GoogleAuthProvider();
         provider.addScope('profile');
         provider.addScope('email');
-        this.afAuth.auth
+        this.afAuth
         .signInWithPopup(provider)
         .then(res => {
           resolve(res);
@@ -31,7 +31,7 @@ export class AuthService {
     return new Promise((resolve, reject) => {
       let provider = new firebase.auth.GithubAuthProvider();
       provider.addScope('repo');
-      this.afAuth.auth
+      this.afAuth
       .signInWithPopup(provider)
       .then(res => {
         resolve(res);
@@ -63,7 +63,7 @@ export class AuthService {
   doLogout(){
     return new Promise((resolve, reject) => {
       if(firebase.auth().currentUser){
-        this.afAuth.auth.signOut()
+        this.afAuth.signOut()
         resolve();
       }
       else{

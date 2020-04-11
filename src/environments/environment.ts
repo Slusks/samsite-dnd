@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "TBD",
+    apiKey: "AIzaSyA2nCFiREsb_qhKwxuJKulQLuZZW_5ZoMs",
     authDomain: "samsite-dnd-c6a98.firebaseapp.com",
     databaseURL: "https://samsite-dnd-c6a98.firebaseio.com",
     projectId: "samsite-dnd-c6a98",
