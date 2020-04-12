@@ -7,7 +7,7 @@ import { markerData } from './map-comp/markerData';
 })
 export class DndDatabaseService {
 
-  baseURL = 'http://localhost:3000'
+  baseURL = 'https://samsite-dnd-c6a98.firebaseio.com'
 
 
 
@@ -17,26 +17,26 @@ export class DndDatabaseService {
 
   //Map Services
   getMapMarker(){
-    return this.http.get<markerData[]>(`${this.baseURL}/mapMarker`)
+    return this.http.get<markerData[]>(`${this.baseURL}/mapMarker`+".json")
   }
 
   deleteMapMarker(markerID){
-    return this.http.delete<markerData[]>(`${this.baseURL}/mapMarker`+'/'+markerID, {headers: this.headers})
+    return this.http.delete<markerData[]>(`${this.baseURL}/mapMarker`+'/'+markerID+".json", {headers: this.headers})
   }
 
 
   //Synopsis Services
   getPanel(){
-    return this.http.get(`${this.baseURL}/panel`)
+    return this.http.get(`${this.baseURL}/panel`+".json")
   }
 
   deletePanel(id){
-    return this.http.delete(`${this.baseURL}/panel`+'/'+id, {headers: this.headers})
+    return this.http.delete(`${this.baseURL}/panel`+'/'+id+".json", {headers: this.headers})
   }
 
 
   //Character Services
   getCharacters(){
-    return this.http.get(`${this.baseURL}/characters2`)
+    return this.http.get(`${this.baseURL}/characters2`+".json")
   }
 }

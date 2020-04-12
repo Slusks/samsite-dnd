@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent,  resolve: { data: ProfileResolver}},
 {
   path:'home',
-  component: HomepageComponent
+  component: HomepageComponent, resolve: { data: ProfileResolver}
 },
 {
   path:'factions',

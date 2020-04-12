@@ -44,6 +44,7 @@ import { AngularFireModule } from '@angular/fire';
 import { ProfileComponent } from './AuthenticationPackage/profile/profile.component';
 import { RegisterComponent } from './AuthenticationPackage/register/register.component';
 import { LoginComponent } from './AuthenticationPackage/login/login.component';
+import { DailyspellComponent } from './homepage/dailyspell/dailyspell.component';
 
 
 
@@ -66,7 +67,8 @@ import { LoginComponent } from './AuthenticationPackage/login/login.component';
     PlayerCardComponent,
     ProfileComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    DailyspellComponent
     
 
  
