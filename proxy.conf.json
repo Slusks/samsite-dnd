@@ -1,0 +1,9 @@
+{
+    "/api": {
+        "target": "http://dnd5eapi.co/api/spells/",
+        "secure": false,
+        "pathRewrite": {
+            "^/api":""},
+        "changeOrigin": true
+    }
+}
