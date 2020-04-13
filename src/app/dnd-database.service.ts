@@ -7,7 +7,8 @@ import { markerData } from './map-comp/markerData';
 })
 export class DndDatabaseService {
 
-  baseURL = 'https://samsite-dnd-c6a98.firebaseio.com'
+  baseURL1 = 'https://samsite-dnd-c6a98.firebaseio.com'
+  baseURL = 'http://localhost:3000'
 
 
 
@@ -37,6 +38,6 @@ export class DndDatabaseService {
 
   //Character Services
   getCharacters(){
-    return this.http.get(`${this.baseURL}/characters2`+".json")
+    return this.http.get(`${this.baseURL}/characters2`) //+".json"
   }
 }

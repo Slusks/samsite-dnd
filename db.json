@@ -131,7 +131,16 @@
       ],
       "dislikes": [
         "Evil"
-      ]
+      ],
+      "title1a":"Best Buddies",
+      "title1b": "1",
+      "title1c": "fa fa-robot",
+      "title2a":"Healing",
+      "title2b": "347",
+      "title2c": "fas fa-first-aid",
+      "title3a":"status",
+      "title3b": "Incinerated",
+      "title3c": "fas fa-dumpster-fire"
     },
     {
       "index": 2,
@@ -145,7 +154,17 @@
       ],
       "dislikes": [
         "Sobriety"
-      ]
+      ],
+      "title1a":"Bar Fights",
+      "title1b": "0",
+      "title1c": "fas fa-beer",
+      "title2a":"Kills",
+      "title2b": "11",
+      "title2c": "fas fa-skull-crossbones",
+      "title3a":"status",
+      "title3b": "Living",
+      "title3c": "far fa-laugh-beam"
+
     },
     {
       "index": 3,
@@ -160,7 +179,16 @@
       "dislikes": [
         "Oh-pro Buffington",
         " Not being able to taste"
-      ]
+      ],
+      "title1a":"Best Buddies",
+      "title1b": "",
+      "title1c": "fas fa-user",
+      "title2a":"Kills",
+      "title2b": "9",
+      "title2c": "fas fa-shoe-prints",
+      "title3a":"status",
+      "title3b": "Living",
+      "title3c": "far fa-laugh-beam"
     },
     {
       "index": 4,
@@ -175,65 +203,16 @@
       "dislikes": [
         "Exploding",
         "  -Ism's he just believes in himself"
-      ]
-    }
-  ],
-  "characters": [
-    {
-      "oh-pro": {
-        "name": "Oh-pro Buffington",
-        "portrait": "assets/pics/rimrockknight.jpg",
-        "affiliation": "Emerald Enclave",
-        "class": "Cleric",
-        "likes": [
-          "Helping people",
-          " Robots"
-        ],
-        "dislikes": [
-          "Evil"
-        ]
-      },
-      "the hermit": {
-        "name": "The Hermit",
-        "portrait": "assets/pics/Derangedhermit.jpg",
-        "affiliation": "Emerald Enclave",
-        "class": "Rogue",
-        "likes": [
-          "Sitting by himself",
-          " Stealing"
-        ],
-        "dislikes": [
-          "Sobriety"
-        ]
-      },
-      "clud": {
-        "name": "Clud",
-        "portrait": "assets/pics/clud2.PNG",
-        "affiliation": "unknown",
-        "class": "Artificer/Artifact",
-        "likes": [
-          "Oh-pro Buffington",
-          " Eating and drinking"
-        ],
-        "dislikes": [
-          "Oh-pro Buffington",
-          " Not being able to taste"
-        ]
-      },
-      "omaric": {
-        "name": "Omaric",
-        "portrait": "assets/pics/omaric.jpg",
-        "affiliation": "Himself",
-        "class": "Wild Sorcerer",
-        "likes": [
-          "Not Exploding",
-          " Finding meaning in life"
-        ],
-        "dislikes": [
-          "Exploding",
-          "  -Ism's he just believes in himself"
-        ]
-      }
+      ],
+      "title1a":"Best Buddies",
+      "title1b": "1",
+      "title1c": "fa fa-robot",
+      "title2a":"Kills",
+      "title2b": "11ish",
+      "title2c": "fas fa-skull-crossbones",
+      "title3a":"status",
+      "title3b": "Fireball",
+      "title3c": "fas fa-bomb"
     }
   ]
 }
