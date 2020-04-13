@@ -118,8 +118,9 @@
       "id": 15
     }
   ],
-  "characters2": [
+  "characters": [
     {
+      "campaign":"Thursday Campaign",
       "index": 1,
       "name": "Oh-pro Buffington",
       "portrait": "assets/pics/rimrockknight.jpg",
@@ -143,6 +144,7 @@
       "title3c": "fas fa-dumpster-fire"
     },
     {
+      "campaign":"Thursday Campaign",
       "index": 2,
       "name": "The Hermit",
       "portrait": "assets/pics/Derangedhermit.jpg",
@@ -167,6 +169,7 @@
 
     },
     {
+      "campaign":"Thursday Campaign",
       "index": 3,
       "name": "Clud",
       "portrait": "assets/pics/clud2.PNG",
@@ -187,10 +190,11 @@
       "title2b": "9",
       "title2c": "fas fa-shoe-prints",
       "title3a":"status",
-      "title3b": "Living",
+      "title3b": "Living?",
       "title3c": "far fa-laugh-beam"
     },
     {
+      "campaign":"Thursday Campaign",
       "index": 4,
       "name": "Omaric",
       "portrait": "assets/pics/omaric.jpg",
@@ -201,6 +205,99 @@
         " Finding meaning in life"
       ],
       "dislikes": [
+        "Exploding",
+        "  -Ism's he just believes in himself"
+      ],
+      "title1a":"Best Buddies",
+      "title1b": "1",
+      "title1c": "fa fa-robot",
+      "title2a":"Kills",
+      "title2b": "11ish",
+      "title2c": "fas fa-skull-crossbones",
+      "title3a":"status",
+      "title3b": "Fireball",
+      "title3c": "fas fa-bomb"
+    }
+  ],
+  "characters2": [
+    {
+      "campaign":"Menagerie Coast",
+      "index": 1,
+      "name": "Mark Whithershmitz",
+      "portrait": "assets/pics/[TBD]",
+      "affiliation": "Kryn Dynasty",
+      "class": "Wizard - Bladesinger",
+      "likes": [
+        "Swords",
+        "Also Swords"
+      ],
+      "dislikes": [
+        "Not-Swords"
+      ],
+      "title1a":"Target of Racism",
+      "title1b": "3",
+      "title1c": "fa fa-robot",
+      "title2a":"Kills",
+      "title2b": "0",
+      "title2c": "fas fa-skull-crossbones",
+      "title3a":"Magic Sword",
+      "title3b": "None",
+      "title3c": "fas fa-dumpster-fire"
+    },
+    {
+      "campaign":"Menagerie Coast",
+      "index": 2,
+      "name": "The Hermit II",
+      "portrait": "assets/pics/Derangedhermit.jpg",
+      "affiliation": "Emerald Enclave",
+      "class": "Rogue",
+      "list1": [
+        "Lion",
+        "Goat"
+      ],
+      "dislikes": [],
+      "title1a":"Bar Fights",
+      "title1b": "0",
+      "title1c": "fas fa-beer",
+      "title2a":"Kills",
+      "title2b": "11",
+      "title2c": "fas fa-skull-crossbones",
+      "title3a":"status",
+      "title3b": "Living",
+      "title3c": "far fa-laugh-beam"
+
+    },
+    {
+      "campaign":"Menagerie Coast",
+      "index": 3,
+      "name": "Cluud",
+      "portrait": "assets/pics/clud2.PNG",
+      "affiliation": "unknown",
+      "class": "Artificer/Artifact",
+      "list1": [],
+      "list2": [],
+      "title1a":"Best Buddies",
+      "title1b": "",
+      "title1c": "fas fa-user",
+      "title2a":"Kills",
+      "title2b": "2",
+      "title2c": "fas fa-skull-crossbones",
+      "title3a":"status",
+      "title3b": "Living?",
+      "title3c": "far fa-laugh-beam"
+    },
+    {
+      "campaign":"Menagerie Coast",
+      "index": 4,
+      "name": "Kelwor",
+      "portrait": "assets/pics/omaric.jpg",
+      "affiliation": "Himself",
+      "class": "Wild Sorcerer",
+      "list1": [
+        "Gambling",
+        "Not getting Drunk"
+      ],
+      "list2": [
         "Exploding",
         "  -Ism's he just believes in himself"
       ],
