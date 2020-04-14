@@ -13,7 +13,8 @@ import { spell } from './spell.model';
 })
 export class DailyspellComponent implements OnInit {
 
-  baseURL = 'api/'
+  baseURL1 = 'api/'
+  baseURL ='https://www.dnd5eapi.co/api/spells/'
   spellFacts;
   showspellClasses:Array<any>;
   loadView;
