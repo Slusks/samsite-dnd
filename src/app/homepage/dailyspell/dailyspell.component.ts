@@ -5,6 +5,7 @@ import  moment  from 'moment/moment';
 
 import { spellname} from './spellname.json';
 import { spell } from './spell.model';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-dailyspell',
@@ -13,22 +14,28 @@ import { spell } from './spell.model';
 })
 export class DailyspellComponent implements OnInit {
 
+ 
   baseURL1 = 'api/'
   baseURL ='https://www.dnd5eapi.co/api/spells/'
   spellFacts;
   showspellClasses:Array<any>;
-  loadView;
+  loadView=false;
   Moment:any;
   todaySpell;
   
   
 
 
-  constructor(private http: HttpClient,) {}
+  constructor(private http: HttpClient,
+              ) {}
 
   ngOnInit() {
+
+    
+
     console.log("localStorage.storedDate",localStorage.storedDate)
     console.log(this.loadView)
+    
     
     let today = moment().format('MMMM Do YYYY')
 
