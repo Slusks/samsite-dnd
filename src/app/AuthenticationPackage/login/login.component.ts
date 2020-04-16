@@ -29,6 +29,14 @@ export class LoginComponent {
   }
 
 
+  guestLogin() {
+    let guestObject = {"email":"guestLogin@guestlogin.com", "password":"guestPassword"}
+    this.tryLogin(guestObject)
+    }
+
+    
+  
+
   gitHubLogin(){
     this.authService.doGitHubAuth()
     .then(res => {

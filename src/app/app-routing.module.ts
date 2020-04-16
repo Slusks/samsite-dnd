@@ -23,15 +23,15 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent,  resolve: { data: ProfileResolver}},
 {
   path:'home',
-  component: HomepageComponent, resolve: { data: ProfileResolver}
+  component: HomepageComponent, resolve: {data: ProfileResolver}
 },
 {
   path:'factions',
-  component: ActionsComponent
+  component: ActionsComponent, resolve: {data: ProfileResolver}
 },
 {
   path:'synopsis',
-  component: SynopsisComponent
+  component: SynopsisComponent, resolve: {data: ProfileResolver}
 },
 /*{ Retired the Characters page in Favor of the Players Page
   path:'characters',
@@ -39,11 +39,11 @@ const routes: Routes = [
 },*/
 {
   path:'Map',
-  component: MapCompComponent
+  component: MapCompComponent, resolve: {data: ProfileResolver}
 },
 {
   path:'players',
-  component: PlayersComponent
+  component: PlayersComponent, resolve: { data: ProfileResolver}
 }
 ];
 

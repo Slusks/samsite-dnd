@@ -1,3 +1,6 @@
+https://www.ninjadevcorner.com/2019/03/complete-angular-firebase-authentication-system.html
+
+
 
      //https://stackoverflow.com/questions/50289095/trying-to-add-attribute-onclick-to-a-html-img-element-created-by-javascript
 
