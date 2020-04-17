@@ -3,12 +3,17 @@
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+    
       <span>
         <button mat-button onclick="window.location.href ='#'">
           <i class="fab fa-fort-awesome-alt fa-3x">DnD 5e Reference Site</i>
         </button>
         <a href="home"></a>
       </span>
+    <span class="example-spacer"></span>
+    <span>
+      <button mat-stroked-button  (click)=tryLogout()>Logout</button>
+    </span>
     </mat-toolbar>
 
 <mat-sidenav-container class="sidenav-container">
@@ -24,6 +29,8 @@
   </mat-sidenav>
   <!-- Add Content Here -->
   <mat-sidenav-content>
-    <router-outlet></router-outlet>
+    <router-outlet>
+
+    </router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
