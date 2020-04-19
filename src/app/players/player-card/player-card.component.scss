@@ -1,6 +1,12 @@
 
 @import url('https://fonts.googleapis.com/css?family=Abel');
 
+li {
+  padding-left: 10%;
+}
+
+
+
 .center {
   position: absolute;
   top: 50%;
@@ -26,7 +32,6 @@
   position: relative;
   margin: 1.5rem;
   vertical-align: middle;
-  position: relative;
 }
 
 .card h3 {
@@ -37,14 +42,10 @@
   position: absolute;
   width: 150px;
   height: 100%;
-  background: linear-gradient(#dE685E, #EE786E);
+  background: linear-gradient(rgb(94, 149, 222), rgb(110, 176, 238));
   transition: width 0.4s;
   overflow: hidden;
   z-index: 2;
-}
-
-.card.green .additional {
-  background: linear-gradient(#92bCa6, #A2CCB6);
 }
 
 
@@ -104,9 +105,7 @@
   margin-bottom: 0;
 }
 
-.card.green .additional .more-info h1 {
-  color: #224C36;
-}
+
 
 .card .additional .coords {
   margin: 0 1rem;
@@ -114,9 +113,7 @@
   font-size: 1rem;
 }
 
-.card.green .additional .coords {
-  color: #325C46;
-}
+
 
 .card .additional .coords span + span {
   float: right;

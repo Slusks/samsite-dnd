@@ -31,12 +31,6 @@ export class DailyspellComponent implements OnInit {
 
   ngOnInit() {
 
-    
-
-    console.log("localStorage.storedDate",localStorage.storedDate)
-    console.log(this.loadView)
-    
-    
     let today = moment().format('MMMM Do YYYY')
 
     

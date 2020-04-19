@@ -61,7 +61,6 @@ ngOnInit(){
 
   // Creates map markers from db with attributes
    setMarker(post){
-    console.log("function started", post.id)
     if (post.id > 0){
       var x = post.xPos;
       var y = post.yPos;
@@ -80,7 +79,6 @@ ngOnInit(){
     } 
     else {console.log ("post is undefined"); this.id = false; return;}
 
-    console.log("counter", this.counter)
     if (this.posts.length / this.counter === 1){
       document.querySelectorAll('.markerIMG').forEach(marker => {
       marker.addEventListener('click', event => {this.showCard(marker.id)})})
@@ -95,7 +93,6 @@ ngOnInit(){
       this.xPosition = x;
       var y = e.pageY;
       this.yPosition = y;
-      console.log("X Position "+ x + " Y Position" +y);
       //Create Temp icon with Attributes
       var img = document.createElement("img");
       img.src = "../assets/img/marker.jpg";
@@ -156,8 +153,6 @@ markerFormSubmit(marker){
 
 
 showCard(postID) {
-
-  console.log("showcard post id", postID)
     for (var item of this.posts){
       if (item.id == postID){
         this.cardDescription = item.description;
@@ -168,7 +163,6 @@ showCard(postID) {
     document.getElementById('markerCard').style.display = "block";
     document.getElementById('markerCard').style.top = cardYPosition/2 +'px'; // sets the card y coordinate
     document.getElementById('markerCard').style.left = cardXPosition +'px'; // sets the card x coordinate
-    console.log("description", this.cardDescription)
     return this.cardDescription;
   }
 
@@ -176,8 +170,6 @@ deleteMarker(){
   let deleteMarkerID = 0;
   if (confirm("delete marker?")){
     var card = document.getElementById("cardContent").innerText
-    console.log("card", card)
-    console.log("posts", this.posts)
     this.posts.forEach( (object) =>{ 
       if (object.description === card){
         return deleteMarkerID = object.id ;
@@ -187,7 +179,6 @@ deleteMarker(){
    
     this.dndDatabaseService.deleteMapMarker(deleteMarkerID).subscribe()
 
-    console.log("delete marker id string version", deleteMarkerID.toString())
     document.getElementById('markerCard').style.display="none"
     document.getElementById(deleteMarkerID.toString()).remove()
     
