@@ -1,6 +1,62 @@
 <h1> Player Cards! </h1>
-<div id="cardContainerData">
-<div *ngFor="let character of characters;">
+
+  <div class="container" id="cardContainerData" style="height:100vh">
+    <ng-template [ngIf]="isDataAvailable">
+    <div *ngFor="let character of characters;">
+          <div class="card">
+            <div class="additional">
+              <div class="user-card">
+                <div class="level center">
+                  Level 4
+                </div>
+                <div class="portrait center">
+                <img mat-card-image src={{character.portrait}}>
+                </div>
+                <div class="points center">
+                  2,700 Points
+                </div>
+
+              </div>
+              <div class="more-info">
+                <h3>{{character.name}}</h3>
+                <div class="coords">
+                  <span>Campaign: {{character.campaign}}</span>
+                </div>
+                <div class="coords">
+                  <span>Class: {{character.class}}</span>
+                </div>
+                <div class="coords">
+                  <span>Affiliation: {{character.affiliation}}</span>
+                </div>
+                <div class="stats">
+                  <div>
+                    <div class="title">{{character.title1a}}</div>
+                    <i class= {{character.title1c}}></i>
+                    <div class="value">{{character.title1b}}</div>
+                  </div>
+                  <div>
+                    <div class="title">{{character.title2a}}</div>
+                    <i class= {{character.title2c}}></i>
+                    <div class="value">{{character.title2b}}</div>
+                  </div>
+                  <div>
+                    <div class="title">{{character.title3a}}</div>
+                    <i class= {{character.title3c}}></i>
+                    <div class="value">{{character.title3b}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              <div class="general">
+                <h1>{{character.name}}</h1>
+                <p>Likes: {{character.likes}}</p>
+                <p>Dislikes: {{character.dislikes}}</p>
+                <span class="more">Mouse over the card for more info</span>
+              </div>
+          </div>
+    </div>
+  <!--New Character Cards-->
+    <div *ngFor="let character2 of characters2;">
       <div class="card">
         <div class="additional">
           <div class="user-card">
@@ -8,7 +64,7 @@
               Level 4
             </div>
             <div class="portrait center">
-            <img mat-card-image src={{character.portrait}}>
+            <img mat-card-image src={{character2?.portrait}}>
             </div>
             <div class="points center">
               2,700 Points
@@ -16,43 +72,55 @@
 
           </div>
           <div class="more-info">
-            <h3>{{character.name}}</h3>
+            <h3>{{character2.name}}</h3>
             <div class="coords">
-              <span>Thursday Campaign</span>
-              <span>{{character.affiliation}}</span>
+              <span>Campaign: {{character2.campaign}}</span>
             </div>
             <div class="coords">
-              <span>{{character.class}}</span>
-              <span>City, Country</span>
+              <span>Class: {{character2.class}}</span>
+            </div>
+            <div class="coords">
+              <span>Affiliation: {{character2.affiliation}}</span>
             </div>
             <div class="stats">
               <div>
-                <div class="title">{{character.title1a}}</div>
-                <i class= {{character.title1c}}></i>
-                <div class="value">{{character.title1b}}</div>
+                <div class="title">{{character2.title1a}}</div>
+                <i class= {{character2.title1c}}></i>
+                <div class="value">{{character2.title1b}}</div>
               </div>
               <div>
-                <div class="title">{{character.title2a}}</div>
-                <i class= {{character.title2c}}></i>
-                <div class="value">{{character.title2b}}</div>
+                <div class="title">{{character2.title2a}}</div>
+                <i class= {{character2.title2c}}></i>
+                <div class="value">{{character2.title2b}}</div>
               </div>
               <div>
-                <div class="title">{{character.title3a}}</div>
-                <i class= {{character.title3c}}></i>
-                <div class="value">{{character.title3b}}</div>
+                <div class="title">{{character2.title3a}}</div>
+                <i class= {{character2.title3c}}></i>
+                <div class="value">{{character2.title3b}}</div>
               </div>
             </div>
           </div>
         </div>
           <div class="general">
-            <h1>{{character.name}}</h1>
-            <p>Likes: {{character.likes}}</p>
-            <p>Dislikes: {{character.dislikes}}</p>
+              <h1>{{character2.name}}</h1>
+              <ng-container *ngFor="let item of character2.list1 |keyvalue; let i = index">
+                  <div>{{item.key}}:</div>  
+                  <div>{{item.value}} </div>
+              </ng-container>
+          
+              <ng-container *ngFor="let item of character2.list2 |keyvalue; let i = index">
+                      <div>{{item.key}}:</div>  
+                      <div>{{item.value}} </div>
+              </ng-container>
+          
+            
             <span class="more">Mouse over the card for more info</span>
           </div>
       </div>
-</div>
-</div>
+    </div>
+    </ng-template>
+  </div>
+
 
 
 

@@ -224,18 +224,16 @@
       "campaign":"Menagerie Coast",
       "index": 1,
       "name": "Mark Whithershmitz",
-      "portrait": "assets/pics/[TBD]",
+      "portrait": "assets/pics/markW.jpg",
       "affiliation": "Kryn Dynasty",
       "class": "Wizard - Bladesinger",
-      "likes": [
-        "Swords",
-        "Also Swords"
-      ],
-      "dislikes": [
-        "Not-Swords"
-      ],
-      "title1a":"Target of Racism",
-      "title1b": "3",
+      "list1": {"Swords":[
+        "McClane: Moon-Glow Scimitar",
+        "Carver: Shadow Sword"
+      ]},
+      "list2": {"Remarks about his Race":"5"},
+      "title1a":"Sword Count",
+      "title1b": "2",
       "title1c": "fa fa-robot",
       "title2a":"Kills",
       "title2b": "0",
@@ -248,22 +246,22 @@
       "campaign":"Menagerie Coast",
       "index": 2,
       "name": "The Hermit II",
-      "portrait": "assets/pics/Derangedhermit.jpg",
-      "affiliation": "Emerald Enclave",
-      "class": "Rogue",
-      "list1": [
-        "Lion",
+      "portrait": "assets/pics/theHermit2.jpg",
+      "affiliation": "None?",
+      "class": "Rogue/Mastermind",
+      "list1": {"Rust Bag of Animals": [
+        "Lion x 2",
         "Goat"
-      ],
-      "dislikes": [],
+      ]},
+      "list2": [],
       "title1a":"Bar Fights",
       "title1b": "0",
       "title1c": "fas fa-beer",
       "title2a":"Kills",
-      "title2b": "11",
+      "title2b": "0",
       "title2c": "fas fa-skull-crossbones",
-      "title3a":"status",
-      "title3b": "Living",
+      "title3a":"Badassery",
+      "title3b": "Medium",
       "title3c": "far fa-laugh-beam"
 
     },
@@ -271,44 +269,42 @@
       "campaign":"Menagerie Coast",
       "index": 3,
       "name": "Cluud",
-      "portrait": "assets/pics/clud2.PNG",
+      "portrait": "assets/pics/pam.jpg",
       "affiliation": "unknown",
-      "class": "Artificer/Artifact",
-      "list1": [],
-      "list2": [],
-      "title1a":"Best Buddies",
-      "title1b": "",
+      "class": "Warforged Barbarion",
+      "list1": {"Dislikes":["Witches", "Chairs"]},
+      "list2": {},
+      "title1a":"Memories",
+      "title1b": "Few?",
       "title1c": "fas fa-user",
       "title2a":"Kills",
       "title2b": "2",
       "title2c": "fas fa-skull-crossbones",
       "title3a":"status",
-      "title3b": "Living?",
+      "title3b": "Pam",
       "title3c": "far fa-laugh-beam"
     },
     {
       "campaign":"Menagerie Coast",
       "index": 4,
       "name": "Kelwor",
-      "portrait": "assets/pics/omaric.jpg",
+      "portrait": "assets/pics/kelwor.jpg",
       "affiliation": "Himself",
-      "class": "Wild Sorcerer",
-      "list1": [
+      "class": "Warlock/Fighter",
+      "list1":{"Likes": [
         "Gambling",
         "Not getting Drunk"
-      ],
-      "list2": [
-        "Exploding",
-        "  -Ism's he just believes in himself"
-      ],
+      ]},
+      "list2":{"Completely Legitimate Gambling Winnings":["Dragons Nutbutter (2 Gold)"]} 
+      ,
       "title1a":"Best Buddies",
       "title1b": "1",
       "title1c": "fa fa-robot",
       "title2a":"Kills",
-      "title2b": "11ish",
+      "title2b": "0",
       "title2c": "fas fa-skull-crossbones",
-      "title3a":"status",
-      "title3b": "Fireball",
+      "title3a":"Mysteriousness",
+      "title3b": "Eleventy",
       "title3c": "fas fa-bomb"
     }
   ]

@@ -8,6 +8,8 @@ import { DndDatabaseService } from 'src/app/dnd-database.service';
 })
 export class PlayerCardComponent implements OnInit {
   characters;
+  characters2;
+  isDataAvailable:boolean = false;
   
 
   constructor(private dndDatabaseService: DndDatabaseService) { }
@@ -15,8 +17,22 @@ export class PlayerCardComponent implements OnInit {
   ngOnInit() {
 
    this.dndDatabaseService.getCharacters().subscribe(characters => {this.characters = characters as playerData[]})
+   this.dndDatabaseService.getCharacters2().subscribe(characters2 => {(this.characters2 = characters2 as playerData[])}) 
+   this.isDataAvailable = true;
     
   }
+
+  //New Card Code to try out for expanding JS cards
+  //
+
+  // Code By Webdevtrick (https://webdevtrick.com)
+
+
+
+
+
+
+
 
 }
 
@@ -25,6 +41,14 @@ export class playerData {
   potrait: string;
   affiliation:string;
   class: string;
-  likes: object;
-  dislikes: object;
+  list1: object;
+  list2: object;
+  campaign: string;
+  index: number;
+  title1a:string;
+  title1b: string;
+  title2a:string;
+  title2b: string;
+  title3a:string;
+  title3b: string;
 }
