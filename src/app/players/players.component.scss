@@ -1,5 +1,16 @@
 
 
+.fancy{
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 100px;
+    z-index: 1;
+}
+
+#campaignSelector{
+    display:inline-block;
+}
+
 #bodyContainer {
     position: relative;
     background-size: cover;

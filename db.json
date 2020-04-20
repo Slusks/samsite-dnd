@@ -231,7 +231,7 @@
         "McClane: Moon-Glow Scimitar",
         "Carver: Shadow Sword"
       ]},
-      "list2": {"Remarks about his Race":"5"},
+      "list2": {},
       "title1a":"Sword Count",
       "title1b": "2",
       "title1c": "fa fa-robot",
@@ -249,7 +249,7 @@
       "portrait": "assets/pics/theHermit2.jpg",
       "affiliation": "None?",
       "class": "Rogue/Mastermind",
-      "list1": {"Rust Bag of Animals": [
+      "list1": {"Rusty Bag of Tricks": [
         "Lion x 2",
         "Goat"
       ]},

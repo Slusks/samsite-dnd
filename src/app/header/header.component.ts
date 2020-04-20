@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit, AfterViewInit{
   tryLogout(){
     this.authService.doLogout()
     .then(res => {
-      this.router.navigate(['../login']);
+      this.router.navigate(['']);
     })
   }
 

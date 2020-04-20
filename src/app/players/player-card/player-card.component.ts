@@ -16,8 +16,8 @@ export class PlayerCardComponent implements OnInit {
 
   ngOnInit() {
 
-   this.dndDatabaseService.getCharacters().subscribe(characters => {this.characters = characters as playerData[]})
-   this.dndDatabaseService.getCharacters2().subscribe(characters2 => {(this.characters2 = characters2 as playerData[])}) 
+   this.dndDatabaseService.getCharacters("thursdayCampaign").subscribe(characters => {this.characters = characters as playerData[]})
+   this.dndDatabaseService.getCharacters("menagerieCoast").subscribe(characters2 => {(this.characters2 = characters2 as playerData[])}) 
    this.isDataAvailable = true;
     
   }

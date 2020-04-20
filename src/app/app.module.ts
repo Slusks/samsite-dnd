@@ -28,6 +28,7 @@ import { StoryPanelComponent } from './synopsis/story-panel/story-panel.componen
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { NgPartnersModule } from 'ng-partners';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { NgImageSliderModule } from 'ng-image-slider';
 import { MapCompComponent } from './map-comp/map-comp.component';
@@ -103,6 +104,7 @@ import { DailyspellComponent } from './homepage/dailyspell/dailyspell.component'
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFirestoreModule,
+    MatCheckboxModule
    
 
 

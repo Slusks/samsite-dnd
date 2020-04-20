@@ -1,21 +1,43 @@
-
+<!-- Toolbar with sidenav container-->
     <mat-toolbar color="primary">
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-    
+    <!-- Title With Home Button/Icon-->
       <span>
         <button mat-button onclick="window.location.href ='#'">
           <i class="fab fa-fort-awesome-alt fa-3x">DnD 5e Reference Site</i>
         </button>
         <a href="home"></a>
       </span>
-    <span class="example-spacer"></span>
+
+    <span class="example-spacer"></span><!-- Navbar Spacer-->
+
+    <!-- Campaign Selector: In Work-->
     <span>
-      <button mat-stroked-button  (click)=tryLogout()>Logout</button>
+      Campaign Selector:    
+      <button mat-icon-button id="campaignSelecter" [matMenuTriggerFor]="menu" aria-label="campaignSelecter">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <mat-checkbox class="mat menu-item" (click)="event.stopPropagation()"  [(ngModel)]="thursdayCampaign">
+          Thursday Campaign
+        </mat-checkbox>     
+        <mat-checkbox class="mat menu-item" (click)="event.stopPropagation()"  [(ngModel)]="menagerieCoast">
+            Menagerie Coast
+        </mat-checkbox>
+    </mat-menu>
+  </span>
+
+    <span class="example-spacer"></span> <!-- Navbar Spacer-->
+
+    <!-- Logout Button-->
+    <span>
+      <button mat-stroked-button  (click)=tryLogout() routerLink="login">Logout</button>
     </span>
     </mat-toolbar>
 
+<!-- Sidenav Container Content-->
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav">
       <mat-toolbar>Menu</mat-toolbar>
@@ -27,7 +49,7 @@
       <a mat-list-item href="">Characters(Retired)</a>       
     </mat-nav-list>
   </mat-sidenav>
-  <!-- Add Content Here -->
+  <!-- Router for all App Content-->
   <mat-sidenav-content>
     <router-outlet>
 
