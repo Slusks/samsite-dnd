@@ -134,7 +134,7 @@ markerFormSubmit(marker){
       }
     //only post new icon info of sufficient length
     if (marker.description.length >= 3){
-    this.http.post("http://localhost:3000/mapMarker", this.iconDescription).subscribe((po:Response) => {console.log("po",po)}) ////////SERVICE HERE
+    this.http.post("http://localhost:3000/thursdayCampaign/mapMarker", this.iconDescription).subscribe((po:Response) => {console.log("po",po)}) ////////SERVICE HERE
     alert("Successfully Added")} else {
       alert("description is too short")
     }

@@ -38,11 +38,11 @@ export class DndDatabaseService {
 
   //Character Services
   getCharacters(campaign){
-    return this.http.get(`${this.baseURL}/`+campaign+"/characters.json") //+".json"
+    return this.http.get(`${this.baseURL}/`+`${campaign}`+"/characters.json") //+".json"
   }
 
    //Character Services
    getCharacters2(campaign){
-    return this.http.get(`${this.baseURL}/`+campaign+"/characters.json") //+".json"
+    return this.http.get(`${this.baseURL}/`+`${campaign}`+"/characters.json") //+".json"
   }
 }
