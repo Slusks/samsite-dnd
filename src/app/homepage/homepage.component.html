@@ -26,6 +26,9 @@
 <!--==================-->
 <!-- Column 2-->
         <div class="col" id="col2">
+            <ng-container *ngIf="this.currentUser">
+            <div>Current User: {{currentUser?.displayName}}</div>
+            </ng-container>
             <img id ="homeImage" src="assets/pics/valley.jpg" style="width:500px;height:600px;">
             <figcaption>Photo by Jonathan Auh on Unsplash</figcaption>
         </div>

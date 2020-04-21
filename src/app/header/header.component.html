@@ -33,8 +33,18 @@
     <span class="example-spacer"></span> <!-- Navbar Spacer-->
 
     <!-- Logout Button-->
+    <button mat-button [matMenuTriggerFor]="menu">User Options</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="openModal()">Name</button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item  (click)=tryLogout() routerLink="login" (click)="loggedOut()">Logout</button>
+    </mat-menu>
+
+
+    
+
     <span>
-      <button mat-stroked-button  (click)=tryLogout() routerLink="login">Logout</button>
+      
     </span>
     </mat-toolbar>
 
@@ -46,8 +56,7 @@
       <a mat-list-item href="Map">Map</a>
       <a mat-list-item href="synopsis">Synopsis</a>
       <a mat-list-item href="factions">Factions</a>
-      <a mat-list-item href="players">Players</a>
-      <a mat-list-item href="">Characters(Retired)</a>       
+      <a mat-list-item href="players">Players</a>    
     </mat-nav-list>
   </mat-sidenav>
   <!-- Router for all App Content-->

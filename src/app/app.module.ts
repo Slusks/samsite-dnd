@@ -20,8 +20,6 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ActionsComponent } from './actions/actions.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatMenuModule, MatMenu } from '@angular/material/menu';
-import { CharactersComponent } from './characters/characters.component';
-import { CharCardsComponent } from './characters/char-cards/char-cards.component';
 import { SynopsisComponent } from './synopsis/synopsis.component';
 import { MatExpansionModule} from '@angular/material/expansion';
 import { StoryPanelComponent } from './synopsis/story-panel/story-panel.component';
@@ -46,6 +44,8 @@ import { ProfileComponent } from './AuthenticationPackage/profile/profile.compon
 import { RegisterComponent } from './AuthenticationPackage/register/register.component';
 import { LoginComponent } from './AuthenticationPackage/login/login.component';
 import { DailyspellComponent } from './homepage/dailyspell/dailyspell.component';
+import { MatDialogModule } from '@angular/material';
+import { HeaderDialogComponent } from './header/header-dialog/header-dialog.component';
 
 
 
@@ -59,8 +59,6 @@ import { DailyspellComponent } from './homepage/dailyspell/dailyspell.component'
     HeaderComponent,
     HomepageComponent,
     ActionsComponent,
-    CharactersComponent,
-    CharCardsComponent,
     SynopsisComponent,
     StoryPanelComponent,
     MapCompComponent,
@@ -69,7 +67,8 @@ import { DailyspellComponent } from './homepage/dailyspell/dailyspell.component'
     ProfileComponent,
     RegisterComponent,
     LoginComponent,
-    DailyspellComponent
+    DailyspellComponent,
+    HeaderDialogComponent
     
 
  
@@ -104,7 +103,8 @@ import { DailyspellComponent } from './homepage/dailyspell/dailyspell.component'
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFirestoreModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule
    
 
 
@@ -118,6 +118,8 @@ import { DailyspellComponent } from './homepage/dailyspell/dailyspell.component'
   providers: [
     DndDatabaseService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
+  entryComponents:[HeaderDialogComponent]
 })
 export class AppModule { }

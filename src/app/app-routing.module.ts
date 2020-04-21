@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { ActionsComponent } from './actions/actions.component';
 import { HeaderComponent } from './header/header.component';
 import { SynopsisComponent } from './synopsis/synopsis.component';
-import { CharactersComponent } from './characters/characters.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { MapCompComponent } from './map-comp/map-comp.component';
 import { PlayersComponent } from './players/players.component';
@@ -33,10 +32,7 @@ const routes: Routes = [
   path:'synopsis',
   component: SynopsisComponent, resolve: {data: ProfileResolver}
 },
-/*{ Retired the Characters page in Favor of the Players Page
-  path:'characters',
-  component: CharactersComponent
-},*/
+
 {
   path:'Map',
   component: MapCompComponent, resolve: {data: ProfileResolver}
