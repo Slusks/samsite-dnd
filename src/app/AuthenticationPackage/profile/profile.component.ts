@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, Input } from '@angular/core';
 import { UserService } from '../core/user.service';
 import { AuthService } from '../core/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FirebaseUserModel } from '../core/user.model';
+import { ProfileResolver } from './profile.resolver';
+
+
 
 @Component({
   selector: 'app-profile',
@@ -13,6 +16,7 @@ import { FirebaseUserModel } from '../core/user.model';
 })
 export class ProfileComponent implements OnInit {
 
+ 
   user: FirebaseUserModel = new FirebaseUserModel();
   profileForm: FormGroup;
 
@@ -21,18 +25,22 @@ export class ProfileComponent implements OnInit {
     public authService: AuthService,
     private route: ActivatedRoute,
     private location : Location,
-    private fb: FormBuilder
+    private fb: FormBuilder,
   ) {
 
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
     this.route.data.subscribe(routeData => {
-      let data = routeData['data'];
+      let data = routeData['data']; //this is where our problem is, we're not getting the data
+      console.log(data)
       if (data) {
         this.user = data;
+        console.log("user",this.user)
         this.createForm(this.user.name);
+        //console.log("grabbed user data");
       }
+      //else {console.log("didn't grab data")}
     })
   }
 

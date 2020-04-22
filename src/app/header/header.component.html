@@ -13,7 +13,7 @@
 
     <span class="example-spacer"></span><!-- Navbar Spacer-->
 
-    <!-- Campaign Selector: In Work-->
+    <!-- Campaign Selector: Probably Removed in favor of user settings
     <span>
       Campaign Selector:    
       <button mat-icon-button id="campaignSelecter" [matMenuTriggerFor]="menu" aria-label="campaignSelecter">
@@ -21,23 +21,23 @@
     </button>
     <mat-menu #menu="matMenu">
       These dont work yet
-        <mat-checkbox class="mat menu-item"><!-- (click)="event.stopPropagation()"  [(ngModel)]="thursdayCampaign">-->
+        <mat-checkbox class="mat menu-item"> (click)="event.stopPropagation()"  [(ngModel)]="thursdayCampaign">
           Thursday Campaign
         </mat-checkbox>     
-        <mat-checkbox class="mat menu-item"><!--(click)="event.stopPropagation()"  [(ngModel)]="menagerieCoast"-->
+        <mat-checkbox class="mat menu-item">(click)="event.stopPropagation()"  [(ngModel)]="menagerieCoast"
             Menagerie Coast
         </mat-checkbox>
     </mat-menu>
-  </span>
+  </span>-->
 
     <span class="example-spacer"></span> <!-- Navbar Spacer-->
 
-    <!-- Logout Button-->
+    <!-- User Button! Button-->
     <button mat-button [matMenuTriggerFor]="menu">User Options</button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="openModal()">Name</button>
       <mat-divider></mat-divider>
-      <button mat-menu-item  (click)=tryLogout() routerLink="login" (click)="loggedOut()">Logout</button>
+      <button mat-menu-item  (click)=tryLogout() (click)="loggedOut()">Logout</button>
     </mat-menu>
 
 
@@ -62,7 +62,6 @@
   <!-- Router for all App Content-->
   <mat-sidenav-content>
     <router-outlet>
-
     </router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -12,6 +12,7 @@ import { RegisterComponent } from './AuthenticationPackage/register/register.com
 import { ProfileResolver } from './AuthenticationPackage/profile/profile.resolver';
 import { AuthGuard } from './AuthenticationPackage/core/auth.guard';
 import { LoginComponent } from './AuthenticationPackage/login/login.component';
+import { HeaderDialogComponent } from './header/header-dialog/header-dialog.component';
 
 
 
@@ -20,9 +21,11 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent,  resolve: { data: ProfileResolver}},
+
 {
   path:'home',
-  component: HomepageComponent, resolve: {data: ProfileResolver}
+  component: HomepageComponent,
+  resolve: {data: ProfileResolver}
 },
 {
   path:'factions',

@@ -19,9 +19,8 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit() {
 
-    this.userService.getCurrentUser().then(currentUser =>{(this.currentUser = currentUser), console.log(currentUser)},
+    this.userService.getCurrentUser().then(currentUser =>{(this.currentUser = currentUser), console.log("currentUSer",currentUser)},
       err => console.log(err))
-    console.log("currentUser", this.currentUser)
   
 
   }

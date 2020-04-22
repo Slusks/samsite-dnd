@@ -1,7 +1,32 @@
 <h2 mat-dialog-title>{{modalTitle}}</h2>
-<mat-dialog-content>Do you wish to continue previous shopping?</mat-dialog-content>
+<mat-dialog-content>Set a Display Name </mat-dialog-content>
+
+<h1>Showing profile Component</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="card" style="width: 20rem;">
+        <div *ngIf='user.provider != "password"'class="card-body">
+          <h4 class="card-title">{{user.name}}</h4>
+          <p class="card-text">This is part of the profile component </p>
+        </div>
+        <div *ngIf='user.provider == "password"'class="card-body">
+          <form [formGroup]="profileForm">
+            <div class="form-group">
+              <label>Your name</label>
+              <input type="text" formControlName="name" class="form-control" required>
+            </div>
+          </form>
+          <a (click)="save(profileForm.value)" class="btn btn-primary">Save</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <!--<app-profile></app-profile>-->
 <mat-dialog-actions>
-<button mat-button mat-dialog-close>No</button>
 <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog.-->
-<button mat-button [mat-dialog-close]="true">Yes</button>
+<button mat-button [mat-dialog-close]="true">Close</button>
 </mat-dialog-actions>
+
+
