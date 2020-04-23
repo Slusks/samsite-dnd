@@ -1,7 +1,4 @@
 import { Component, OnInit, AfterViewInit, Input, ResolvedReflectiveFactory } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
 import { AuthGuard} from '../AuthenticationPackage/core/auth.guard';
 import { AuthService } from '../AuthenticationPackage/core/auth.service';
 import { Router, Params, ActivatedRoute } from '@angular/router';
@@ -12,8 +9,6 @@ import { ProfileResolver } from '../AuthenticationPackage/profile/profile.resolv
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../AuthenticationPackage/core/user.service';
 import { FirebaseUserModel } from '../AuthenticationPackage/core/user.model';
-
-//import { UserService } from './user.service';
 
 
 @Component({
@@ -72,7 +67,7 @@ export class HeaderComponent implements OnInit, AfterViewInit{
     dialogConfig.autoFocus = true;
     dialogConfig.data = {displayName : this.getuserdata.displayName,
                          providerData : this.getuserdata.providerData,
-                         uid : this.getuserdata.uid};
+                         uid : this.getuserdata.uid}; //this returns undefined
     
     const dialogRef = this.dialog.open(HeaderDialogComponent, dialogConfig);
 
@@ -85,15 +80,5 @@ export class HeaderComponent implements OnInit, AfterViewInit{
     console.log("grab data")
     this.userService.getCurrentUser().then(res =>{this.userdata = res, console.log(res)})
     
-
-
-    //return this.userService.getCurrentUser().then(
-      //res =>{this.myUser = res.user, console.log(res)})
-    
   }
-
-
-
-
-
 }

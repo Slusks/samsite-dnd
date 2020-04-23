@@ -21,9 +21,7 @@ export class HeaderDialogComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
 
-    this.passedData = [{ "displayName" : data.displayName},
-                       { "providerData" : data.providerData},
-                       { "uid" : data.uid}];
+    this.passedData = data;
    
    }
 
