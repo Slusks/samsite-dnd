@@ -22,11 +22,23 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent,  resolve: { data: ProfileResolver}},
 
+
 {
   path:'home',
   component: HomepageComponent,
-  resolve: {data: ProfileResolver}
-},
+  resolve: {data: ProfileResolver},
+  children:[
+    {path: '',
+    component: HeaderComponent,
+    resolve: {data : ProfileResolver},
+    children: [
+        {path: '',
+        component: HeaderDialogComponent,
+        resolve: { data: ProfileResolver}
+        }]
+      }
+      ]
+    },
 {
   path:'factions',
   component: ActionsComponent, resolve: {data: ProfileResolver}
