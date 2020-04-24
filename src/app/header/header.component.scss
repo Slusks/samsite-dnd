@@ -1,4 +1,7 @@
 
+body {
+  margin-bottom:50px;
+}
 
 .sidenav {
   width: 200px;
@@ -25,4 +28,36 @@
 
 .mat-menu {
   z-index: 999;
+}
+
+#footer {
+  position:fixed;
+  height: 10px;
+  padding-top: 5px;
+  padding-bottom: 30px;
+  background-color:#0078d2;
+  bottom: 0px;
+  margin-bottom: 0px;
+  width: 100%;
+  z-index: 998;
+  color: white;
+  text-align: center;
+  border-top: 10px, 100%, black;
+  
+}
+
+
+#foot:link{
+  color: whitesmoke;
+  text-decoration: none;
+  
+}
+#foot:hover{
+  color:black;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#foot:active{
+  color: #8b0000;
 }

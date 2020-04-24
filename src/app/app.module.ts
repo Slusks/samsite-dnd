@@ -120,6 +120,6 @@ import { HeaderDialogComponent } from './header/header-dialog/header-dialog.comp
   ],
   bootstrap: [AppComponent],
 
-  entryComponents:[HeaderDialogComponent]
+  entryComponents:[HeaderDialogComponent, HomepageComponent, HeaderComponent]
 })
 export class AppModule { }

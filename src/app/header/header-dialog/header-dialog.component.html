@@ -1,6 +1,7 @@
-<h2 mat-dialog-title>{{modalTitle}}</h2>
+<h2 mat-dialog-title>{{passeData[displayName]}}</h2>
 <mat-dialog-content>Set a Display Name </mat-dialog-content>
-    <app-profile></app-profile>
+    <app-profile ></app-profile>
+
 <mat-dialog-actions>
 <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog.-->
 <button mat-button [mat-dialog-close]="true">Close</button>

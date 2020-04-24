@@ -19,17 +19,20 @@ export class HeaderDialogComponent implements OnInit {
   user: FirebaseUserModel = new FirebaseUserModel();
   profileForm: FormGroup;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(public userService: UserService,
+              public authService: AuthService,
+              private route: ActivatedRoute,
+              private fb: FormBuilder,
+              @Inject(MAT_DIALOG_DATA) public headerData: any) {
 
-    this.passedData = data;
-   
+    
    }
 
   ngOnInit() {
     
-    console.log("data",this.passedData)
-    //this.createForm(this.user.name)
-
+    
+    console.log("data",this.headerData)
+    
 
   }
 

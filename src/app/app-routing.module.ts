@@ -35,6 +35,10 @@ const routes: Routes = [
         {path: '',
         component: HeaderDialogComponent,
         resolve: { data: ProfileResolver}
+        },
+        {path: '',
+        component: ProfileComponent,
+        resolve: { data: ProfileResolver}
         }]
       }
       ]

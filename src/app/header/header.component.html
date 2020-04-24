@@ -31,21 +31,14 @@
   </span>-->
 
     <span class="example-spacer"></span> <!-- Navbar Spacer-->
-
     <!-- User Button! Button-->
-    <button mat-button [matMenuTriggerFor]="menu">User Options</button>
+    <button mat-button [matMenuTriggerFor]="menu" id="userButton">User Options</button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="openModal()">Name</button>
       <mat-divider></mat-divider>
       <button mat-menu-item  (click)=tryLogout() (click)="loggedOut()">Logout</button>
     </mat-menu>
 
-
-    
-
-    <span>
-      
-    </span>
     </mat-toolbar>
 
 <!-- Sidenav Container Content-->
@@ -65,3 +58,17 @@
     </router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+
+<!-- Footer?-->
+<div class="jumbotron" id="footer">
+<span>  <i class="far fa-envelope"></i> </span>
+<span> Contact:   </span><span id="foot">   SamSlusky@gmail.com </span> 
+<span>   |   </span>
+<span> <img id="githublogo" src="assets/pics/GitHub-Mark-Light-32px.png" style="width: 16px; height: 16px;"> </span>
+<span>   Github:   </span> <a id="foot" href="https://github.com/Slusks " style="color: white">   https://github.com/Slusks   </a>
+<span>   |   </span>
+</div>
+
+
+

@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, Input, ResolvedReflectiveFactory } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, ResolvedReflectiveFactory, Inject } from '@angular/core';
 import { AuthGuard} from '../AuthenticationPackage/core/auth.guard';
 import { AuthService } from '../AuthenticationPackage/core/auth.service';
 import { Router, Params, ActivatedRoute } from '@angular/router';
@@ -9,6 +9,7 @@ import { ProfileResolver } from '../AuthenticationPackage/profile/profile.resolv
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../AuthenticationPackage/core/user.service';
 import { FirebaseUserModel } from '../AuthenticationPackage/core/user.model';
+import { HomepageComponent } from '../homepage/homepage.component';
 
 
 @Component({
@@ -17,14 +18,14 @@ import { FirebaseUserModel } from '../AuthenticationPackage/core/user.model';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, AfterViewInit{
-
+  parentData;
   loading;
 //For the Profile Routes
   user: FirebaseUserModel = new FirebaseUserModel();
   profileForm: FormGroup;
 
- userdata;
- getuserdata;
+  @Input() currentUser: HomepageComponent["currentUser"];
+
  
 
   constructor(private auth: AuthGuard,
@@ -33,11 +34,13 @@ export class HeaderComponent implements OnInit, AfterViewInit{
               public dialog: MatDialog,
               public userService: UserService,
               private route: ActivatedRoute,
-              private fb: FormBuilder,
-              public profileResolver: ProfileResolver) {}
+              private fb: FormBuilder) {}
 
   ngOnInit(){
+    this.parentData = this.currentUser 
+    console.log("data", this.parentData)
     this.loading = true;
+    
     
 
     
@@ -62,12 +65,10 @@ export class HeaderComponent implements OnInit, AfterViewInit{
  // Open Dialog box for the user Options
   openModal(){
     const dialogConfig = new MatDialogConfig();
-    this.getuserdata = this.grabData();
+
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.data = {displayName : this.getuserdata.displayName,
-                         providerData : this.getuserdata.providerData,
-                         uid : this.getuserdata.uid}; //this returns undefined
+    dialogConfig.data = {dataObject: this.getData()};
     
     const dialogRef = this.dialog.open(HeaderDialogComponent, dialogConfig);
 
@@ -76,9 +77,9 @@ export class HeaderComponent implements OnInit, AfterViewInit{
       console.log(result) });
  
   }
-  grabData(){
-    console.log("grab data")
-    this.userService.getCurrentUser().then(res =>{this.userdata = res, console.log(res)})
-    
-  }
+
+getData(){
+  return this.userService.getCurrentUser()
+}
+
 }
