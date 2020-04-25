@@ -37,14 +37,30 @@ export class HeaderComponent implements OnInit, AfterViewInit{
               private fb: FormBuilder) {}
 
   ngOnInit(){
-    this.parentData = this.currentUser 
-    console.log("data", this.parentData)
-    this.loading = true;
-    
-    
+    this.parentData = new FirebaseUserModel();
 
-    
-  }
+    return new Promise((resolve, reject) => {
+      this.userService.getCurrentUser()
+      .then(res => {
+        if(res.providerData[0].providerId == 'password'){
+          this.parentData.image = 'user-profile-url.png';
+          this.parentData.name = res.displayName;
+          this.parentData.provider = res.providerData[0].providerId;
+          return this.parentData;
+        }
+        else{
+          this.parentData.image = res.photoURL;
+          this.parentData.name = res.displayName;
+          this.parentData.provider = res.providerData[0].providerId;
+          return this.parentData;
+        }
+      }, err => {
+        this.router.navigate(['/login']);
+        return reject(err);
+      })
+    })
+  }   
+  
   //Logging Out
   tryLogout(){
     this.authService.doLogout()
@@ -68,7 +84,7 @@ export class HeaderComponent implements OnInit, AfterViewInit{
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.data = {dataObject: this.getData()};
+    dialogConfig.data = this.parentData;
     
     const dialogRef = this.dialog.open(HeaderDialogComponent, dialogConfig);
 
@@ -78,8 +94,6 @@ export class HeaderComponent implements OnInit, AfterViewInit{
  
   }
 
-getData(){
-  return this.userService.getCurrentUser()
-}
+
 
 }

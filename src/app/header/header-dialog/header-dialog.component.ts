@@ -16,8 +16,9 @@ import { ProfileResolver } from 'src/app/AuthenticationPackage/profile/profile.r
 export class HeaderDialogComponent implements OnInit {
   passedData;
 
-  user: FirebaseUserModel = new FirebaseUserModel();
+  
   profileForm: FormGroup;
+  CF: boolean;
 
   constructor(public userService: UserService,
               public authService: AuthService,
@@ -30,10 +31,22 @@ export class HeaderDialogComponent implements OnInit {
 
   ngOnInit() {
     
-    
-    console.log("data",this.headerData)
-    
-
+    console.log("headerData",this.headerData)
+    this.createForm(this.headerData.name)
   }
 
+
+  createForm(name) {
+    this.profileForm = this.fb.group({
+      name: [name, Validators.required ]
+    });
+    this.CF = true;
+  }
+
+  save(value){
+    this.userService.updateCurrentUser(value)
+    .then(res => {
+      console.log(res);
+    }, err => console.log(err))
+  }
 }
