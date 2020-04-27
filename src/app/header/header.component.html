@@ -34,7 +34,7 @@
     <!-- User Button! Button-->
     <button mat-button [matMenuTriggerFor]="menu" id="userButton">User Options</button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="openModal()">Name</button>
+      <button mat-menu-item (click)="openModal()">Options</button>
       <mat-divider></mat-divider>
       <button mat-menu-item  (click)=tryLogout() (click)="loggedOut()">Logout</button>
     </mat-menu>

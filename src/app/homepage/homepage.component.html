@@ -32,6 +32,7 @@
 
 
 <!----------This is going to be repeated across every component for selection what is shown--------->
+                <h4>  Campaigns You've Selected: </h4>
                 <div *ngFor="let campaign of campaignSelection | keyvalue">
                     <ng-container *ngIf="campaign.value">{{campaign.key}}</ng-container>
                 </div>

@@ -11,7 +11,10 @@ export class PlayerCardComponent implements OnInit {
   characters;
   characters2;
   isDataAvailable:boolean = false;
-  campaignSelection;
+
+  //campaign Selection variables
+  thursdayCampaign: Boolean;
+  menagerieCoast: Boolean;
   
 
   constructor(private dndDatabaseService: DndDatabaseService,
@@ -19,7 +22,7 @@ export class PlayerCardComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getCurrentUser().then(currentUser =>{this.getUserCampaigns(currentUser.uid)},
-      err => console.log(err))
+      err => console.log(err))//// This is how we get our campaign selection
 
 
 
@@ -29,7 +32,10 @@ export class PlayerCardComponent implements OnInit {
     
   }
   getUserCampaigns(userID:string){
-    this.dndDatabaseService.getUserCampaign(userID).subscribe(campaigns => {this.campaignSelection = campaigns, console.log("campaignSelection", this.campaignSelection)})
+    this.dndDatabaseService.getUserCampaign(userID).subscribe(campaigns => {this.thursdayCampaign = campaigns["thursdayCampaign"],
+                                                                            this.menagerieCoast = campaigns["menagerieCoast"] 
+                                                                            console.log("TC:",campaigns["thursdayCampaign"])
+                                                                            console.log("MC:",campaigns["menagerieCoast"])})
   }
 
   //New Card Code to try out for expanding JS cards

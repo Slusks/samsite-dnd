@@ -23,6 +23,9 @@ export class DndDatabaseService {
     return this.http.get(`${this.baseURL}/userID/`+userID+".json")
   }
 
+  updateUserCampaign(userID){
+  }
+
 
 
   //Map Services

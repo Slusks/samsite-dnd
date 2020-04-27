@@ -35,6 +35,7 @@ export class HomepageComponent implements OnInit {
     this.userService.getCurrentUser().then(currentUser =>{(this.currentUser = currentUser), console.log("currentUser",currentUser), this.getUserCampaigns(currentUser.uid)},
       err => console.log(err))
 
+
   }
 
   getUserCampaigns(userID:string){

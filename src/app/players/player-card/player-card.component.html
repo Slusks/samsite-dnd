@@ -2,7 +2,6 @@
 
   <div class="container-fluid" id="cardContainerData" style="max-height: inherit">
     <ng-template [ngIf]="isDataAvailable" style="max-height: inherit">
-      <div *ngFor="let campaign of campaignSelection | keyvalue">{{campaign.key}}: {{campaign.value}}</div>
       
                   <ng-container *ngIf="thursdayCampaign">
                         <div *ngFor="let character of characters;">
@@ -59,6 +58,7 @@
                               </div>
                         </div>
                   </ng-container>
+                  
                  <!--New Character Cards-->
                   <ng-container *ngIf="menagerieCoast">
                     <div *ngFor="let character2 of characters2;">

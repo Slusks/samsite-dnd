@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { markerData } from './markerData';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatButtonModule } from '@angular/material/button';
+import { UserService } from '../AuthenticationPackage/core/user.service';
 @Component({
   selector: 'app-map-comp',
   templateUrl: './map-comp.component.html',
@@ -19,12 +20,17 @@ export class MapCompComponent implements OnInit {
   counter:number;
   cardDescription:string;
   mousePos;
+
+  //campaign Selection variables
+  thursdayCampaign: Boolean;
+  menagerieCoast: Boolean;
   
 
   
   constructor(
     private dndDatabaseService: DndDatabaseService,
-    private http: HttpClient
+    private http: HttpClient,
+    private userService: UserService
     ){};
 
     private headers = ({'Content-Type': 'application/json'});
@@ -32,6 +38,14 @@ export class MapCompComponent implements OnInit {
   
 
 ngOnInit(){
+    //Campaign Selection:
+    this.userService.getCurrentUser().then(currentUser =>{this.getUserCampaigns(currentUser.uid)},
+    err => console.log(err))//// This is how we get our campaign selection
+
+
+
+
+
       this.counter = 1;
 
       const iconImage = new Image();
@@ -48,6 +62,14 @@ ngOnInit(){
 
       
       }
+
+   //campaign Selection:
+   getUserCampaigns(userID:string){
+    this.dndDatabaseService.getUserCampaign(userID).subscribe(campaigns => {this.thursdayCampaign = campaigns["thursdayCampaign"],
+                                                                            this.menagerieCoast = campaigns["menagerieCoast"] 
+                                                                            console.log("TC:",campaigns["thursdayCampaign"])
+                                                                            console.log("MC:",campaigns["menagerieCoast"])})
+  }   
 
 
   // Prevents the set marker function from loading a marker that already exists

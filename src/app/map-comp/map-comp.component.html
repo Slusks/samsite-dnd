@@ -1,11 +1,22 @@
 <div class="jumbotron" id="bodycontainer" style="position: relative" >
-    
-  <div class="container" id="mapContainer" width=1000>
-    <h1>Mark The Map!</h1>
+  
+  
+  <div class="container" id="mapContainer" width=1000 style="margin-bottom: 80px;">
+    <ng-container *ngIf="thursdayCampaign">
+    <h1>Campaign Maps!</h1>
     <!--Map image-->
     <img (click)="logCursorPosition($event)" id="map" src="../assets/img/dessarinValley.jpg" width="1000" height="1270">
-    <!--<canvas id="myCanvas" width="1000" height="1270" style="border:1px solid #000000;" (click)="logCursorPosition($event)"></canvas>-->
+  </ng-container>
   </div>
+  <hr class="solid">
+
+
+<ng-container *ngIf="menagerieCoast">
+  <div class="container" id=MCC>
+    <h2>Menagerie Coast Coming Soon!</h2>
+    <!--<img (click)="logCursorPosition($event)" id="map" src="../assets/pics/portZoon.jpg" width="844" height="1065">-->
+  </div>
+</ng-container>
 
 <!--form appears on marker placement-->
 <div class="form-popup" id="myForm">
