@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { markerData } from './map-comp/markerData';
+import { UserService } from './AuthenticationPackage/core/user.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +14,15 @@ export class DndDatabaseService {
 
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private userService: UserService) { }
   private headers = ({'Content-Type': 'application/json'});
+
+  //User Campaign Service
+  getUserCampaign(userID){
+    return this.http.get(`${this.baseURL}/userID/`+userID+".json")
+  }
+
 
 
   //Map Services

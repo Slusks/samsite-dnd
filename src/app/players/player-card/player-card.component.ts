@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DndDatabaseService } from 'src/app/dnd-database.service';
+import { UserService } from 'src/app/AuthenticationPackage/core/user.service';
 
 @Component({
   selector: 'app-player-card',
@@ -10,16 +11,25 @@ export class PlayerCardComponent implements OnInit {
   characters;
   characters2;
   isDataAvailable:boolean = false;
+  campaignSelection;
   
 
-  constructor(private dndDatabaseService: DndDatabaseService) { }
+  constructor(private dndDatabaseService: DndDatabaseService,
+              public userService: UserService) { }
 
   ngOnInit() {
+    this.userService.getCurrentUser().then(currentUser =>{this.getUserCampaigns(currentUser.uid)},
+      err => console.log(err))
+
+
 
    this.dndDatabaseService.getCharacters("thursdayCampaign").subscribe(characters => {this.characters = characters as playerData[]})
    this.dndDatabaseService.getCharacters("menagerieCoast").subscribe(characters2 => {(this.characters2 = characters2 as playerData[])}) 
    this.isDataAvailable = true;
     
+  }
+  getUserCampaigns(userID:string){
+    this.dndDatabaseService.getUserCampaign(userID).subscribe(campaigns => {this.campaignSelection = campaigns, console.log("campaignSelection", this.campaignSelection)})
   }
 
   //New Card Code to try out for expanding JS cards

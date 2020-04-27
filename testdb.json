@@ -220,7 +220,7 @@
       "title3c": "fas fa-bomb"
     }
   ]
-},
+  },
   "menagerieCoast": {
   "characters": [
     {
@@ -250,7 +250,7 @@
       "campaign":"Menagerie Coast",
       "index": 2,
       "name": "The Hermit II",
-      "portrait": "assets/pics/theHermit2.jpg",
+      "portrait": "assets/pics/Hermitjr.png",
       "affiliation": "None?",
       "class": "Rogue/Mastermind",
       "list1": {"Rusty Bag of Tricks": [
@@ -316,5 +316,18 @@
   ],
   "panel":[
   ]
+  },
+  "userID":{
+    "0EXKMW3qCdZ8dvxrPjTqy57BOtT2":{"menagerieCoast": true, "thursdayCampaign": true},
+    "0W6UsZJkQrhp7LRz5Ulkz9mDq373":{"menagerieCoast": true, "thursdayCampaign": true},
+    "4oPaHP8sIQgiPg8JwBagRrL21482":{"menagerieCoast": true, "thursdayCampaign": true},
+    "6RUJ0uG6iXOB45mXetO1Up69u973":{"menagerieCoast": true, "thursdayCampaign": true},
+    "7qgT4jTIq8Qj8KzU1tHKaeOjFQ62":{"menagerieCoast": true, "thursdayCampaign": true},
+    "FrttSnQ6H6ezFhjjK1b8HADa1mz2":{"menagerieCoast": true, "thursdayCampaign": true},
+    "SJWEv4RMUsOgKXriiYjDXxMXK563":{"menagerieCoast": true, "thursdayCampaign": true},
+    "lsh6MiMw8td0CMGY4fBJMF7qjId2":{"menagerieCoast": true, "thursdayCampaign": true},
+    "qRaAYU8LkySlVKYFYoJWgSM6tZy1":{"menagerieCoast": true, "thursdayCampaign": true},
+    "t8NxDJaZ7NaViK7PhoLcnKPct6M2":{"menagerieCoast": true, "thursdayCampaign": true},
+    "uaMsfavFA4QwXPmdDODvp6TvDls2":{"menagerieCoast": true, "thursdayCampaign": true}
   }
 }

@@ -48,5 +48,7 @@ export class HeaderDialogComponent implements OnInit {
     .then(res => {
       console.log(res);
     }, err => console.log(err))
-  }
+
+    }
+
 }

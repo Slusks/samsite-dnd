@@ -27,8 +27,17 @@
 <!-- Column 2-->
         <div class="col" id="col2">
             <ng-container *ngIf="this.currentUser">
-            <div>Current User: {{currentUser?.displayName}}</div>
+            <h3>Welcome {{currentUser?.displayName}}!</h3>
             </ng-container>
+
+
+<!----------This is going to be repeated across every component for selection what is shown--------->
+                <div *ngFor="let campaign of campaignSelection | keyvalue">
+                    <ng-container *ngIf="campaign.value">{{campaign.key}}</ng-container>
+                </div>
+<!----------This is going to be repeated across every component for selection what is shown--------->
+
+
             <img id ="homeImage" src="assets/pics/valley.jpg" style="width:500px;height:600px;">
             <figcaption>Photo by Jonathan Auh on Unsplash</figcaption>
         </div>
