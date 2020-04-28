@@ -23,7 +23,8 @@ export class DndDatabaseService {
     return this.http.get(`${this.baseURL}/userID/`+userID+".json")
   }
 
-  updateUserCampaign(userID){
+  updateUserCampaign(userID, campaign, value){
+    return this.http.post(`${this.baseURL}/userID/`+userID+"/"+campaign+".json", value)
   }
 
 

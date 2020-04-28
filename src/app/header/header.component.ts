@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../AuthenticationPackage/core/user.service';
 import { FirebaseUserModel } from '../AuthenticationPackage/core/user.model';
 import { HomepageComponent } from '../homepage/homepage.component';
+import { DndDatabaseService } from '../dnd-database.service';
 
 
 @Component({
@@ -18,11 +19,15 @@ import { HomepageComponent } from '../homepage/homepage.component';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, AfterViewInit{
-  parentData;
+  parentDataName;
   loading;
 //For the Profile Routes
   user: FirebaseUserModel = new FirebaseUserModel();
-  profileForm: FormGroup;
+
+  //campaign Selection variables
+  thursdayCampaign: Boolean;
+  menagerieCoast: Boolean;
+  userID;
 
   @Input() currentUser: HomepageComponent["currentUser"];
 
@@ -34,32 +39,54 @@ export class HeaderComponent implements OnInit, AfterViewInit{
               public dialog: MatDialog,
               public userService: UserService,
               private route: ActivatedRoute,
-              private fb: FormBuilder) {}
+              private fb: FormBuilder,
+              private dndDatabaseService: DndDatabaseService) {}
 
   ngOnInit(){
-    this.parentData = new FirebaseUserModel();
 
+    //Campaign Selection:
+    this.userService.getCurrentUser().then(currentUser =>{this.getUserCampaigns(currentUser.uid), this.userID = currentUser.uid},
+    err => console.log(err))//// This is how we get our campaign selection
+
+    //This is fetching the name information, amongst other things, for the user
+    this.parentDataName = new FirebaseUserModel();
     return new Promise((resolve, reject) => {
       this.userService.getCurrentUser()
       .then(res => {
         if(res.providerData[0].providerId == 'password'){
-          this.parentData.image = 'user-profile-url.png';
-          this.parentData.name = res.displayName;
-          this.parentData.provider = res.providerData[0].providerId;
-          return this.parentData;
+          this.parentDataName.image = 'user-profile-url.png';
+          this.parentDataName.name = res.displayName;
+          this.parentDataName.provider = res.providerData[0].providerId;
+          return this.parentDataName;
         }
         else{
-          this.parentData.image = res.photoURL;
-          this.parentData.name = res.displayName;
-          this.parentData.provider = res.providerData[0].providerId;
-          return this.parentData;
+          this.parentDataName.image = res.photoURL;
+          this.parentDataName.name = res.displayName;
+          this.parentDataName.provider = res.providerData[0].providerId;
+          return this.parentDataName;
         }
       }, err => {
         this.router.navigate(['/login']);
         return reject(err);
       })
     })
-  }   
+
+
+
+
+
+
+
+  } ////end OnInit
+  
+     //campaign Selection:
+     getUserCampaigns(userID:string){
+      this.dndDatabaseService.getUserCampaign(userID).subscribe(campaigns => {this.thursdayCampaign = campaigns["thursdayCampaign"],
+                                                                              this.menagerieCoast = campaigns["menagerieCoast"] 
+                                                                              console.log("TC:",campaigns["thursdayCampaign"])
+                                                                              console.log("MC:",campaigns["menagerieCoast"])})
+    }   
+
   
   //Logging Out
   tryLogout(){
@@ -84,7 +111,7 @@ export class HeaderComponent implements OnInit, AfterViewInit{
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.data = this.parentData;
+    dialogConfig.data = [this.parentDataName, {name: "thursdayCampaign", value: this.thursdayCampaign},{name: "menagerieCoast", value: this.menagerieCoast}, this.userID];
     
     const dialogRef = this.dialog.open(HeaderDialogComponent, dialogConfig);
 
