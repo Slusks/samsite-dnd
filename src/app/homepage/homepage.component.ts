@@ -39,7 +39,7 @@ export class HomepageComponent implements OnInit {
   }
 
   getUserCampaigns(userID:string){
-    this.dnddatabaseService.getUserCampaign(userID).subscribe(campaigns => {this.campaignSelection = campaigns, console.log("campaignSelection", this.campaignSelection)})
+    return this.dnddatabaseService.getUserCampaign(userID).subscribe(campaigns => {this.campaignSelection = campaigns, console.log("campaignSelection", this.campaignSelection)})
   }
 
 

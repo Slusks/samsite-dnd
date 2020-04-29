@@ -31,6 +31,7 @@ export class UserService {
   updateCurrentUser(value){
     return new Promise<any>((resolve, reject) => {
       var user = firebase.auth().currentUser;
+      console.log("UCU:", user)
       user.updateProfile({
         displayName: value.name,
         //photoURL: user.photoURL

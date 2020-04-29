@@ -40,8 +40,12 @@ export class DndDatabaseService {
 
 
   //Synopsis Services
-  getPanel(){
-    return this.http.get(`${this.baseURL}/thursdayCampaign/panel`+".json")
+  getPanel(campaign){
+    return this.http.get(`${this.baseURL}/`+`${campaign}`+"/panel.json")
+  }
+
+  addPanel(submitId, panel){
+    return this.http.put(`${this.baseURL}/thursdayCampaign/panel/`+submitId+".json", panel).subscribe((po:Response) => {console.log("po",po)})
   }
 
   deletePanel(id){
@@ -51,11 +55,11 @@ export class DndDatabaseService {
 
   //Character Services
   getCharacters(campaign){
-    return this.http.get(`${this.baseURL}/`+`${campaign}`+"/characters.json") //+".json"
+    return this.http.get(`${this.baseURL}/`+`${campaign}`+"/characters.json") 
   }
 
    //Character Services
    getCharacters2(campaign){
-    return this.http.get(`${this.baseURL}/`+`${campaign}`+"/characters.json") //+".json"
+    return this.http.get(`${this.baseURL}/`+`${campaign}`+"/characters.json") 
   }
 }

@@ -51,9 +51,8 @@ export class HeaderDialogComponent implements OnInit {
     console.log("value.name:", value.name)
     console.log("value.thursdayCampaign:", value.thursdayCampaign)
     console.log("value.menagerieCoast:", value.menagerieCoast)
-    this.userService.updateCurrentUser(value.name)
+    this.userService.updateCurrentUser(value)
     .then(res => {
-      console.log("res", res);
     }, err => console.log(err))
 
     this.dndDatabaseService.updateUserCampaign(this.headerData[3], this.headerData[1].name, value.thursdayCampaign.value)
