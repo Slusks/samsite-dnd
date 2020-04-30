@@ -20,6 +20,7 @@ export class SynopsisComponent implements OnInit {
   thursdayPanels: number;
   currentUser;
   campaignSelection;
+  currentUserAdmin:boolean = false;
 
   constructor(private http: HttpClient,
               private dndDatabaseService: DndDatabaseService,

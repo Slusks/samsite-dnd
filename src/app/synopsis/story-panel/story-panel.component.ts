@@ -26,40 +26,67 @@ export class StoryPanelComponent implements OnInit {
   configURL = "http://localhost:3000/panel";
   panelArr1=[];
   panelArr2=[];
-  panelsLoaded: boolean;
+  TCisLoaded: boolean;
+  MCisLoaded: boolean;
 
 
     /// this removes the panel which will need to be rejiggered to get passed which array it's removing
-  removePanel(id, array){
+  removePanel_tc(id){
     if (confirm("Are you sure?")) {
       let panelidString = id.toString()
       if (panelidString.length === 1){
         let submitId = "week 0"+panelidString;
-        this.dndDatabaseService.deletePanel(submitId).toPromise().then(res => {array})
+        this.dndDatabaseService.deletePanel(submitId).toPromise()
       }else if (panelidString.length === 2){
         let submitId = "week "+panelidString;
-        this.dndDatabaseService.deletePanel(submitId).toPromise().then(res => {array})
+        this.dndDatabaseService.deletePanel(submitId).toPromise()
+      }
+    }
+  }
+
+  removePanel_mc(id){
+    if (confirm("Are you sure?")) {
+      let panelidString = id.toString()
+      if (panelidString.length === 1){
+        let submitId = "week 0"+panelidString;
+        this.dndDatabaseService.deletePanel(submitId).toPromise()
+      }else if (panelidString.length === 2){
+        let submitId = "week "+panelidString;
+        this.dndDatabaseService.deletePanel(submitId).toPromise()
       }
     }
   }
 
 
   ngOnInit() {
-        console.log("campaign selection",this.synopsis.campaignSelection)
+        //console.log("campaign selection",this.synopsis.campaignSelection)
         this.createArray(this.synopsis.campaignSelection) // this is the problem child at the moment
         
   }
   //=========================================================================================
   //functions for going back and forth between panels with button
-  step = 0;
-  setStep(index:number){
-    this.step =index;
+  tc_step = 0;
+  setStep_tc(index:number){
+    this.tc_step =index;
   }
-  nextStep() {
-    this.step++;
+  nextStep_tc() {
+    this.tc_step++;
   }
-  prevStep() {
-    this.step--;
+  prevStep_tc() {
+    this.tc_step--;
+  }
+//===========================================================================================
+  //=========================================================================================
+  //functions for going back and forth between panels with button
+  mc_step = 0;
+  setStep_mc(index:number){
+    this.mc_step =index;
+  }
+  nextStep_mc() {
+    this.mc_step++;
+  }
+  prevStep_mc() {
+    this.mc_step--;
   }
 //===========================================================================================
 
@@ -72,16 +99,21 @@ createArray(campaignSelection){
         for (let prop of responseProps){
           this.panelArr1.push(response[prop])
         }
-        console.log("PA1", this.panelArr1)});
-    } else if (campaignSelection.menagerieCoast){
+        //console.log("PA1", this.panelArr1)});
+       });
+        this.TCisLoaded = true;
+    }
+     if (campaignSelection.menagerieCoast){
       this.dndDatabaseService.getPanel("menagerieCoast").subscribe(response =>{
         let responseProps = Object.keys(response);
         for (let prop of responseProps){
           this.panelArr2.push(response[prop])
         }
-        console.log("PA2", this.panelArr2)});
+        //console.log("PA2", this.panelArr2)});
+      });
+      this.MCisLoaded = true;
     }
 
-  this.panelsLoaded = true;
+
 }
 }

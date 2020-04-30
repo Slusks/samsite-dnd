@@ -32,10 +32,12 @@
 
 
 <!----------This is going to be repeated across every component for selection what is shown--------->
-                <h4>  Campaigns You've Selected: </h4>
-                <div *ngFor="let campaign of campaignSelection | keyvalue">
+                <h6>  Available Campaign Info: </h6>
+                Thursday Campaign<br>
+                Menagerie Coast
+                <!--<div *ngFor="let campaign of campaignSelection | keyvalue">
                     <ng-container *ngIf="campaign.value">{{campaign.key}}</ng-container>
-                </div>
+                </div>-->
 <!----------This is going to be repeated across every component for selection what is shown--------->
 
 
@@ -54,7 +56,7 @@
                 <div class="jumbotron" id="campaignDescription1">
                     <div class="container">
                     <h3>Thursday Campaign!</h3>
-                    <p id='fancy'>Four intrepid heros travel the wastes of some place that I dont remember the name of
+                    <p>Four intrepid heros travel the wastes of some place that I dont remember the name of
                         in order to I guess help out some people that I honestly dont know the importance of
                     </p>
                 </div>
@@ -62,7 +64,7 @@
                 <div class="jumbotron" id="campaignDescription2">
                     <div class="container">
                     <h3>Adventures from the Menagerie Coast!</h3>
-                    <p id='fancy'>Our adventure begins on the beautiful shores of Wildemount where the deep emerald stretch of the Menagerie Coast
+                    <p>Our adventure begins on the beautiful shores of Wildemount where the deep emerald stretch of the Menagerie Coast
                          meets the glimmering sapphire of the Lucidian Ocean. The war between the Dwendalian Empire and the Kryn Dynasty seems incredible 
                          distant among the bustling and thriving cities that dot this most western edge of what is quickly becoming a war-torn land. 
                          The life of trade and luxury enjoyed by the varied denizens of this veritable heart of commerce is nearly unchanged, the peace 

@@ -1,10 +1,11 @@
 
 
 
+
+<ng-container *ngIf="TCisLoaded">
 <h1>Thursday Campaign Chronicle!</h1>
-<ng-container *ngIf="panelsLoaded">
 <mat-accordion class="header-css-tag" *ngFor = "let panel of panelArr1" >
-    <mat-expansion-panel [expanded]="step === panel.id" (opened)="setStep(panel.id)" hideToggle>
+    <mat-expansion-panel [expanded]="tc_step === panel.id" (opened)="setStep_tc(panel.id)" hideToggle>
         <mat-expansion-panel-header>
             <mat-panel-title>
                 Week {{panel?.id}}
@@ -15,10 +16,34 @@
         </mat-expansion-panel-header>
                 {{panel?.content}}
             <mat-action-row>
-                <button mat-button color="success" (click)="removePanel(panel.id)">Delete</button>
-                <button mat-button color="warn" (click)="prevStep()">Previous</button>
-                <button mat-button color="primary" (click)="nextStep()">Next</button>
+                <button mat-button color="success" (click)="removePanel_tc(panel.id)">Delete</button>
+                <button mat-button color="warn" (click)="prevStep_tc()">Previous</button>
+                <button mat-button color="primary" (click)="nextStep_tc()">Next</button>
             </mat-action-row>
     </mat-expansion-panel>
 </mat-accordion>
 </ng-container>
+<br>
+<hr class="solid">
+<br>
+<ng-container *ngIf="MCisLoaded">
+    <h1>Menagerie Coast Chronicle!</h1>
+    <mat-accordion class="header-css-tag" *ngFor = "let panel of panelArr2" >
+        <mat-expansion-panel [expanded]="mc_step === panel.id" (opened)="setStep_mc(panel.id)" hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Week {{panel?.id}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{panel?.tagline}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+                    {{panel?.content}}
+                <mat-action-row>
+                    <button mat-button color="success" (click)="removePanel_mc(panel.id)">Delete</button>
+                    <button mat-button color="warn" (click)="prevStep_mc()">Previous</button>
+                    <button mat-button color="primary" (click)="nextStep_mc()">Next</button>
+                </mat-action-row>
+        </mat-expansion-panel>
+    </mat-accordion>
+    </ng-container>

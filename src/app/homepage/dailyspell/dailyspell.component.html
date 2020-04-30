@@ -4,7 +4,7 @@
         <span class="left">{{spellFacts?.name}}</span>
         <span class="right"> Level: {{spellFacts?.level}}</span>
     </h1>
-        <p id="fancy" style="margin-top: 1px;">Description: {{spellFacts?.desc}}</p>
+        <p style="margin-top: 1px;">Description: {{spellFacts?.desc}}</p>
         <h3 id="fancy">Class Availability:<span *ngFor="let class of showspellClasses"> {{class.name}}</span></h3>
 </ng-template>
 

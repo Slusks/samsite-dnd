@@ -1,22 +1,24 @@
 <div class="col-3" id="action-jumbotron">
     <div class="jumbotron">
         <div class="container">
-          <form  id="formNewPanel" name = "formNewPanel" #panelData ="ngForm"  (ngSubmit)="addNewPanel(panelData.value)">
-            <mat-form-field>
-                <input matInput maxlength="2" placeholder="ID" name="id" id="id" ngModel>
-                <mat-hint>Next ID: {{thursdayPanels}}</mat-hint>
-            </mat-form-field><br>
-            <!--<mat-form-field>
-                <textarea matInput placeholder="week" name="week" id="week" ngModel></textarea>
-            </mat-form-field><br>-->
-            <mat-form-field>
-                <textarea matInput placeholder="Tagline" name="tagline" id="tagline" ngModel></textarea>
-            </mat-form-field><br>
-            <mat-form-field>
-                <textarea matInput placeholder="Story"   name="content" id="content" ngModel ></textarea>
-            </mat-form-field><br>
-        <button mat-raised-button type="submit" value="Add Panel">More Story! <i class="fas fa-feather-alt fa-2x"></i></button>
-      </form>
+        <ng-container *ngIf="currentUserAdmin">
+                <form  id="formNewPanel" name = "formNewPanel" #panelData ="ngForm"  (ngSubmit)="addNewPanel(panelData.value)">
+                    <mat-form-field>
+                        <input matInput maxlength="2" placeholder="ID" name="id" id="id" ngModel>
+                        <mat-hint>Next ID: {{thursdayPanels}}</mat-hint>
+                    </mat-form-field><br>
+                    <mat-form-field>
+                        <textarea matInput placeholder="Tagline" name="tagline" id="tagline" ngModel></textarea>
+                    </mat-form-field><br>
+                    <mat-form-field>
+                        <textarea matInput placeholder="Story"   name="content" id="content" ngModel ></textarea>
+                    </mat-form-field><br>
+                <button mat-raised-button type="submit" value="Add Panel">More Story! <i class="fas fa-feather-alt fa-2x"></i></button>
+            </form>
+         </ng-container>
+    <ng-container *ngIf="!currentUserAdmin">
+        <h1> Welcome to the Story Page!</h1>
+    </ng-container>
       <br>
       <h3 *ngIf="isAdded">{{confirmationString}}</h3>
       </div>
