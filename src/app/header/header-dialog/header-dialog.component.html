@@ -6,12 +6,12 @@
             <div class="form-group">
                 <label>Your Display Name</label>
                 <input type="text" formControlName="name" class="form-control" required>
-                <!--<div class="checkbox">
-                <label><input type="checkbox" class="form-control" formControlName="thursdayCampaign" [ngModel]="headerData[1].value">Thursday Campaign</label>
-                </div>
-                <div class="checkbox">
-                <label><input type="checkbox" class="form-control" formControlName="menagerieCoast" [ngModel]="headerData[2].value">Menagerie Coast</label>
-              </div>-->
+                
+                <mat-checkbox class="form-control" formControlName="thursdayCampaign" [ngModel]="headerData[1].value">Thursday Campaign</mat-checkbox>
+                
+                
+                <mat-checkbox class="form-control" formControlName="menagerieCoast" [ngModel]="headerData[2].value">Menagerie Coast</mat-checkbox>
+              
               
           </div>
           </form>

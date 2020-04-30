@@ -19,14 +19,14 @@ import { HeaderDialogComponent } from './header/header-dialog/header-dialog.comp
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
-  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
+  { path: 'register', component: RegisterComponent/*, canActivate: [AuthGuard]*/ },
   { path: 'profile', component: ProfileComponent,  resolve: { data: ProfileResolver}},
 
 
 {
   path:'home',
   component: HomepageComponent,
-  resolve: {data: ProfileResolver},
+  resolve: {data: ProfileResolver} /*,
   children:[
     {path: '',
     component: HeaderComponent,
@@ -41,7 +41,7 @@ const routes: Routes = [
         resolve: { data: ProfileResolver}
         }]
       }
-      ]
+      ]*/
     },
 {
   path:'factions',

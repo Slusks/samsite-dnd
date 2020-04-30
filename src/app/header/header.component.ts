@@ -66,7 +66,12 @@ export class HeaderComponent implements OnInit, AfterViewInit{
           return this.parentDataName;
         }
       }, err => {
+        console.log(this.route.snapshot['_routerState'].url)
+        if (this.route.snapshot['_routerState'].url === '/register'){
+          this.router.navigate(['/register'])
+        } else { 
         this.router.navigate(['/login']);
+        }
         return reject(err);
       })
     })
