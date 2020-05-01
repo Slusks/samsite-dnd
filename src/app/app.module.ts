@@ -46,6 +46,7 @@ import { LoginComponent } from './AuthenticationPackage/login/login.component';
 import { DailyspellComponent } from './homepage/dailyspell/dailyspell.component';
 import { MatDialogModule } from '@angular/material';
 import { HeaderDialogComponent } from './header/header-dialog/header-dialog.component';
+import { CantripPipe } from './cantrip.pipe';
 
 
 
@@ -68,7 +69,8 @@ import { HeaderDialogComponent } from './header/header-dialog/header-dialog.comp
     RegisterComponent,
     LoginComponent,
     DailyspellComponent,
-    HeaderDialogComponent
+    HeaderDialogComponent,
+    CantripPipe
     
 
  

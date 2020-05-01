@@ -2,7 +2,7 @@
 <ng-template [ngIf]="loadView == true">
     <h1 id="fancy">
         <span class="left">{{spellFacts?.name}}</span>
-        <span class="right"> Level: {{spellFacts?.level}}</span>
+        <span class="right"> Level: {{spellFacts?.level | cantrip}}</span>
     </h1>
         <p style="margin-top: 1px;">Description: {{spellFacts?.desc}}</p>
         <h3 id="fancy">Class Availability:<span *ngFor="let class of showspellClasses"> {{class.name}}</span></h3>

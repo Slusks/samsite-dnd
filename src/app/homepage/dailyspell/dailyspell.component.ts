@@ -7,6 +7,8 @@ import { spellname} from './spellname.json';
 import { spell } from './spell.model';
 import { stringify } from 'querystring';
 
+import { CantripPipe } from 'src/app/cantrip.pipe'
+
 @Component({
   selector: 'app-dailyspell',
   templateUrl: './dailyspell.component.html',
