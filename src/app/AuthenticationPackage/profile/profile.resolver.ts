@@ -22,6 +22,8 @@ export class ProfileResolver implements Resolve<FirebaseUserModel> {
           user.image = 'user-profile-url.png';
           user.name = res.displayName;
           user.provider = res.providerData[0].providerId;
+          user.thursdayCampaign = true;
+          user.menagerieCoast = false;
           return resolve(user);
         }
         else{

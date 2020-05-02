@@ -32,21 +32,23 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {  
     this.route.data.subscribe(routeData => {
-      let data = routeData['data']; //this is where our problem is, we're not getting the data
+      let data = routeData['data'];
       console.log(data)
       if (data) {
         this.user = data;
         console.log("user",this.user)
-        this.createForm(this.user.name);
+        this.createForm(this.user.name, this.user.thursdayCampaign, this.user.menagerieCoast);
         //console.log("grabbed user data");
       }
       //else {console.log("didn't grab data")}
     })
   }
 
-  createForm(name) {
+  createForm(name, thursdayCampaign, menagerieCoast) {
     this.profileForm = this.fb.group({
-      name: [name, Validators.required ]
+      name: [name, Validators.required ],
+      thursdayCampaign: [thursdayCampaign],
+      menagerieCoast: [menagerieCoast]
     });
   }
 

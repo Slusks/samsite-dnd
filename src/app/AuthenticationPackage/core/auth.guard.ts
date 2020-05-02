@@ -12,6 +12,7 @@ constructor (
   private router: Router
 ) {}
 
+//gets current user and then routes to home page.
 canActivate(): Promise<any>{
   return new Promise((resolve, reject) => {
     this.userService.getCurrentUser()

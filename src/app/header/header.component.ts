@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit, AfterViewInit{
  
 
   constructor(private auth: AuthGuard,
-              private authService: AuthService,
+              public authService: AuthService,
               private router: Router,
               public dialog: MatDialog,
               public userService: UserService,
@@ -47,6 +47,12 @@ export class HeaderComponent implements OnInit, AfterViewInit{
     //Campaign Selection:
     this.userService.getCurrentUser().then(currentUser =>{this.getUserCampaigns(currentUser.uid), this.userID = currentUser.uid},
     err => console.log(err))//// This is how we get our campaign selection
+
+
+
+
+
+
 
     //This is fetching the name information, amongst other things, for the user
     this.parentDataName = new FirebaseUserModel();

@@ -12,7 +12,10 @@
       </span>
 
     <span class="example-spacer"></span><!-- Navbar Spacer-->
-
+    <!-- This is using the updated user service which seems to work-->
+      <div *ngIf="authService.user$ | async as user;">
+        {{user.displayName}}
+      </div>
 
     <span class="example-spacer"></span> <!-- Navbar Spacer-->
     <!-- User Button! Button-->

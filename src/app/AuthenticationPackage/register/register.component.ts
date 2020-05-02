@@ -31,7 +31,7 @@ export class RegisterComponent{
   googleLogin(){
     this.authService.doGoogleAuth()
     .then(res =>{
-      this.router.navigate(['/profile']);
+      this.router.navigate(['/home']);
     }, err => console.log(err)
     )
   }
@@ -41,7 +41,7 @@ export class RegisterComponent{
     .then(res => {
     console.log(res);
     this.errorMessage = "";
-    this.successMessage = "Your account has been created";
+    this.successMessage = "Your account has been created, click the header to enter!";
     }, err => {
     console.log(err);
     this.errorMessage = err.message;
