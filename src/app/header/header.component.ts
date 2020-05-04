@@ -72,7 +72,6 @@ export class HeaderComponent implements OnInit, AfterViewInit{
           return this.parentDataName;
         }
       }, err => {
-        console.log(this.route.snapshot['_routerState'].url)
         if (this.route.snapshot['_routerState'].url === '/register'){
           this.router.navigate(['/register'])
         } else { 
@@ -94,8 +93,7 @@ export class HeaderComponent implements OnInit, AfterViewInit{
      getUserCampaigns(userID:string){
       this.dndDatabaseService.getUserCampaign(userID).subscribe(campaigns => {this.thursdayCampaign = campaigns["thursdayCampaign"],
                                                                               this.menagerieCoast = campaigns["menagerieCoast"] 
-                                                                              console.log("TC:",campaigns["thursdayCampaign"])
-                                                                              console.log("MC:",campaigns["menagerieCoast"])})
+                                                                              })
     }   
 
   
@@ -106,13 +104,13 @@ export class HeaderComponent implements OnInit, AfterViewInit{
       this.router.navigate(['/login']);
     })
   }
-//Confirming that you logged out
+/*Confirming that you logged out
   loggedOut(){
     alert("Successfully Logged Out")
     console.log("Logged Out")
     this.router.navigate(["/login"])
   }
-
+*/
   ngAfterViewInit(){
     this.loading = false;
   }
@@ -122,7 +120,9 @@ export class HeaderComponent implements OnInit, AfterViewInit{
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.data = [this.parentDataName, {name: "thursdayCampaign", value: this.thursdayCampaign},{name: "menagerieCoast", value: this.menagerieCoast}, this.userID];
+
+    dialogConfig.data = this.authService.user$.subscribe(res => { res })
+    //dialogConfig.data = [this.parentDataName, {name: "thursdayCampaign", value: this.thursdayCampaign},{name: "menagerieCoast", value: this.menagerieCoast}, this.userID];
     
     const dialogRef = this.dialog.open(HeaderDialogComponent, dialogConfig);
 

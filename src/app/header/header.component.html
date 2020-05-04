@@ -14,7 +14,7 @@
     <span class="example-spacer"></span><!-- Navbar Spacer-->
     <!-- This is using the updated user service which seems to work-->
       <div *ngIf="authService.user$ | async as user;">
-        {{user.displayName}}
+        {{user.displayName}}, {{user.role}}, {{user.thursdayCampaign}}, {{user.menagerieCoast}}
       </div>
 
     <span class="example-spacer"></span> <!-- Navbar Spacer-->
@@ -23,7 +23,7 @@
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="openModal()">Options</button>
       <mat-divider></mat-divider>
-      <button mat-menu-item  (click)=tryLogout() (click)="loggedOut()">Logout</button>
+      <button mat-menu-item  (click)=authService.signOut() >Logout</button><!--(click)="loggedOut()"-->
     </mat-menu>
 
     </mat-toolbar>

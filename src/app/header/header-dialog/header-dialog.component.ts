@@ -31,8 +31,7 @@ export class HeaderDialogComponent implements OnInit {
    }
 
   ngOnInit() {
-    
-    console.log("headerData",this.headerData)
+    console.log("header Data", this.headerData)
     this.createForm(this.headerData)
   }
 
@@ -44,13 +43,9 @@ export class HeaderDialogComponent implements OnInit {
       menagerieCoast:[data[2]]
     });
     this.CF = true;
-    console.log("profileForm", this.profileForm)
   }
 
   save(value){
-    console.log("value.name:", value.name)
-    console.log("value.thursdayCampaign:", value.thursdayCampaign)
-    console.log("value.menagerieCoast:", value.menagerieCoast)
     this.userService.updateCurrentUser(value)
     .then(res => {
     }, err => console.log(err))

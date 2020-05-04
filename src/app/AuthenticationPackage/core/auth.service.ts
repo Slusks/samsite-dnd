@@ -9,10 +9,11 @@ import {
 
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { User } from './user.model';
+import { User } from './user1.model';
 
 import * as firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
+
 
 //https://github.com/fireship-io/55-angularfire-google-auth/blob/master/src/app/services/auth.service.ts
 
@@ -21,7 +22,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class AuthService {
 
-  user$: Observable<any>;
+  user$: Observable<User>;
 
   constructor(private afAuth: AngularFireAuth,
               private afs: AngularFirestore,
@@ -30,7 +31,7 @@ export class AuthService {
         this.user$ = this.afAuth.authState.pipe(
           switchMap(user => {
             if (user){
-              return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+              return this.afs.doc<User>(`/users/${user.uid}`).valueChanges();
             } else {
                 return of(null)
             }
@@ -41,8 +42,7 @@ export class AuthService {
   private updateUserData(user){
     //sets user data to firestore on login
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`)
-
-    const data = {
+    const data: User = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
@@ -50,7 +50,8 @@ export class AuthService {
       thursdayCampaign: user.thursdayCampaign,
       menagerieCoast: user.menagerieCoast
     }
-    return userRef.set(data, { merge: true})
+
+     userRef.set(data, { merge: true})
   }
 
   /*  doLogin(value){
@@ -60,11 +61,13 @@ export class AuthService {
         resolve(res);
       }, err => reject(err))
     })
-  }*/
+  }
+   this.router.navigate['/home']*/
   async emailSignin(value){
-    const provider = new firebase.auth.EmailAuthProvider();
+    //const provider = new auth.EmailAuthProvider();
     const credential = await this.afAuth.signInWithEmailAndPassword(value.email, value.password)
-    return this.updateUserData(credential.user)
+    return this.updateUserData(credential.user), 
+    this.router.navigate(['/home'])
   }
 
 
@@ -76,7 +79,18 @@ export class AuthService {
 
   async signOut(){
     await this.afAuth.signOut();
-    return this.router.navigate(['/login']) // the example uses the empty / here but i'm routing to login directly for memory sake
+    alert("Successfully Logged Out")
+    console.log("Logged Out")
+    return this.router.navigate(['/']) // the example uses the empty / here but i'm routing to login directly for memory sake
+  }
+
+  registerUser(value){
+    return firebase.auth().createUserWithEmailAndPassword(value.email, value.password).then(res =>{
+      alert("User Registered!"), console.log(res), this.router.navigate['/home'];
+    }).catch(error => {
+        console.log("something went wrong", error.message)
+    })
+
   }
 
   
