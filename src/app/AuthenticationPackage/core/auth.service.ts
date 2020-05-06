@@ -27,6 +27,7 @@ export class AuthService {
   constructor(private afAuth: AngularFireAuth,
               private afs: AngularFirestore,
               private router: Router) {
+
         //This is how we're getting into the firestoreDB        
         this.user$ = this.afAuth.authState.pipe(
           switchMap(user => {
@@ -39,42 +40,39 @@ export class AuthService {
         )
               } //end constructor
 
-  private updateUserData(user){
+  public updateUserData(user){
     //sets user data to firestore on login
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`)
     const data: User = {
       uid: user.uid,
-      email: user.email,
-      displayName: user.displayName,
-      role: user.role,
-      thursdayCampaign: user.thursdayCampaign,
-      menagerieCoast: user.menagerieCoast
+      email: user.email || "Default",
+      displayName: user.displayName || "Default",
+      role: user.role||"guest",
+      thursdayCampaign: user.thursdayCampaign || true,
+      menagerieCoast: user.menagerieCoast || true
     }
-
+    console.log("data", data)
      userRef.set(data, { merge: true})
   }
 
-  /*  doLogin(value){
-    return new Promise<any>((resolve, reject) => {
-      firebase.auth().signInWithEmailAndPassword(value.email, value.password)
-      .then(res => {
-        resolve(res);
-      }, err => reject(err))
-    })
-  }
-   this.router.navigate['/home']*/
+
   async emailSignin(value){
-    //const provider = new auth.EmailAuthProvider();
     const credential = await this.afAuth.signInWithEmailAndPassword(value.email, value.password)
-    return this.updateUserData(credential.user), 
+    console.log("credential", credential)
+    //return this.updateUserData(credential.user), 
     this.router.navigate(['/home'])
   }
 
 
   async googleSignin(){
     const provider = new auth.GoogleAuthProvider();
-    const credential = await this.afAuth.signInWithPopup(provider);
-    return this.updateUserData(credential.user)
+    const credential = await this.afAuth.signInWithPopup(provider).then(res => {
+      this.router.navigate(['/home']);
+    }, err => {
+      alert('failed Sign In')
+    });
+    //return this.updateUserData(credential.user)
+    
   }
 
   async signOut(){
@@ -87,6 +85,7 @@ export class AuthService {
   registerUser(value){
     return firebase.auth().createUserWithEmailAndPassword(value.email, value.password).then(res =>{
       alert("User Registered!"), console.log(res), this.router.navigate['/home'];
+      this.updateUserData(res.user.uid)
     }).catch(error => {
         console.log("something went wrong", error.message)
     })
@@ -135,8 +134,8 @@ export class AuthService {
       }, err => reject(err))
     })
   }
-
-  // Old Login, this I think is going to get replaced with a similar app to googleSignin
+/*
+  // Old Login, this I think is going to get replaced with async emailSignIn
   doLogin(value){
     return new Promise<any>((resolve, reject) => {
       firebase.auth().signInWithEmailAndPassword(value.email, value.password)
@@ -156,7 +155,6 @@ export class AuthService {
         reject();
       }
     });
-  }
+  }*/
   ////////////////////////////////////////////////////////////
-
 }

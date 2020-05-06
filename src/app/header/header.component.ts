@@ -29,6 +29,9 @@ export class HeaderComponent implements OnInit, AfterViewInit{
   menagerieCoast: Boolean;
   userID;
 
+  signedInUser;
+ 
+
   @Input() currentUser: HomepageComponent["currentUser"];
 
  
@@ -120,8 +123,8 @@ export class HeaderComponent implements OnInit, AfterViewInit{
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-
-    dialogConfig.data = this.authService.user$.subscribe(res => { res })
+    
+    dialogConfig.data = this.authService.user$
     //dialogConfig.data = [this.parentDataName, {name: "thursdayCampaign", value: this.thursdayCampaign},{name: "menagerieCoast", value: this.menagerieCoast}, this.userID];
     
     const dialogRef = this.dialog.open(HeaderDialogComponent, dialogConfig);

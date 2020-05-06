@@ -33,8 +33,15 @@
 
 <!----------This is going to be repeated across every component for selection what is shown--------->
                 <h6>  Available Campaign Info: </h6>
-                Thursday Campaign<br>
-                Menagerie Coast
+                <div *ngIf="authService.user$ | async as user;">
+                    <div *ngIf="user.thursdayCampaign">
+                        Thursdy Campaign
+                    </div>
+                    <div *ngIf="user.menagerieCoast">
+                        Menagerie Coast
+                    </div>
+                  </div>
+
                 <!--<div *ngFor="let campaign of campaignSelection | keyvalue">
                     <ng-container *ngIf="campaign.value">{{campaign.key}}</ng-container>
                 </div>-->
@@ -54,15 +61,20 @@
 <!-- Column 3-->
         <div class="col" id="col3">
             <div class="container text-center">
+                <div *ngIf="authService.user$ | async as user;">
                 <h2>Campaign Info</h2>
+            <ng-container *ngIf="user.thursdayCampaign">
                 <div class="jumbotron" id="campaignDescription1">
                     <div class="container">
+            
                     <h3>Thursday Campaign!</h3>
                     <p>Four intrepid heros travel the wastes of some place that I dont remember the name of
                         in order to I guess help out some people that I honestly dont know the importance of
                     </p>
                 </div>
                 </div>
+            </ng-container>
+            <ng-container *ngIf="user.menagerieCoast">
                 <div class="jumbotron" id="campaignDescription2">
                     <div class="container">
                     <h3>Adventures from the Menagerie Coast!</h3>
@@ -82,8 +94,9 @@
                     </p>
                 </div>
                 </div>
+            </ng-container>
             </div>
-            
+        </div>
         </div>
         <!--===================-->
   
