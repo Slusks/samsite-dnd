@@ -8,6 +8,7 @@ import { FirebaseUserModel } from 'src/app/AuthenticationPackage/core/user.model
 import { Resolve } from '@angular/router';
 import { ProfileResolver } from 'src/app/AuthenticationPackage/profile/profile.resolver'
 import { DndDatabaseService } from 'src/app/dnd-database.service';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-header-dialog',
@@ -20,6 +21,8 @@ export class HeaderDialogComponent implements OnInit {
   profileForm: FormGroup;
   CF: boolean;
 
+  
+
   constructor(public userService: UserService,
               public authService: AuthService,
               private route: ActivatedRoute,
@@ -31,27 +34,33 @@ export class HeaderDialogComponent implements OnInit {
    }
 
   ngOnInit() {
-    console.log("header Data", this.headerData)
-    this.createForm(this.headerData)
+    //this.createForm(this.headerData)
+    //console.log("headerData", this.headerData)
+    this.authService.user$.subscribe(response =>{
+      this.createForm(response)
+      //console.log("response", response)
+    })
+
   }
 
 
   createForm(data) {
     this.profileForm = this.fb.group({
-      name: [data[0].name, Validators.required ],
-      thursdayCampaign:[data[1]],
-      menagerieCoast:[data[2]]
+      name: [data.displayName, Validators.required ],
+      thursdayCampaign:[data.thursdayCampaign],
+      menagerieCoast:[data.menagerieCoast],
+      uid: [data.uid],
+      email: [data.email],
+      role: [data.role]
     });
     this.CF = true;
   }
 
   save(value){
-    this.userService.updateCurrentUser(value)
-    .then(res => {
-    }, err => console.log(err))
+    this.userService.updateUserData(value)
 
-    this.dndDatabaseService.updateUserCampaign(this.headerData[3], this.headerData[1].name, value.thursdayCampaign.value)
-    this.dndDatabaseService.updateUserCampaign(this.headerData[3], this.headerData[2].name, value.menagerieCoast.value)
+    //this.dndDatabaseService.updateUserCampaign(this.headerData[3], this.headerData[1].name, value.thursdayCampaign.value)
+    //this.dndDatabaseService.updateUserCampaign(this.headerData[3], this.headerData[2].name, value.menagerieCoast.value)
 
   
 

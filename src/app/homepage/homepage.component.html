@@ -25,15 +25,15 @@
         </div>
 <!--==================-->
 <!-- Column 2-->
-        <div class="col" id="col2">
-            <ng-container *ngIf="this.currentUser">
-            <h3>Welcome {{currentUser?.displayName}}!</h3>
-            </ng-container>
+        <div *ngIf="authService.user$ | async as user;" class="col" id="col2">
+            
+            <h3>Welcome {{user.displayName}}!</h3>
+            
 
 
 <!----------Displaying some user specific data accessed from Firestore--------->
                 <h6>  Available Campaign Info: </h6>
-                <div *ngIf="authService.user$ | async as user;">
+                <div >
                     <div *ngIf="user.thursdayCampaign">
                         Thursdy Campaign
                     </div>

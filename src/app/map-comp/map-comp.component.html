@@ -1,8 +1,9 @@
-<div class="jumbotron" id="bodycontainer" style="position: relative" >
+<div  *ngIf="authService.user$ | async as user;" class="jumbotron" id="bodycontainer" style="position: relative" >
   
   
   <div class="container" id="mapContainer" width=1000 style="margin-bottom: 80px;">
-    <ng-container *ngIf="thursdayCampaign">
+    
+    <ng-container *ngIf="user.thursdayCampaign === true">
     <h1>Campaign Maps!</h1>
     <!--Map image-->
     <img (click)="logCursorPosition($event)" id="map" src="../assets/img/dessarinValley.jpg" width="1000" height="1270">
@@ -11,10 +12,10 @@
   <hr class="solid">
 
 
-<ng-container *ngIf="menagerieCoast">
+<ng-container *ngIf="user.menagerieCoast === true">
   <div class="container" id=MCC>
     <h2>Menagerie Coast Coming Soon!</h2>
-    <!--<img (click)="logCursorPosition($event)" id="map" src="../assets/pics/portZoon.jpg" width="844" height="1065">-->
+    <img (click)="logCursorPosition($event)" id="map" src="../assets/pics/portZoon.jpg" width="844" height="1065">
   </div>
 </ng-container>
 

@@ -5,6 +5,8 @@ import { DndDatabaseService } from 'src/app/dnd-database.service';
 import { UserService } from 'src/app/AuthenticationPackage/core/user.service';
 import { SynopsisComponent } from '../synopsis.component';
 
+import { AuthService } from 'src/app/AuthenticationPackage/core/auth.service';
+
 
 @Component({
   selector: 'app-story-panel',
@@ -18,7 +20,9 @@ export class StoryPanelComponent implements OnInit {
 
   constructor(private dndDatabaseService: DndDatabaseService,
               private userService: UserService,
-              private synopsis:SynopsisComponent ) { }
+              public authService: AuthService,
+              private synopsis:SynopsisComponent,
+              ) { }
 
   id:number;
   private headers = ({'Content-Type': 'application/json'});

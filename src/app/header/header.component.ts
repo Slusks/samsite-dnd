@@ -63,17 +63,15 @@ export class HeaderComponent implements OnInit, AfterViewInit{
       this.userService.getCurrentUser()
       .then(res => {
         if(res.providerData[0].providerId == 'password'){
-          this.parentDataName.image = 'user-profile-url.png';
           this.parentDataName.name = res.displayName;
           this.parentDataName.provider = res.providerData[0].providerId;
           return this.parentDataName;
         }
-        else{
-          this.parentDataName.image = res.photoURL;
+        /*else{
           this.parentDataName.name = res.displayName;
           this.parentDataName.provider = res.providerData[0].providerId;
           return this.parentDataName;
-        }
+        }*/
       }, err => {
         if (this.route.snapshot['_routerState'].url === '/register'){
           this.router.navigate(['/register'])
@@ -120,12 +118,11 @@ export class HeaderComponent implements OnInit, AfterViewInit{
  // Open Dialog box for the user Options
   openModal(){
     const dialogConfig = new MatDialogConfig();
-
+    
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     
-    dialogConfig.data = this.authService.user$
-    //dialogConfig.data = [this.parentDataName, {name: "thursdayCampaign", value: this.thursdayCampaign},{name: "menagerieCoast", value: this.menagerieCoast}, this.userID];
+    dialogConfig.data = [this.parentDataName];
     
     const dialogRef = this.dialog.open(HeaderDialogComponent, dialogConfig);
 

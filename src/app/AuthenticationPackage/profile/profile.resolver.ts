@@ -19,7 +19,7 @@ export class ProfileResolver implements Resolve<FirebaseUserModel> {
       this.userService.getCurrentUser()
       .then(res => {
         if(res.providerData[0].providerId == 'password'){
-          user.image = 'user-profile-url.png';
+          
           user.name = res.displayName;
           user.provider = res.providerData[0].providerId;
           user.thursdayCampaign = true;
@@ -27,7 +27,7 @@ export class ProfileResolver implements Resolve<FirebaseUserModel> {
           return resolve(user);
         }
         else{
-          user.image = res.photoURL;
+          
           user.name = res.displayName;
           user.provider = res.providerData[0].providerId;
           return resolve(user);

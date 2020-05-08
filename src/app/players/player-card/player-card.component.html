@@ -1,9 +1,9 @@
 <h1> Player Cards! </h1>
 
   <div class="container-fluid" id="cardContainerData" style="max-height: inherit">
-    <ng-template [ngIf]="isDataAvailable" style="max-height: inherit">
+    <div *ngIf="authService.user$ | async as user;">
       
-                  <ng-container *ngIf="thursdayCampaign">
+                  <ng-container *ngIf="user.thursdayCampaign === true">
                         <div *ngFor="let character of characters;">
                               <div class="card">
                                 <div class="additional">
@@ -60,7 +60,7 @@
                   </ng-container>
                   
                  <!--New Character Cards-->
-                  <ng-container *ngIf="menagerieCoast">
+                  <ng-container *ngIf="user.menagerieCoast === true">
                     <div *ngFor="let character2 of characters2;">
                       <div class="card">
 
@@ -130,8 +130,8 @@
                     </div>
                   </ng-container>
 
-
-    </ng-template>
+    </div>
+    
   
 </div>
 

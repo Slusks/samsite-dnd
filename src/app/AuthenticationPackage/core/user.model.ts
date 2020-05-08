@@ -1,6 +1,5 @@
 
 export class FirebaseUserModel {
-  image: string;
   name: string;
   provider: string;
   role: string;
@@ -8,7 +7,6 @@ export class FirebaseUserModel {
   menagerieCoast: Boolean
 
   constructor(){
-    this.image = "";
     this.name = "";
     this.provider = "";
     this.role= "";

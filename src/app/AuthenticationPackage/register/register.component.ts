@@ -19,7 +19,7 @@ export class RegisterComponent{
   constructor(  public authService: AuthService,
                 private router: Router,
                 private fb: FormBuilder,
-                private userService: UserService
+                public userService: UserService
               ) {this.createForm();
                 }
 
@@ -31,20 +31,13 @@ export class RegisterComponent{
   }
 
 
-  googleLogin(){
-    this.authService.googleSignin()
-    .then(res =>{
-      this.router.navigate(['/home']);
-    }, err => console.log(err)
-    )
-  }
 
 
 // new register user function
   registerUser(value){
     return firebase.auth().createUserWithEmailAndPassword(value.email, value.password).then(res =>{
       alert("User Registered!"), console.log(res), this.router.navigate['/home'];
-      this.userService.updateUserData(res.user.uid)
+      this.userService.registerUser(res.user.uid)
     }).catch(error => {
         console.log("something went wrong", error.message)
     })

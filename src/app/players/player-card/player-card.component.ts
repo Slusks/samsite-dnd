@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DndDatabaseService } from 'src/app/dnd-database.service';
 import { UserService } from 'src/app/AuthenticationPackage/core/user.service';
+import { AuthService } from 'src/app/AuthenticationPackage/core/auth.service';
 
 @Component({
   selector: 'app-player-card',
@@ -18,12 +19,18 @@ export class PlayerCardComponent implements OnInit {
   
 
   constructor(private dndDatabaseService: DndDatabaseService,
-              public userService: UserService) { }
+              public userService: UserService,
+              public authService: AuthService) { }
 
   ngOnInit() {
-    this.userService.getCurrentUser().then(currentUser =>{this.getUserCampaigns(currentUser.uid)},
-      err => console.log(err))//// This is how we get our campaign selection
 
+  
+
+
+
+    /*this.userService.getCurrentUser().then(currentUser =>{this.getUserCampaigns(currentUser.uid)},
+      err => console.log(err))//// This is how we get our campaign selection
+*/
 
 
    this.dndDatabaseService.getCharacters("thursdayCampaign").subscribe(characters => {this.characters = characters as playerData[]})
@@ -31,15 +38,18 @@ export class PlayerCardComponent implements OnInit {
    this.isDataAvailable = true;
     
   }
+
+  /*
   getUserCampaigns(userID:string){
     this.dndDatabaseService.getUserCampaign(userID).subscribe(campaigns => {this.thursdayCampaign = campaigns["thursdayCampaign"],
                                                                             this.menagerieCoast = campaigns["menagerieCoast"] 
                                                                             console.log("TC:",campaigns["thursdayCampaign"])
                                                                             console.log("MC:",campaigns["menagerieCoast"])})
-  }
+                                                                            
+  }*/
 
   //New Card Code to try out for expanding JS cards
-  //
+  
 
   // Code By Webdevtrick (https://webdevtrick.com)
 

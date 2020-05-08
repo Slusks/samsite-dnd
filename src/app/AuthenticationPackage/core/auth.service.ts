@@ -27,8 +27,7 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth,
               private afs: AngularFirestore,
-              private router: Router,
-              private userService: UserService) {
+              private router: Router) {
 
         //This is how we're getting into the firestoreDB        
         this.user$ = this.afAuth.authState.pipe(

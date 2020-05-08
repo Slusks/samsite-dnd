@@ -53,7 +53,8 @@ export class ProfileComponent implements OnInit {
   }
 
   save(value){
-    this.userService.updateCurrentUser(value)
+    this.userService.updateUserData(value) }
+    /*this.userService.updateCurrentUser(value)
     .then(res => {
       console.log(res);
     }, err => console.log(err))
@@ -66,5 +67,5 @@ export class ProfileComponent implements OnInit {
     }, (error) => {
       console.log("Logout error", error);
     });
-  }
+  }*/
 }

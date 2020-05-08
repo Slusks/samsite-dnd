@@ -1,8 +1,8 @@
 
 
+<div  *ngIf="authService.user$ | async as user;">
 
-
-<ng-container *ngIf="TCisLoaded">
+<ng-container *ngIf="TCisLoaded && user.thursdayCampaign === true">
 <h1>Thursday Campaign Chronicle!</h1>
 <mat-accordion class="header-css-tag" *ngFor = "let panel of panelArr1" >
     <mat-expansion-panel [expanded]="tc_step === panel.id" (opened)="setStep_tc(panel.id)" hideToggle>
@@ -26,7 +26,7 @@
 <br>
 <hr class="solid">
 <br>
-<ng-container *ngIf="MCisLoaded">
+<ng-container *ngIf="MCisLoaded && user.menagerieCoast === true">
     <h1>Menagerie Coast Chronicle!</h1>
     <mat-accordion class="header-css-tag" *ngFor = "let panel of panelArr2" >
         <mat-expansion-panel [expanded]="mc_step === panel.id" (opened)="setStep_mc(panel.id)" hideToggle>
@@ -47,3 +47,4 @@
         </mat-expansion-panel>
     </mat-accordion>
     </ng-container>
+</div>

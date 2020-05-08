@@ -5,6 +5,7 @@ import { markerData } from './markerData';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatButtonModule } from '@angular/material/button';
 import { UserService } from '../AuthenticationPackage/core/user.service';
+import { AuthService } from '../AuthenticationPackage/core/auth.service';
 @Component({
   selector: 'app-map-comp',
   templateUrl: './map-comp.component.html',
@@ -30,7 +31,8 @@ export class MapCompComponent implements OnInit {
   constructor(
     private dndDatabaseService: DndDatabaseService,
     private http: HttpClient,
-    private userService: UserService
+    public userService: UserService,
+    public authService: AuthService
     ){};
 
     private headers = ({'Content-Type': 'application/json'});
@@ -39,8 +41,8 @@ export class MapCompComponent implements OnInit {
 
 ngOnInit(){
     //Campaign Selection:
-    this.userService.getCurrentUser().then(currentUser =>{this.getUserCampaigns(currentUser.uid)},
-    err => console.log(err))//// This is how we get our campaign selection
+    /*this.userService.getCurrentUser().then(currentUser =>{this.getUserCampaigns(currentUser.uid)},
+    err => console.log(err))//// This is how we get our campaign selection*/
 
 
 
@@ -64,12 +66,12 @@ ngOnInit(){
       }
 
    //campaign Selection:
-   getUserCampaigns(userID:string){
+   /*getUserCampaigns(userID:string){
     this.dndDatabaseService.getUserCampaign(userID).subscribe(campaigns => {this.thursdayCampaign = campaigns["thursdayCampaign"],
                                                                             this.menagerieCoast = campaigns["menagerieCoast"] 
                                                                             console.log("TC:",campaigns["thursdayCampaign"])
                                                                             console.log("MC:",campaigns["menagerieCoast"])})
-  }   
+  }   */
 
 
   // Prevents the set marker function from loading a marker that already exists
@@ -82,7 +84,7 @@ ngOnInit(){
 }
 
   // Creates map markers from db with attributes
-   setMarker(post){
+   async setMarker(post){
     if (post.id > 0){
       var x = post.xPos;
       var y = post.yPos;
