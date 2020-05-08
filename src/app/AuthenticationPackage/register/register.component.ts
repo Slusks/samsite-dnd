@@ -2,6 +2,8 @@ import { Component} from '@angular/core';
 import { AuthService } from '../core/auth.service'
 import { Router, Params } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../core/user.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +18,8 @@ export class RegisterComponent{
 
   constructor(  public authService: AuthService,
                 private router: Router,
-                private fb: FormBuilder
+                private fb: FormBuilder,
+                private userService: UserService
               ) {this.createForm();
                 }
 
@@ -29,13 +32,25 @@ export class RegisterComponent{
 
 
   googleLogin(){
-    this.authService.doGoogleAuth()
+    this.authService.googleSignin()
     .then(res =>{
       this.router.navigate(['/home']);
     }, err => console.log(err)
     )
   }
 
+
+// new register user function
+  registerUser(value){
+    return firebase.auth().createUserWithEmailAndPassword(value.email, value.password).then(res =>{
+      alert("User Registered!"), console.log(res), this.router.navigate['/home'];
+      this.userService.updateUserData(res.user.uid)
+    }).catch(error => {
+        console.log("something went wrong", error.message)
+    })
+
+  }
+// old register user function
   tryRegister(value){
     this.authService.doRegister(value)
     .then(res => {

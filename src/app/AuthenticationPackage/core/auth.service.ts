@@ -13,6 +13,7 @@ import { User } from './user1.model';
 
 import * as firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { UserService } from './user.service';
 
 
 //https://github.com/fireship-io/55-angularfire-google-auth/blob/master/src/app/services/auth.service.ts
@@ -26,7 +27,8 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth,
               private afs: AngularFirestore,
-              private router: Router) {
+              private router: Router,
+              private userService: UserService) {
 
         //This is how we're getting into the firestoreDB        
         this.user$ = this.afAuth.authState.pipe(
@@ -40,26 +42,12 @@ export class AuthService {
         )
               } //end constructor
 
-  public updateUserData(user){
-    //sets user data to firestore on login
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`)
-    const data: User = {
-      uid: user.uid,
-      email: user.email || "Default",
-      displayName: user.displayName || "Default",
-      role: user.role||"guest",
-      thursdayCampaign: user.thursdayCampaign || true,
-      menagerieCoast: user.menagerieCoast || true
-    }
-    console.log("data", data)
-     userRef.set(data, { merge: true})
-  }
+
 
 
   async emailSignin(value){
     const credential = await this.afAuth.signInWithEmailAndPassword(value.email, value.password)
     console.log("credential", credential)
-    //return this.updateUserData(credential.user), 
     this.router.navigate(['/home'])
   }
 
@@ -82,49 +70,10 @@ export class AuthService {
     return this.router.navigate(['/']) // the example uses the empty / here but i'm routing to login directly for memory sake
   }
 
-  registerUser(value){
-    return firebase.auth().createUserWithEmailAndPassword(value.email, value.password).then(res =>{
-      alert("User Registered!"), console.log(res), this.router.navigate['/home'];
-      this.updateUserData(res.user.uid)
-    }).catch(error => {
-        console.log("something went wrong", error.message)
-    })
 
-  }
 
   
 
-  //Old Google Auth, will look to replace with above
-  doGoogleAuth(){
-    return new Promise<any>((resolve, reject) => {
-        let provider = new firebase.auth.GoogleAuthProvider();
-        provider.addScope('profile');
-        provider.addScope('email');
-        this.afAuth
-        .signInWithPopup(provider)
-        .then(res => {
-          resolve(res);
-        }, err => {
-          console.log(err);
-          reject(err);
-        })
-      })
-  }
-// Old GithubAuth, not sure if we want to keep or get rid of
-  doGitHubAuth(){
-    return new Promise<any>((resolve, reject) => {
-      let provider = new firebase.auth.GithubAuthProvider();
-      provider.addScope('repo');
-      this.afAuth
-      .signInWithPopup(provider)
-      .then(res => {
-        resolve(res);
-      }, err => {
-        console.log(err);
-        reject(err);
-      })
-    })
-   }
 // Old Register, not sure what to do with this yet
    doRegister(value){
     return new Promise<any>((resolve, reject) => {
@@ -155,6 +104,23 @@ export class AuthService {
         reject();
       }
     });
+  }
+  
+    //Old Google Auth, will look to replace with above
+  doGoogleAuth(){
+    return new Promise<any>((resolve, reject) => {
+        let provider = new firebase.auth.GoogleAuthProvider();
+        provider.addScope('profile');
+        provider.addScope('email');
+        this.afAuth
+        .signInWithPopup(provider)
+        .then(res => {
+          resolve(res);
+        }, err => {
+          console.log(err);
+          reject(err);
+        })
+      })
   }*/
   ////////////////////////////////////////////////////////////
 }

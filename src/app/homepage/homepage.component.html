@@ -31,7 +31,7 @@
             </ng-container>
 
 
-<!----------This is going to be repeated across every component for selection what is shown--------->
+<!----------Displaying some user specific data accessed from Firestore--------->
                 <h6>  Available Campaign Info: </h6>
                 <div *ngIf="authService.user$ | async as user;">
                     <div *ngIf="user.thursdayCampaign">
@@ -45,7 +45,7 @@
                 <!--<div *ngFor="let campaign of campaignSelection | keyvalue">
                     <ng-container *ngIf="campaign.value">{{campaign.key}}</ng-container>
                 </div>-->
-<!----------This is going to be repeated across every component for selection what is shown--------->
+<!----------Displaying some user specific data accessed from Firestore--------->
 
 
             <img id ="homeImage" src="assets/pics/valley.jpg" style="width:500px;height:600px;">

@@ -60,7 +60,7 @@ export class ProfileComponent implements OnInit {
   }
 
   logout(){
-    this.authService.doLogout()
+    this.authService.signOut()
     .then((res) => {
       this.location.back();
     }, (error) => {

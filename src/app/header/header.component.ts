@@ -80,7 +80,7 @@ export class HeaderComponent implements OnInit, AfterViewInit{
         } else { 
         this.router.navigate(['/login']);
         }
-        return reject(err);
+        return "Not Logged In";
       })
     })
 
@@ -102,7 +102,7 @@ export class HeaderComponent implements OnInit, AfterViewInit{
   
   //Logging Out
   tryLogout(){
-    this.authService.doLogout()
+    this.authService.signOut()
     .then(res => {
       this.router.navigate(['/login']);
     })
