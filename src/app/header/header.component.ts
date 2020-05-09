@@ -65,13 +65,15 @@ export class HeaderComponent implements OnInit, AfterViewInit{
         if(res.providerData[0].providerId == 'password'){
           this.parentDataName.name = res.displayName;
           this.parentDataName.provider = res.providerData[0].providerId;
+          console.log("provider Data registered")
           return this.parentDataName;
         }
-        /*else{
+        else{
           this.parentDataName.name = res.displayName;
           this.parentDataName.provider = res.providerData[0].providerId;
+          console.log("other provider data", res.providerData.providerId)
           return this.parentDataName;
-        }*/
+        }
       }, err => {
         if (this.route.snapshot['_routerState'].url === '/register'){
           this.router.navigate(['/register'])
