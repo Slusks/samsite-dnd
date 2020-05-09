@@ -35,7 +35,7 @@ export class HeaderDialogComponent implements OnInit {
 
   ngOnInit() {
     //this.createForm(this.headerData)
-    console.log("headerData", this.headerData)
+    //console.log("headerData", this.headerData)
     this.authService.user$.subscribe(response =>{
       this.createForm(response)
       //console.log("response", response)
@@ -44,15 +44,17 @@ export class HeaderDialogComponent implements OnInit {
   }
 
 
-  createForm(data) {
+  createForm(firebaseData) {
     this.profileForm = this.fb.group({
-      name: [data.displayName, Validators.required ],
-      thursdayCampaign:[data.thursdayCampaign],
-      menagerieCoast:[data.menagerieCoast],
-      uid: [data.uid],
-      email: [data.email],
-      role: [data.role]
+      name: [firebaseData.displayName, Validators.required ],
+      thursdayCampaign:[firebaseData.thursdayCampaign],
+      menagerieCoast:[firebaseData.menagerieCoast],
+      uid: [firebaseData.uid],
+      email: [firebaseData.email],
+      role: [firebaseData.role]
+      
     });
+    //console.log("profile Form", this.profileForm)
     this.CF = true;
   }
 

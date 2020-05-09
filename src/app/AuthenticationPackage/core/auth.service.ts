@@ -27,7 +27,8 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth,
               private afs: AngularFirestore,
-              private router: Router) {
+              private router: Router,
+              public userService: UserService) {
 
         //This is how we're getting into the firestoreDB        
         this.user$ = this.afAuth.authState.pipe(
@@ -35,6 +36,7 @@ export class AuthService {
             if (user){
               return this.afs.doc<User>(`/users/${user.uid}`).valueChanges();
             } else {
+                console.log("no user")
                 return of(null)
             }
           })
@@ -46,7 +48,7 @@ export class AuthService {
 
   async emailSignin(value){
     const credential = await this.afAuth.signInWithEmailAndPassword(value.email, value.password)
-    console.log("credential", credential)
+    //console.log("credential", credential)
     this.router.navigate(['/home'])
   }
 
@@ -54,13 +56,23 @@ export class AuthService {
   async googleSignin(){
     const provider = new auth.GoogleAuthProvider();
     const credential = await this.afAuth.signInWithPopup(provider).then(res => {
-      this.router.navigate(['/home']);
+      //console.log("credential:", credential);
     }, err => {
       alert('failed Sign In')
-    });
-    //return this.updateUserData(credential.user)
-    
-  }
+    }).then(res2 =>{
+    try {
+      return this.userService.updateUserData(credential)
+    } catch (error){
+        try {
+          return this.userService.registerUser(credential)
+        }
+          catch (error){
+            console.log("error:", error)
+          }
+    } 
+  });
+  this.router.navigate(['/home']) 
+}
 
   async signOut(){
     await this.afAuth.signOut();

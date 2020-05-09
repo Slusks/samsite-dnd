@@ -8,7 +8,6 @@ import { AngularFireAuth } from '@angular/fire/auth/';
 import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
 import { User } from './user1.model';
-import { AuthService } from './auth.service';
 
 @Injectable({
     providedIn:  'root'
@@ -21,7 +20,6 @@ export class UserService {
               private afs: AngularFirestore,
               private router: Router,
               public db: AngularFirestore,
-              public authService: AuthService
 
  ){
  }
@@ -31,6 +29,7 @@ export class UserService {
     return new Promise<any>((resolve, reject) => {
       var user = firebase.auth().onAuthStateChanged(function(user){
         if (user) {
+          console.log("user Service get current user:", user)
           resolve(user);
         } else {
           reject('No user logged in');

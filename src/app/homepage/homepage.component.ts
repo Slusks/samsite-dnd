@@ -40,16 +40,20 @@ export class HomepageComponent implements OnInit {
               private fb: FormBuilder,
               private dnddatabaseService: DndDatabaseService,
               private afAuth: AngularFireAuth,
-              private afs: AngularFirestore) {}
+              private afs: AngularFirestore) {
+
+              this.currentUser = this.authService.user$.subscribe(res => { console.log(res)})}
 
 
   ngOnInit() {
-    this.userService.getCurrentUser().then(currentUser =>{
+
+
+    /*this.userService.getCurrentUser().then(currentUser =>{
       (this.currentUser = currentUser),
-      console.log("currentUser",currentUser),
-      this.getUserCampaigns(currentUser.uid)
+      console.log("currentUser",currentUser)
+      //this.getUserCampaigns(currentUser.uid)
     },
-      err => console.log(err))
+      err => console.log(err))*/
 
 
   //const GoogleUserObject  = firebase.auth().currentUser;

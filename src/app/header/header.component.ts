@@ -47,9 +47,9 @@ export class HeaderComponent implements OnInit, AfterViewInit{
 
   ngOnInit(){
 
-    //Campaign Selection:
+    /*Campaign Selection, I dont think this is needed anymore
     this.userService.getCurrentUser().then(currentUser =>{this.getUserCampaigns(currentUser.uid), this.userID = currentUser.uid},
-    err => console.log(err))//// This is how we get our campaign selection
+    err => console.log(err))*/
 
 
 
@@ -62,16 +62,16 @@ export class HeaderComponent implements OnInit, AfterViewInit{
     return new Promise((resolve, reject) => {
       this.userService.getCurrentUser()
       .then(res => {
-        if(res.providerData[0].providerId == 'password'){
+        if(res.providerData[0].providerId == 'password' ){
           this.parentDataName.name = res.displayName;
           this.parentDataName.provider = res.providerData[0].providerId;
-          console.log("provider Data registered")
+          //console.log("email provider data")
           return this.parentDataName;
         }
-        else{
+        if (res.providerData[0].providerId == 'google.com') {
           this.parentDataName.name = res.displayName;
           this.parentDataName.provider = res.providerData[0].providerId;
-          console.log("other provider data", res.providerData.providerId)
+          //console.log("google provider data", res.providerData[0].providerId)
           return this.parentDataName;
         }
       }, err => {
