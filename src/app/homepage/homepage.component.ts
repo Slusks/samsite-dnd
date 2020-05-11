@@ -47,27 +47,7 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit() {
 
-
-    /*this.userService.getCurrentUser().then(currentUser =>{
-      (this.currentUser = currentUser),
-      console.log("currentUser",currentUser)
-      //this.getUserCampaigns(currentUser.uid)
-    },
-      err => console.log(err))*/
-
-
-  //const GoogleUserObject  = firebase.auth().currentUser;
-  //this.firestoreUser = this.afs.doc<User>(`/users/${this.currentUser.uid}`).valueChanges();
-
-
-  
-
   }
-
-  getUserCampaigns(userID:string){
-    return this.dnddatabaseService.getUserCampaign(userID).subscribe(campaigns => {this.campaignSelection = campaigns, console.log("campaignSelection", this.campaignSelection)})
-  }
-
 
   
 }

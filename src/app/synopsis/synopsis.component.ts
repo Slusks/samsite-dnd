@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http'
 import { DndDatabaseService } from '../dnd-database.service';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { UserService } from '../AuthenticationPackage/core/user.service';
+import { AuthService } from '../AuthenticationPackage/core/auth.service';
 
 
 // For this to work, in terminal, navigate to samsite-dnd and run 'json-server --watch db.json'
@@ -18,13 +19,15 @@ import { UserService } from '../AuthenticationPackage/core/user.service';
 export class SynopsisComponent implements OnInit {
   
   thursdayPanels: number;
+  menageriePanels: number;
   currentUser;
   campaignSelection;
   currentUserAdmin:boolean = false;
 
   constructor(private http: HttpClient,
               private dndDatabaseService: DndDatabaseService,
-              public userService: UserService) { }
+              public userService: UserService,
+              public authService: AuthService) { }
   
 
   panelObject:object={};
@@ -46,24 +49,18 @@ export class SynopsisComponent implements OnInit {
             let submitId = "week "+panelidString;
             this.dndDatabaseService.addPanel(submitId, this.panelObject)
           }
-        
-    
-    //this.http.post("http://localhost:3000/thursdayCampaign/panel.json", this.panelObject).subscribe((po:Response) => {console.log("po",po)})
     this.isAdded = true;
-    //location.reload(true)
+    
   }
 
 
   ngOnInit() {
-    this.userService.getCurrentUser().then(currentUser =>{(this.currentUser = currentUser), console.log("currentUser",currentUser), this.getUserCampaigns(currentUser.uid)},
-      err => console.log(err))
 
     this.http.get("https://samsite-dnd-c6a98.firebaseio.com/thursdayCampaign/panel.json").subscribe(panels => {
-      this.thursdayPanels = Object.keys(panels).length+1}) 
-  }
+      this.thursdayPanels = Object.keys(panels).length+1})
+    this.http.get("https://samsite-dnd-c6a98.firebaseio.com/menagerieCoast/panel.json").subscribe(panels => {
+      this.menageriePanels = Object.keys(panels).length+1})
 
-  getUserCampaigns(userID:string){
-    this.dndDatabaseService.getUserCampaign(userID).subscribe(campaigns => {this.campaignSelection = campaigns, console.log("campaignSelection", this.campaignSelection)})
   }
 
 

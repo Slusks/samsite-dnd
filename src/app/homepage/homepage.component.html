@@ -1,11 +1,15 @@
-<div class="jumbotron-fluid">
-    <div class="row">
-<!-- Column 1-->
-        <div class="col" id="col1">
-            <div class="container text-center">
-                <h2>General Information</h2>
-            </div>
-            <div class="jumbotron" id="genInfo">
+<body id="body-container">
+<!-- Row 1-->
+    <div class="row">        
+        <div *ngIf="authService.user$ | async as user;" >
+        <h3 style="text-align: block; font-display: center;">Welcome {{user.displayName}}!</h3>
+    </div>
+<!-- Row 1-->
+
+<!-- Row 2-->
+<div class="row">
+    <div class="jumbotron" id="genInfo" style="padding-top: 20px">
+        <h2>General Information</h2>
             <ul>
             <li> Some information and links it might be good to have:
                     <a class="special" target="_blank" href="https://static1.squarespace.com/static/5c2a76484611a0ff5d604514/t/5dc8bd1f3287191960b0deec/1573436704803/5e+Player+Reference+v1-9.pdf">
@@ -16,58 +20,24 @@
                 <li>Character sheets and builders: <a class="special" target="_blank"  href="https://www.dndbeyond.com/characters/builder#/">D&D Beyond</a></li>
                 <li>Where to play: <a class="special" target="_blank"  href="roll20.net">Roll20</a></li>
             </ul>
-        </div>
-        <h2> Daily Spell! </h2>
-        <div class="jumbotron">
-            
-            <app-dailyspell></app-dailyspell>
-        </div>
-        </div>
-<!--==================-->
-<!-- Column 2-->
-
-        <div class="col" id="col2">
-            <div *ngIf="authService.user$ | async as user;" >
-            
-            <h3>Welcome {{user.displayName}}!</h3>
-            
-
-
-<!----------Displaying some user specific data accessed from Firestore--------->
-                <h6>  Available Campaign Info: </h6>
-                <div >
-                    <div *ngIf="user.thursdayCampaign">
-                        Thursdy Campaign
-                    </div>
-                    <div *ngIf="user.menagerieCoast">
-                        Menagerie Coast
-                    </div>
-                  </div>
-
-                <!--<div *ngFor="let campaign of campaignSelection | keyvalue">
-                    <ng-container *ngIf="campaign.value">{{campaign.key}}</ng-container>
-                </div>-->
-<!----------Displaying some user specific data accessed from Firestore--------->
-
-
-            <img id ="homeImage" src="assets/pics/valley.jpg" style="width:500px;height:600px;">
-            <figcaption>Photo by Jonathan Auh on Unsplash</figcaption>
-        </div>
     </div>
 
-            <!-- Using google webserver for chrome linked to the pics folder to get this to work-->
-            <!-- No longer using Google Webserver - 2/7/2020-->
+        <div class="jumbotron">
+            <h2> Daily Spell! </h2>
+            <hr >
+            <app-dailyspell></app-dailyspell>
+        </div>
 
-
- 
-<!--==================-->
-<!-- Column 3-->
-        <div class="col" id="col3">
+</div>
+<!-- Row 2-->
+          
+<!-- Row 3-->
+        
             <div class="container text-center">
                 <div *ngIf="authService.user$ | async as user;">
                 <h2>Campaign Info</h2>
             <ng-container *ngIf="user.thursdayCampaign">
-                <div class="jumbotron" id="campaignDescription1">
+                <div class="jumbotron" id="campaignDescription">
                     <div class="container">
             
                     <h3>Thursday Campaign!</h3>
@@ -78,7 +48,7 @@
                 </div>
             </ng-container>
             <ng-container *ngIf="user.menagerieCoast">
-                <div class="jumbotron" id="campaignDescription2">
+                <div class="jumbotron" id="campaignDescription">
                     <div class="container">
                     <h3>Adventures from the Menagerie Coast!</h3>
                     <p>Our adventure begins on the beautiful shores of Wildemount where the deep emerald stretch of the Menagerie Coast
@@ -100,9 +70,83 @@
             </ng-container>
             </div>
         </div>
-        </div>
-        <!--===================-->
-  
     </div>
-  </div>
+<!-- Row 3-->
+<!-- Row 4-->
+    <div class="row">
+        <div class="col">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img src="assets/pics/teferiCard.png" alt="Avatar" style="display: block; margin: auto; width: 100%; min-height: 550px; ">
+                  </div>
+                  <div class="flip-card-back">
+                    <h1 style="padding-top: 20px">Players</h1>
+                    <br>
+                    <p>Get info about all of the player characters</p>
+                    <br>
+                    <a href="players"> Go to Players Page</a>
+                    
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="col">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <img src="assets/pics/valley.jpg" alt="Avatar" style="display: block; margin: auto; width: 100%; text-align:center; max-height: 550px;">
+                        <figcaption style="color:whitesmoke;">Photo by Jonathan Auh on Unsplash</figcaption>
+                      </div>
+                      <div class="flip-card-back">
+                        <h1 style="padding-top: 20px">Maps</h1>
+                        <br>
+                        <p>Find out Where players have been and where they're going!</p>
+                        <p> Currently Under Construction</p>
+                        <br>
+                        <a href="Map"> Go to Maps Page</a>
+                        
+                      </div>
+                    </div>
+                  </div>
+        </div>
+        <div class="col">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <img src="assets/pics/sagaCard.jpg" alt="Avatar" style="display: block; margin: auto; width: 100%; max-height: 550px; ">
+                      </div>
+                      <div class="flip-card-back">
+                        <h1 style="padding-top: 20px">Story</h1>
+                        <br>
+                        <p>Find out what stupid decisions our players have been making</p>
+                        <br>
+                        <a href="synopsis"> Go to Story Page</a>
+                        
+                      </div>
+                    </div>
+                  </div>
+        </div>
+        <div class="col">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img src="assets/pics/houseCard.png" alt="Avatar" style="display: block; margin: auto; width: 100%; min-height: 550px; ">
+                  </div>
+                  <div class="flip-card-back">
+                    <h1 style="padding-top: 20px">Factions</h1>
+                    <br>
+                    <p>Get info about the different campaign factions</p>
+                    <br>
+                    <p> Currently Under Construction</p>
+                    <br>
+                    <a href="factions"> Go to Factions Page</a>
+                    
+                  </div>
+                </div>
+              </div>
+    </div>
+    </div>
+<!-- Row 4-->
+</body>
 

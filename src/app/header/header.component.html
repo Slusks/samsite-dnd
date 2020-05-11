@@ -1,8 +1,8 @@
-<!-- Toolbar with sidenav container-->
     <mat-toolbar color="primary">
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+  
     <!-- Title With Home Button/Icon-->
       <span>
         <button mat-button onclick="window.location.href ='#'">
@@ -39,12 +39,13 @@
       <a mat-list-item href="players">Players</a>    
     </mat-nav-list>
   </mat-sidenav>
-  <!-- Router for all App Content-->
+  -- Router for all App Content
   <mat-sidenav-content>
     <router-outlet>
     </router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
 
 
 <!-- Footer?-->

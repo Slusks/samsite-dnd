@@ -1,7 +1,44 @@
-.jumbotron-#campaignDescription1 {
+body {
+    background-image:url("src/assets/pics/nightLights.jpg");
     background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    color: whitesmoke;
+    height: 100%;
+}
+
+.jumbotron{
+    background-color: rgb(18, 18, 20);
+    color: whitesmoke;
+}
+
+
+
+.jumbotron-#campaignDescription {
+    background-color: rgb(18, 18, 20);
+    background-size: cover;
+    color: white;
     padding: 5em ;
     
+}
+
+.row {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 80px;
+}
+
+p{
+    text-align: left;
+}
+a {
+    font-size: medium;
+
+    :hover{
+        color:black;
+        cursor: pointer;
+        text-decoration: none;
+      }
 }
 
 .h2 {
@@ -19,26 +56,16 @@
 }
 
 .col{
-    min-height: 100vh;
+    height: 75vh;
 }
 
-#col1 {
-    margin-left: 10px;
-    border-width: 100px;
-    border-color: #0000;
-    background-color:rgb(253, 253, 253);
-
-}
 
 div#genInfo{
     font-size: 18px;
     font-weight: bold;
 }
 
-#col2 {
-    background-color: rgb(250, 250, 250);
 
-}
 
 #col2.col {
     margin: 100;
@@ -48,16 +75,8 @@ div#genInfo{
 }
 
 
-#col3 {
-    background-color:rgb(253, 253, 253);
-}
 
 
-#ngImageSliderContainer{
-    width: 500px;
-    height: auto;
-    padding-top: 100px;
-}
 
 .button{
     font-weight: bold;
@@ -77,3 +96,53 @@ div#genInfo{
 #userButton {
     z-index: 1000;
 }
+
+//Flip Card CSS
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+    background-color: transparent;
+    width: 400px;
+    height: 550px;
+    border: 1px solid black;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+    background-color:black;
+    color: black;
+  }
+  
+  /* Style the back side */
+  .flip-card-back {
+    background-color: black;
+    color: white;
+    font-size: 24px;
+    transform: rotateY(180deg);
+  }
+
+  //

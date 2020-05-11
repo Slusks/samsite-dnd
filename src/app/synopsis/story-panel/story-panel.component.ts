@@ -63,8 +63,9 @@ export class StoryPanelComponent implements OnInit {
 
 
   ngOnInit() {
-        //console.log("campaign selection",this.synopsis.campaignSelection)
-        this.createArray(this.synopsis.campaignSelection) // this is the problem child at the moment
+    this.authService.user$.subscribe(res => {this.createArray(res), console.log("res", res)})
+        console.log("user$:", this.authService.user$)
+        //this.createArray(this.authService.user$) // this is the problem child at the moment
         
   }
   //=========================================================================================
@@ -97,21 +98,26 @@ export class StoryPanelComponent implements OnInit {
 
 
 createArray(campaignSelection){
-    if (campaignSelection.thursdayCampaign) { 
+  console.log("array in work")
+    if (campaignSelection.thursdayCampaign == true) { 
       this.dndDatabaseService.getPanel("thursdayCampaign").subscribe(response =>{
         let responseProps = Object.keys(response);
         for (let prop of responseProps){
+          if (this.panelArr1.length !== responseProps.length){
           this.panelArr1.push(response[prop])
         }
+      }
         //console.log("PA1", this.panelArr1)});
        });
         this.TCisLoaded = true;
     }
-     if (campaignSelection.menagerieCoast){
+     if (campaignSelection.menagerieCoast == true){
       this.dndDatabaseService.getPanel("menagerieCoast").subscribe(response =>{
         let responseProps = Object.keys(response);
         for (let prop of responseProps){
+          if (this.panelArr2.length !== responseProps.length){
           this.panelArr2.push(response[prop])
+          }
         }
         //console.log("PA2", this.panelArr2)});
       });

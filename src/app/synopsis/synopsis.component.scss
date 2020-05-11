@@ -1,8 +1,8 @@
+
 .container{
     padding-top:20px;
     margin-right: 20px;
     margin-bottom: 50px;
-
 }
 
 .header-css-tag .mat-expansion-panel-header-title,
@@ -16,13 +16,17 @@
   }
 
   .jumbotron {
-      height: 100vh;
+      min-height: 100vh;
+      padding-bottom: 1000px;
+      height: inherit
+
   }
 
   #action-jumbotron{
       margin:0px;
       float: left;
       padding-left: 0px;
+
   }
 
   #accordion {
