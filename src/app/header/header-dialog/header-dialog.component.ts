@@ -61,8 +61,6 @@ export class HeaderDialogComponent implements OnInit {
   save(value){
     this.userService.updateUserData(value)
 
-    //this.dndDatabaseService.updateUserCampaign(this.headerData[3], this.headerData[1].name, value.thursdayCampaign.value)
-    //this.dndDatabaseService.updateUserCampaign(this.headerData[3], this.headerData[2].name, value.menagerieCoast.value)
 
   
 

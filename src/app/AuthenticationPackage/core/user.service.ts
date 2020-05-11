@@ -29,7 +29,7 @@ export class UserService {
     return new Promise<any>((resolve, reject) => {
       var user = firebase.auth().onAuthStateChanged(function(user){
         if (user) {
-          console.log("user Service get current user:", user)
+          //console.log("user Service get current user:", user)
           resolve(user);
         } else {
           reject('No user logged in');
@@ -50,7 +50,7 @@ export class UserService {
       thursdayCampaign: user.thursdayCampaign,
       menagerieCoast: user.menagerieCoast
     }
-    console.log("data", data)
+    //console.log("data", data)
      userRef.set(data, { merge: true})
   }
 

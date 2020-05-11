@@ -119,6 +119,7 @@ import { CantripPipe } from './cantrip.pipe';
   ],
   providers: [
     DndDatabaseService,
+    RegisterComponent
   ],
   bootstrap: [AppComponent],
 

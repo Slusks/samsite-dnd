@@ -47,15 +47,6 @@ export class HeaderComponent implements OnInit, AfterViewInit{
 
   ngOnInit(){
 
-    /*Campaign Selection, I dont think this is needed anymore
-    this.userService.getCurrentUser().then(currentUser =>{this.getUserCampaigns(currentUser.uid), this.userID = currentUser.uid},
-    err => console.log(err))*/
-
-
-
-
-
-
 
     //This is fetching the name information, amongst other things, for the user
     this.parentDataName = new FirebaseUserModel();

@@ -14,6 +14,7 @@ import { User } from './user1.model';
 import * as firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { UserService } from './user.service';
+import { RegisterComponent } from '../register/register.component';
 
 
 //https://github.com/fireship-io/55-angularfire-google-auth/blob/master/src/app/services/auth.service.ts
@@ -28,7 +29,8 @@ export class AuthService {
   constructor(private afAuth: AngularFireAuth,
               private afs: AngularFirestore,
               private router: Router,
-              public userService: UserService) {
+              public userService: UserService,
+              public register: RegisterComponent) {
 
         //This is how we're getting into the firestoreDB        
         this.user$ = this.afAuth.authState.pipe(
@@ -55,22 +57,18 @@ export class AuthService {
 
   async googleSignin(){
     const provider = new auth.GoogleAuthProvider();
-    const credential = await this.afAuth.signInWithPopup(provider).then(res => {
-      //console.log("credential:", credential);
-    }, err => {
-      alert('failed Sign In')
-    }).then(res2 =>{
+    const credential = await this.afAuth.signInWithPopup(provider)
     try {
       return this.userService.updateUserData(credential)
     } catch (error){
         try {
-          return this.userService.registerUser(credential)
+          return this.register.registerUser_GU(credential.user)
         }
           catch (error){
             console.log("error:", error)
           }
     } 
-  });
+  
   this.router.navigate(['/home']) 
 }
 
@@ -84,7 +82,7 @@ export class AuthService {
 
 
   
-
+/*
 // Old Register, not sure what to do with this yet
    doRegister(value){
     return new Promise<any>((resolve, reject) => {
@@ -94,7 +92,6 @@ export class AuthService {
       }, err => reject(err))
     })
   }
-/*
   // Old Login, this I think is going to get replaced with async emailSignIn
   doLogin(value){
     return new Promise<any>((resolve, reject) => {
