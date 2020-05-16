@@ -40,14 +40,10 @@ export class HomepageComponent implements OnInit {
               private fb: FormBuilder,
               private dnddatabaseService: DndDatabaseService,
               private afAuth: AngularFireAuth,
-              private afs: AngularFirestore) {
-
-              this.currentUser = this.authService.user$.subscribe(res => { console.log(res)})}
+              private afs: AngularFirestore) {}
 
 
   ngOnInit() {
 
   }
-
-  
 }

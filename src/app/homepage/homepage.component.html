@@ -1,51 +1,33 @@
 <body id="body-container">
 <!-- Row 1-->
-    <div class="row">        
-        <div *ngIf="authService.user$ | async as user;" >
-        <h3 style="text-align: block; font-display: center;">Welcome {{user.displayName}}!</h3>
-    </div>
+<div class="row">        
+    <div *ngIf="authService.user$ | async as user;" >
+    <h3 style="text-align: block; font-display: center;">Welcome {{user.displayName}}!</h3>
+</div>
+
+<div class="jumbotron">
+  <h2> Daily Spell! </h2>
+  <hr >
+  <app-dailyspell></app-dailyspell>
+</div>
 <!-- Row 1-->
 
 <!-- Row 2-->
-<div class="row">
-    <div class="jumbotron" id="genInfo" style="padding-top: 20px">
-        <h2>General Information</h2>
-            <ul>
-            <li> Some information and links it might be good to have:
-                    <a class="special" target="_blank" href="https://static1.squarespace.com/static/5c2a76484611a0ff5d604514/t/5dc8bd1f3287191960b0deec/1573436704803/5e+Player+Reference+v1-9.pdf">
-                    Full 5e Reference Sheet</a>
-                    </li>
-                <li>True Random Rolls: <a class="special" target="_blank" href="random.org"  >Random.org</a></li>
-                
-                <li>Character sheets and builders: <a class="special" target="_blank"  href="https://www.dndbeyond.com/characters/builder#/">D&D Beyond</a></li>
-                <li>Where to play: <a class="special" target="_blank"  href="roll20.net">Roll20</a></li>
-            </ul>
-    </div>
-
-        <div class="jumbotron">
-            <h2> Daily Spell! </h2>
-            <hr >
-            <app-dailyspell></app-dailyspell>
-        </div>
-
-</div>
-<!-- Row 2-->
-          
-<!-- Row 3-->
-        
-            <div class="container text-center">
-                <div *ngIf="authService.user$ | async as user;">
+<div class="container text-center">
+  <div *ngIf="authService.user$ | async as user;">
                 <h2>Campaign Info</h2>
-            <ng-container *ngIf="user.thursdayCampaign">
-                <div class="jumbotron" id="campaignDescription">
-                    <div class="container">
+    <ng-container *ngIf="user.thursdayCampaign">
+    <div class="jumbotron" id="campaignDescription">
+      <div class="container">
             
-                    <h3>Thursday Campaign!</h3>
-                    <p>Four intrepid heros travel the wastes of some place that I dont remember the name of
-                        in order to I guess help out some people that I honestly dont know the importance of
-                    </p>
-                </div>
-                </div>
+        <h3>Thursday Campaign!</h3>
+        <p>Four members of the Emerald Enclave have an unlikely meeting at a pub in the Dessarian Valley. From there they take off on a surprisingly wild
+          adventure full of not knowing where they're going, thinly veiled clues, elemental motifs, and of course, people who give them the option to join, or die,
+          neither of which occur. Will our heroes be able to locate the missing Mirribar delegation? Or will they become the final piece in a plot that will shift the balance of
+          nature in the valley? Probably a little bit of both.
+        </p>
+      </div>
+    </div>
             </ng-container>
             <ng-container *ngIf="user.menagerieCoast">
                 <div class="jumbotron" id="campaignDescription">
@@ -69,84 +51,107 @@
                 </div>
             </ng-container>
             </div>
+  </div>
+</div>
+<!-- Row 2-->
+          
+<!-- Row 3-->      
+<div class="row">
+  <div class="col">
+      <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="assets/pics/teferiCard.png" alt="Avatar" style="display: block; margin: auto;">
+              <figcaption style="color:whitesmoke;">Illustrated by Tyler Jacobson</figcaption>
+            </div>
+            <div class="flip-card-back">
+              <h1 style="padding-top: 20px">Players</h1>
+              <br>
+              <p>Get info about all of the player characters</p>
+              <br>
+              <a href="players"> Go to Players Page</a>
+              
+            </div>
+          </div>
         </div>
-    </div>
+  </div>
+  <div class="col">
+          <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img src="assets/pics/valley.jpg" alt="Avatar" style="display: block; margin: auto;">
+                  <figcaption style="color:whitesmoke;">Photo by Jonathan Auh on Unsplash</figcaption>
+                </div>
+                <div class="flip-card-back">
+                  <h1 style="padding-top: 20px">Maps</h1>
+                  <br>
+                  <p>Find out Where players have been and where they're going!</p>
+                  <p> Currently Under Construction</p>
+                  <br>
+                  <a href="Map"> Go to Maps Page</a>
+                  
+                </div>
+              </div>
+            </div>
+  </div>
+  <div class="col">
+          <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img src="assets/pics/sagaCard.jpg" alt="Avatar" style="display: block; margin: auto;">
+                  <figcaption style="color:whitesmoke;">Illustrated by Mark Tedin</figcaption>
+                </div>
+                <div class="flip-card-back">
+                  <h1 style="padding-top: 20px">Story</h1>
+                  <br>
+                  <p>Find out what stupid decisions our players have been making</p>
+                  <br>
+                  <a href="synopsis"> Go to Story Page</a>
+                  
+                </div>
+              </div>
+            </div>
+  </div>
+  <div class="col">
+      
+      <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="assets/pics/houseCard.png" alt="Avatar" style="display: block; margin: auto;">
+              <figcaption style="color:whitesmoke;">Sigil Creator: Join The Realm</figcaption>
+              
+            </div>
+            <div class="flip-card-back">
+              <h1 style="padding-top: 20px">Factions</h1>
+              <br>
+              <p>Get info about the different campaign factions</p>
+              <p> Currently Under Construction</p>
+              <br>
+              <a href="factions"> Go to Factions Page</a>
+              
+            </div>
+          </div>
+        </div>
+</div>
+</div>
 <!-- Row 3-->
-<!-- Row 4-->
+<!-- Row 4
     <div class="row">
-        <div class="col">
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                  <div class="flip-card-front">
-                    <img src="assets/pics/teferiCard.png" alt="Avatar" style="display: block; margin: auto; width: 100%; min-height: 550px; ">
-                  </div>
-                  <div class="flip-card-back">
-                    <h1 style="padding-top: 20px">Players</h1>
-                    <br>
-                    <p>Get info about all of the player characters</p>
-                    <br>
-                    <a href="players"> Go to Players Page</a>
-                    
-                  </div>
-                </div>
-              </div>
-        </div>
-        <div class="col">
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                      <div class="flip-card-front">
-                        <img src="assets/pics/valley.jpg" alt="Avatar" style="display: block; margin: auto; width: 100%; text-align:center; max-height: 550px;">
-                        <figcaption style="color:whitesmoke;">Photo by Jonathan Auh on Unsplash</figcaption>
-                      </div>
-                      <div class="flip-card-back">
-                        <h1 style="padding-top: 20px">Maps</h1>
-                        <br>
-                        <p>Find out Where players have been and where they're going!</p>
-                        <p> Currently Under Construction</p>
-                        <br>
-                        <a href="Map"> Go to Maps Page</a>
-                        
-                      </div>
-                    </div>
-                  </div>
-        </div>
-        <div class="col">
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                      <div class="flip-card-front">
-                        <img src="assets/pics/sagaCard.jpg" alt="Avatar" style="display: block; margin: auto; width: 100%; max-height: 550px; ">
-                      </div>
-                      <div class="flip-card-back">
-                        <h1 style="padding-top: 20px">Story</h1>
-                        <br>
-                        <p>Find out what stupid decisions our players have been making</p>
-                        <br>
-                        <a href="synopsis"> Go to Story Page</a>
-                        
-                      </div>
-                    </div>
-                  </div>
-        </div>
-        <div class="col">
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                  <div class="flip-card-front">
-                    <img src="assets/pics/houseCard.png" alt="Avatar" style="display: block; margin: auto; width: 100%; min-height: 550px; ">
-                  </div>
-                  <div class="flip-card-back">
-                    <h1 style="padding-top: 20px">Factions</h1>
-                    <br>
-                    <p>Get info about the different campaign factions</p>
-                    <br>
-                    <p> Currently Under Construction</p>
-                    <br>
-                    <a href="factions"> Go to Factions Page</a>
-                    
-                  </div>
-                </div>
-              </div>
-    </div>
-    </div>
+      <div class="jumbotron" id="genInfo" style="padding-top: 20px">
+          <h2>Quick Reference</h2>
+              <ul>
+              <li> Some information and links it might be good to have:
+                      <a class="special" target="_blank" href="https://static1.squarespace.com/static/5c2a76484611a0ff5d604514/t/5dc8bd1f3287191960b0deec/1573436704803/5e+Player+Reference+v1-9.pdf">
+                      Full 5e Reference Sheet</a>
+                      </li>
+                  <li>True Random Rolls: <a class="special" target="_blank" href="random.org"  >Random.org</a></li>
+                  
+                  <li>Character sheets and builders: <a class="special" target="_blank"  href="https://www.dndbeyond.com/characters/builder#/">D&D Beyond</a></li>
+                  <li>Where to play: <a class="special" target="_blank"  href="roll20.net">Roll20</a></li>
+              </ul>
+      </div>
+  
+  </div>-->
 <!-- Row 4-->
 </body>
 

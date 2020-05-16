@@ -32,7 +32,12 @@
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/custom/Draggable.min.js",
+              "src/assets/custom/TweenMax.min.js",
+              "src/assets/custom/ThrowPropsPlugin.min.js"
+
+            ]
           },
           "configurations": {
             "production": {

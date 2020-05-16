@@ -47,6 +47,7 @@ import { DailyspellComponent } from './homepage/dailyspell/dailyspell.component'
 import { MatDialogModule } from '@angular/material';
 import { HeaderDialogComponent } from './header/header-dialog/header-dialog.component';
 import { CantripPipe } from './cantrip.pipe';
+import { Factions2Component } from './factions2/factions2.component';
 
 
 
@@ -70,10 +71,10 @@ import { CantripPipe } from './cantrip.pipe';
     LoginComponent,
     DailyspellComponent,
     HeaderDialogComponent,
-    CantripPipe
-    
+    CantripPipe,
+    Factions2Component
 
- 
+
   ],
   imports: [
     BrowserModule,
@@ -98,7 +99,7 @@ import { CantripPipe } from './cantrip.pipe';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgPartnersModule,  //https://www.npmjs.com/package/@fortawesome/angular-fontawesome
+    NgPartnersModule,  // https://www.npmjs.com/package/@fortawesome/angular-fontawesome
     NgImageSliderModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -107,15 +108,15 @@ import { CantripPipe } from './cantrip.pipe';
     AngularFirestoreModule,
     MatCheckboxModule,
     MatDialogModule
-   
 
 
 
-    
-    
 
-    
-    
+
+
+
+
+
   ],
   providers: [
     DndDatabaseService,

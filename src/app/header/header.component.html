@@ -12,7 +12,12 @@
       </span>
 
     <span class="example-spacer"></span><!-- Navbar Spacer-->
-    <!-- This is using the updated user service which seems to work
+
+
+
+
+
+    <!-- This is showign the firebase status for testing
       <div *ngIf="authService.user$ | async as user;">
         {{user.displayName}}, {{user.role}}, {{user.thursdayCampaign}}, {{user.menagerieCoast}}
       </div>-->
@@ -26,18 +31,29 @@
       <button mat-menu-item  (click)=authService.signOut() >Logout</button><!--(click)="loggedOut()"-->
     </mat-menu>
 
+
+
     </mat-toolbar>
 
 <!-- Sidenav Container Content-->
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav">
-      <mat-toolbar>Menu</mat-toolbar>
+      <mat-toolbar> Site Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item href="Map">Map</a>
       <a mat-list-item href="synopsis">Synopsis</a>
       <a mat-list-item href="factions">Factions</a>
+      <a mat-list-item href="factions2">New! Factions2</a>
       <a mat-list-item href="players">Players</a>    
     </mat-nav-list>
+    <mat-toolbar> External Quick Links</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="https://www.dndbeyond.com/" class="special" target="_blank">D&D Beyond</a>
+      <a mat-list-item href="roll20.net" class="special" target="_blank">Roll20</a>
+      <a mat-list-item href="random.org" class="special" target="_blank">Random.org</a>
+      <a mat-list-item href="https://static1.squarespace.com/static/5c2a76484611a0ff5d604514/t/5dc8bd1f3287191960b0deec/1573436704803/5e+Player+Reference+v1-9.pdf" class="special" target="_blank">5e Reference Sheet</a>    
+    </mat-nav-list>
+    
   </mat-sidenav>
   -- Router for all App Content
   <mat-sidenav-content>
@@ -48,7 +64,7 @@
 
 
 
-<!-- Footer?-->
+<!-- Footer-->
 <div class="jumbotron" id="footer">
 <span>  <i class="far fa-envelope"></i> </span>
 <span> Contact:   </span><span id="foot">   SamSlusky@gmail.com </span> 

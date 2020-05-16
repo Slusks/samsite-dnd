@@ -1,0 +1,312 @@
+import { Component, OnInit } from '@angular/core';
+import { gsap, TweenMax, TweenLite } from 'gsap';
+import { Draggable } from 'gsap/Draggable';
+import { InertiaPlugin } from 'gsap/InertiaPlugin';
+
+
+declare const ThrowPropsPlugin: any;
+
+
+
+
+@Component({
+  selector: 'app-factions2',
+  templateUrl: './factions2.component.html',
+  styleUrls: ['./factions2.component.scss']
+})
+export class Factions2Component implements OnInit {
+
+	cardElementArray;
+	const cardDataArray = [
+		{imageUrl: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/science.png',
+			cardTitle: 'Here\'s The Science',
+			cardBody: 'Science you love played at twice the speed in a bar you hate whilst drinking shampoo through a straw.'},
+		{imageUrl: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/hacker.png',
+			cardTitle: 'So You\'re a Hacker',
+			cardBody: 'Hackers you love played at twice the speed in a bar you hate whilst drinking shampoo through a straw.'},
+		{imageUrl:'https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/folds.png', 
+			cardTitle:'A View of Material', 
+			cardBody:'Material you love played at twice the speed in a bar you hate whilst drinking shampoo through a straw.'}, 
+		{imageUrl:'https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/building.png', 
+			cardTitle:'Visit The Cityscape', 
+			cardBody:'Cities you love played at twice the speed in a bar you hate whilst drinking shampoo through a straw.'}, 
+		{imageUrl:'https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/bars.png', 
+			cardTitle:'Four Bar Blues', 
+			cardBody:'Music you love played at twice the speed in a bar you hate whilst drinking shampoo through a straw.'}, 
+		{imageUrl:'https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/shards.png', 
+			cardTitle:'A Fractured Story', 
+			cardBody:'Stories you love played at twice the speed in a bar you hate whilst drinking shampoo through a straw.'},
+		{imageUrl:'https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/wet.png', 
+			cardTitle:'Dew on Metal: It\'s New', 
+			cardBody:'Metal you love played at twice the speed in a bar you hate whilst drinking shampoo through a straw.'}
+			];
+	nullObject;
+	stage;
+
+  constructor(
+	  private TweenMax: TweenMax,
+	  private TweenLite: TweenLite
+  ) { }
+
+  //moved contents of innit into ngOnInit. Also declaring certain globals
+  ngOnInit() {
+
+    
+  const body = document.body;
+  this.stage = document.getElementById('stage');
+  this.nullObject = document.createElement('div');
+  gsap.defaults({ easeOut: "Power2",
+  				  spacerZ: 50, 
+				  maxDrag:  300,
+				  perspective: 800
+})
+
+  gsap.set(stage, {
+	perspective: 8000,					//This was edited from original
+	perspectiveOrigin:'50% -100%'
+	})
+   gsap.set('#info',{
+     position:'absolute',
+     left:'50%',
+     xPercent:-50,
+     top:'10%',
+     fontFamily:'Roboto Slab',
+     fontSize:32,
+     color:'rgba(44,46,47,1)',
+     textAlign:'center'
+   }) 
+	gsap.set(nullObject, {
+		position:'absolute',
+		x:0
+	})
+	/* Moving this to the export class area
+	const cardDataArray = [
+	{imageUrl: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/science.png',
+		cardTitle: 'Here\'s The Science',
+		cardBody: 'Science you love played at twice the speed in a bar you hate whilst drinking shampoo through a straw.'},
+    {imageUrl: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/hacker.png',
+		cardTitle: 'So You\'re a Hacker',
+		cardBody: 'Hackers you love played at twice the speed in a bar you hate whilst drinking shampoo through a straw.'},
+	{imageUrl:'https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/folds.png', 
+		cardTitle:'A View of Material', 
+		cardBody:'Material you love played at twice the speed in a bar you hate whilst drinking shampoo through a straw.'}, 
+	{imageUrl:'https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/building.png', 
+		cardTitle:'Visit The Cityscape', 
+		cardBody:'Cities you love played at twice the speed in a bar you hate whilst drinking shampoo through a straw.'}, 
+	{imageUrl:'https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/bars.png', 
+		cardTitle:'Four Bar Blues', 
+		cardBody:'Music you love played at twice the speed in a bar you hate whilst drinking shampoo through a straw.'}, 
+	{imageUrl:'https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/shards.png', 
+		cardTitle:'A Fractured Story', 
+		cardBody:'Stories you love played at twice the speed in a bar you hate whilst drinking shampoo through a straw.'},
+	{imageUrl:'https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/wet.png', 
+		cardTitle:'Dew on Metal: It\'s New', 
+		cardBody:'Metal you love played at twice the speed in a bar you hate whilst drinking shampoo through a straw.'}
+		];
+		*/
+	//let cardElementArray = []
+
+	this.createCards(this.cardDataArray, stage);
+
+
+	Draggable.create(nullObject, {
+		type:'x',
+		trigger:stage,
+		throwProps:true,
+		onDrag: this.throwUpdate,
+		onThrowUpdate: this.throwUpdate,
+		onDragEnd:dragEnd,
+		snap:[0]
+	})    
+
+}
+
+init() {
+  	
+} //end init function
+
+createCards(cda, stage){
+
+	for(var i = 0; i < cda.length; i++){
+
+		//var cardSymbol = sym.createChildSymbol(cardDataArray[i], stage);
+		//cardElement = cardSymbol.getSymbolElement();
+  const cardElement = document.createElement('div');
+  const cardImage = document.createElement('img');
+  const cardTitle = document.createElement('div');
+  cardTitle.className = 'card-title';
+  const cardPanel = document.createElement('div');
+  const cardBodyText = document.createElement('div');
+  const cardShareText = document.createElement('div');
+  const cardActionText = document.createElement('div');
+  cardImage.setAttribute('src', cda[i].imageUrl);
+
+		gsap.set(cardImage, {
+			position:'absolute',
+			alpha:0.8
+		})
+
+		cardTitle.innerHTML = cda[i].cardTitle;
+		cardBodyText.innerHTML = cda[i].cardBody
+		cardShareText.innerHTML = 'SHARE';
+		cardActionText.innerHTML = 'EXPLORE';
+		gsap.set(cardTitle, {
+			position:'absolute',
+			top:136,
+			left:15,
+			width:345,
+			fontSize:26,
+			color:'#fff',
+			fontFamily:'Roboto Slab, sans-serif'
+		})
+		;
+
+		gsap.set(cardPanel, {
+			position:'absolute',
+			top:185,
+			left:0,
+			width:360,
+			height:135,
+			backgroundColor:'#fff',
+			color:'#000',
+			fontFamily:'Roboto, sans-serif'
+		})
+		gsap.set(cardBodyText, {
+			position:'absolute',
+			top:200,
+			left:15,
+			width:330,
+			height:100,
+			fontSize:15,
+			color:'#000',
+			fontFamily:'Roboto, sans-serif'
+		})
+		;
+		gsap.set([cardActionText, cardShareText], {
+			position:'absolute',
+			top:290,
+			width:80,
+			height:50,
+			fontSize:15,
+			color:'#000',
+			fontFamily:'Roboto, sans-serif'
+		})
+
+		gsap.set(cardActionText, {
+			left:115,
+      color:'#FFAB40'
+		})
+		gsap.set(cardShareText, {
+			left:15
+		})
+		;
+
+		gsap.set(cardElement, {
+			position:'absolute',
+			left:'50%',
+			xPercent:-50,
+			top:'50%',
+			yPercent:-50,
+			z:-(i * 50),  //this said 'spacerZ' instead of 50, used 50 as that's the gsap default
+			//autoAlpha:0,
+			zIndex:-i,
+			transformPerspective:'150% -20%',
+			width:360,
+			height:320,
+			backgroundColor:'#000',
+			borderRadius:'2px',
+			overflow:'hidden',
+			boxShadow:'0px 0px 5px 2px rgba(0,0,0,0.2)',
+        scale:0
+		})
+
+		cardElement.appendChild(cardImage);
+		cardElement.appendChild(cardPanel);
+		cardElement.appendChild(cardBodyText);
+		cardElement.appendChild(cardTitle);
+		cardElement.appendChild(cardShareText);
+		cardElement.appendChild(cardActionText);
+		stage.appendChild(cardElement);
+
+		this.cardElementArray.push(cardElement);
+	}
+	// this is definitely changing  but is also hugely important to loading the cards 	
+	gsap.fromTo(this.cardElementArray, {scale:0}, {
+										stagger: 1,
+										scale: 1,
+										force3D: true,
+										ease: "elastic(0.7,0.8)",
+										duration: 0.1
+										}
+				);
+	
+}
+
+ throwUpdate(){
+
+	var i = this.cardElementArray.length;
+
+
+	while(--i > -1){
+
+
+		var rot = nullObject._gsTransform.x/20;
+		var z = Math.abs(cardElementArray[i]._gsTransform.z/200);
+		var x = nullObject._gsTransform.x;
+		var y = nullObject._gsTransform.y;
+		TweenMax.to(cardElementArray[i], 0.7, {
+			x:x - (x * z),
+			y:-nullObject._gsTransform.x/10,
+			rotation:rot - (rot * z),
+        force3D:true,
+			ease:Power2.easeOut
+
+
+		})
+
+	}
+
+	let throwSpeed = InertiaPlugin.getVelocity(this.target, 'x') / 1000;
+
+}
+
+function dragEnd(){
+
+	const time = (nullObject._gsTransform.x / throwSpeed)/100;
+
+	if(nullObject._gsTransform.x > (maxDrag) || throwSpeed > 3){
+
+		time = (time>3) ? 1 : time;
+		TweenMax.to(cardElementArray[0], time, {
+			left:'+=50%',
+			ease:Power2.easeOut,
+			onStart:removeCard
+
+		})
+	}
+
+}
+
+function removeCard(){
+
+	var c = this.cardElementArray.shift();
+   
+
+	TweenMax.to(this.cardElementArray, 1, {
+		z:'+=' + spacerZ,
+    //ease:Back.easeOut,
+		onComplete:checkCards,
+    onCompleteParams:[c]
+	})
+
+}
+
+
+function checkCards(c){
+  c.parentNode.removeChild(c); 
+	if(this.cardElementArray.length == 0){
+
+		this.createCards();
+	}
+  };
+}

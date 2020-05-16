@@ -13,6 +13,7 @@ import { ProfileResolver } from './AuthenticationPackage/profile/profile.resolve
 import { AuthGuard } from './AuthenticationPackage/core/auth.guard';
 import { LoginComponent } from './AuthenticationPackage/login/login.component';
 import { HeaderDialogComponent } from './header/header-dialog/header-dialog.component';
+import { Factions2Component } from './factions2/factions2.component';
 
 
 
@@ -24,7 +25,7 @@ const routes: Routes = [
 
 
 {
-  path:'home',
+  path: 'home',
   component: HomepageComponent,
   resolve: {data: ProfileResolver} /*,
   children:[
@@ -44,20 +45,24 @@ const routes: Routes = [
       ]*/
     },
 {
-  path:'factions',
+  path: 'factions',
   component: ActionsComponent, resolve: {data: ProfileResolver}
 },
 {
-  path:'synopsis',
+  path: 'factions2',
+  component: Factions2Component, resolve: {data: ProfileResolver}
+},
+{
+  path: 'synopsis',
   component: SynopsisComponent, resolve: {data: ProfileResolver}
 },
 
 {
-  path:'Map',
+  path: 'Map',
   component: MapCompComponent, resolve: {data: ProfileResolver}
 },
 {
-  path:'players',
+  path: 'players',
   component: PlayersComponent, resolve: { data: ProfileResolver}
 }
 ];
