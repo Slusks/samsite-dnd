@@ -1,65 +1,45 @@
 
-<div class="jumbotron" id="books" style="border-radius:0">
-    
-
-
-
-    
-    <div class="container">
+<div class="jumbotron" id="books" style="border-radius:0; background: cover;">
         <h2> Faction Library </h2>
-        <p> Select a Book to find out all about that campaign faction</p>
-        <span class="fa-stack fa-3x">
-            <i class="fas fa-flag fa-10x fa-stack-2x" style="color:green"></i>
-            <strong class="fa-stack-1x" style="font-size: 0.1em;">Emerald Enclave</strong>
-          </span>
-
-
-        <div class="fa">
-        <span class="fa-layers fa-fw" style="vertical-align: middle">
-            <i class="fas fa-flag fa-10x" style="color:green"></i>
-            <span class="fa-layers-text fa-inverse" style="font-weight:900">Emerald Enclave</span>
-          </span>
-        </div>
 
     
-        
-        <div class="container" id="book-container">
-            <img src="assets/pics/bookstack3.jpg" id="bookstack" style="z-index: 888;">
-            <div class="title" id="EE">Emerald Enclave</div>
-            <div class="title" id="TH">The Harpers</div>
-            <div class="title"id="LA">Lords Alliance</div>
-        </div>
-    </div>  
-</div>
+        <div *ngIf="authService.user$ | async as user;">
+            <div class="wrapper" >
+            <ng-container *ngIf="user.thursdayCampaign === true">
+                <div *ngFor="let faction of TCcardObject | keyvalue; let i = index" style = "position: relative;">
+                    <div class="col">
+                        <mat-card class="faction-card">
+                            <mat-card-header style="text-align: center;">
+                            <mat-card-title style="text-align: center;">{{faction.value.name}}</mat-card-title>
+                            </mat-card-header>
+                            <img id="tc" mat-card-image src="{{faction.value.img}}" alt="Faction Banner">
+                            <mat-card-content>
+                            <p>
+                                {{faction.value.description}}
+                            </p>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </div>
+            </ng-container>
 
-
-
-
-
-
-
-
-
-
-<!--
-<div class="row">
-    <mat-card class="test-card" id="test-card">
-        <mat-card-content>Test Draggable Card</mat-card-content>
-  </mat-card>
-</div>
-
-<div class="row">
-    <div *ngFor="let faction of cardObject | keyvalue">
-        <div class="col">
-            <mat-card class="faction-card" id="card">
-                <mat-card-header>
-                    <mat-card-title>{{faction.value.name}}</mat-card-title>
-                </mat-card-header>
-                <img mat-card-image src="{{faction.value.img}}">
-                <mat-card-content>
-                    <p>Description: {{faction.value.description}}</p>
-                </mat-card-content>
-            </mat-card>
+            <ng-container *ngIf="user.menagerieCoast === true">
+                <div *ngFor="let faction of MCcardObject | keyvalue; let i = index" style = "position: relative;">
+                    <div class="col">
+                        <mat-card class="faction-card">
+                            <mat-card-header>
+                            <mat-card-title style="display: block;" >{{faction.value.name}}</mat-card-title>
+                            </mat-card-header>
+                            <img id="mc" mat-card-image src="{{faction.value.img}}" alt="Faction Banner">
+                            <mat-card-content>
+                            <p>
+                                {{faction.value.description}}
+                            </p>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </div>
+            </ng-container>
         </div>
     </div>
-</div>-->
+</div>

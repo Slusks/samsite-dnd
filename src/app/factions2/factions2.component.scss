@@ -8,33 +8,57 @@ html, body, #info, #stage{
 
   .row{
     padding: 10px;
+    text-align: center;
+  }
+
+  .jumbotron{
+    background: black;
+  }
+
+  .mat-card-header{
+    justify-content: center;
+  }
+
+  .wrapper {
+    margin-left: 1em;
+    margin-right: 1em;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 1em;
+    grid-column-gap: 0.5em;
+    justify-content: center;
+
+  }
+  .col {
+    display: flex;
+    justify-content: center;
   }
 
 .faction-card {
   width: 300px;
-  height: 300px;
+  height: 400px;
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+
 }
 
-  .mat-card-image {
-  height: 200px;
+  #tc {
+  height: 250px;
   width: 150px;
-  display: block;
+  top: 50%;
+  left: 50%;
   }
 
-#books {
-  background: black;
+  #mc {
+    max-height: 200px;
+    max-width: 175px;
+    top: 50%;
+    left: 50%;
+    }
 
-}
-
-#bookstack{
-  right: 0;
-  float: right;
-  position: absolute;
-  height: 100vh;
-  bottom:0;
-}
 
 
 .container{
@@ -42,46 +66,3 @@ html, body, #info, #stage{
   background: black;
   color: white;
 }
-
-#book-container{
-  text-align: right;
-  right: 0;
-  float: right;
-  position: absolute;
-  height: 100vh;
-  bottom:0;
-  width: 100%;
-  max-width: 300px;
-}
-
-#book-container img {
-  width: 100%;
-  height: auto;
-}
-
-.title {
-  display: inline-block;
-  text-align: right;
-  z-index: 999;
-}
-
-
-#EE{
-  position: absolute;
-  top: 10px;
-  right: 100px;
-
-}
-
-#TH{
-  position: absolute;
-  top: 60px;
-  left: 100px;
-}
-
-#LA{
-  position: absolute;
-  top: 100px;
-  left: 100px;
-}
-
