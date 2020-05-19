@@ -1,4 +1,4 @@
-<div  *ngIf="authService.user$ | async as user;">
+<div id="top"  *ngIf="authService.user$ | async as user;">
 
 <ng-container *ngIf="TCisLoaded && user.thursdayCampaign === true">
 <h1>Thursday Campaign Chronicle!</h1>

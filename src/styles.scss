@@ -19,10 +19,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
     font-family: 'MedievalSharp';
 }*/
 
-.custom-modalbox .mat-dialog-container {
-        padding: 0 !important;
-    }
-
+.faction-dialog .mat-dialog-container{
+    background:rgb(28, 31, 32);
+    color:white;
+  } 
   
 
 #loader {

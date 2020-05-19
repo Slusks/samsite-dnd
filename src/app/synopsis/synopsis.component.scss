@@ -8,6 +8,8 @@
 .header-css-tag .mat-expansion-panel-header-title,
 .header-css-tag .mat-expansion-panel-header-description {
   flex-basis: 0;
+  background-color:rgb(28, 31, 32);
+  color: white;
 }
 
 .header-css-tag .mat-expansion-panel-header-description {
@@ -18,7 +20,9 @@
   .jumbotron {
       min-height: 100vh;
       padding-bottom: 1000px;
-      height: inherit
+      height: inherit;
+      background:rgb(28, 31, 32);
+      color: white;
 
   }
 
@@ -30,5 +34,7 @@
   }
 
   #accordion {
-      margin-left: 400px;
+      margin-left: 460.75px;
+      background-color: black;
+      color: white;
   }

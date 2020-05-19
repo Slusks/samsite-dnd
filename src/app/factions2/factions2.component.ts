@@ -21,7 +21,7 @@ export class Factions2Component implements OnInit {
 
 	cardArray$;
 
-	TCcardObject: Object = {
+	TCcardObject = {
 		EmeraldEnclave:{
 			name: "The Emerald Enclave",
 			description: `The Emerald Enclave is a far-ranging group that opposes threats to the natural world and helps others survive in the wilderness. Branches of the organization are scattered throughout Faerûn and often operate in isolation from the others. This existence teaches the Enclave’s members a fierce self-reliance and mastery of certain fighting and survival skills.
@@ -66,7 +66,7 @@ export class Factions2Component implements OnInit {
 		},
 	}
 
-	MCcardObject: Object = {
+	MCcardObject = {
 		dwendalianempire:{
 			name: "The Dwendalian Empire",
 			description: `The Dwendalian Empire has reigned over Western Wynandir for over twelve generations. Imperial rule is maintained through its powerful military, its policy of religious restriction, and the support of the secretive Cerberus Assembly. Though these institutions nominally exist to ensure the safety of the populace from foreign threats, terrible dangers that wander the wilds, and lingering evils that seep from the scars of the Calamity, they also allow the empire to maintain strict social order within its territories.
@@ -146,7 +146,8 @@ export class Factions2Component implements OnInit {
 	dialogConfig.disableClose = true;
 	dialogConfig.autoFocus = true;
 	dialogConfig.data = {faction};
-	dialogConfig.panelClass = ".faction-dialog";
+	dialogConfig.panelClass="faction-dialog";
+	//dialogConfig.backdropClass = "faction-dialog";
 
 
 	const dialogRef = this.dialog.open(FactiondialogComponent, dialogConfig)
@@ -155,6 +156,7 @@ export class Factions2Component implements OnInit {
 			console.log("dialog closed");
 		});
 }
+
 
 
 
