@@ -48,6 +48,8 @@ import { MatDialogModule } from '@angular/material';
 import { HeaderDialogComponent } from './header/header-dialog/header-dialog.component';
 import { CantripPipe } from './cantrip.pipe';
 import { Factions2Component } from './factions2/factions2.component';
+import { FactiondialogComponent } from './factions2/factiondialog/factiondialog.component';
+import { NewlinePipe } from './newline.pipe';
 
 
 
@@ -72,7 +74,9 @@ import { Factions2Component } from './factions2/factions2.component';
     DailyspellComponent,
     HeaderDialogComponent,
     CantripPipe,
-    Factions2Component
+    Factions2Component,
+    FactiondialogComponent,
+    NewlinePipe
 
 
   ],
@@ -124,6 +128,6 @@ import { Factions2Component } from './factions2/factions2.component';
   ],
   bootstrap: [AppComponent],
 
-  entryComponents:[HeaderDialogComponent, HomepageComponent, HeaderComponent]
+  entryComponents:[HeaderDialogComponent, HomepageComponent, HeaderComponent, FactiondialogComponent]
 })
 export class AppModule { }

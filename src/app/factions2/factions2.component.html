@@ -14,9 +14,8 @@
                             </mat-card-header>
                             <img id="tc" mat-card-image src="{{faction.value.img}}" alt="Faction Banner">
                             <mat-card-content>
-                            <p>
-                                {{faction.value.description}}
-                            </p>
+                                <br>
+                                <button mat-raised-button (click)="this.openDialog(faction.value)" >Learn More<i class="fas fa-feather-alt fa-2x"></i></button>
                             </mat-card-content>
                         </mat-card>
                     </div>
@@ -32,9 +31,8 @@
                             </mat-card-header>
                             <img id="mc" mat-card-image src="{{faction.value.img}}" alt="Faction Banner">
                             <mat-card-content>
-                            <p>
-                                {{faction.value.description}}
-                            </p>
+                                <br>
+                                <button mat-raised-button (click)="this.openDialog(faction.value)" >Learn More<i class="fas fa-feather-alt fa-2x"></i></button>
                             </mat-card-content>
                         </mat-card>
                     </div>
@@ -43,3 +41,11 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+

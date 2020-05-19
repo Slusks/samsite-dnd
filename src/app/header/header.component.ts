@@ -98,13 +98,7 @@ export class HeaderComponent implements OnInit, AfterViewInit{
       this.router.navigate(['/login']);
     })
   }
-/*Confirming that you logged out
-  loggedOut(){
-    alert("Successfully Logged Out")
-    console.log("Logged Out")
-    this.router.navigate(["/login"])
-  }
-*/
+
   ngAfterViewInit(){
     this.loading = false;
   }
