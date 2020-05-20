@@ -22,12 +22,22 @@ export class SynopsisComponent implements OnInit {
   menageriePanels: number;
   currentUser;
   campaignSelection;
-  currentUserAdmin:boolean = false;
+
 
   constructor(private http: HttpClient,
               private dndDatabaseService: DndDatabaseService,
               public userService: UserService,
-              public authService: AuthService) { }
+              public authService: AuthService) {   
+              this.authService.user$.subscribe(res => {
+                  console.log("current user res",res)
+                  if (res.role == "admin"){
+                    this.currentUser = true
+                  }
+                  else {this.currentUser = false}
+                })
+
+
+               }
   
 
   panelObject:object={};
@@ -36,7 +46,6 @@ export class SynopsisComponent implements OnInit {
 
   addNewPanel(panel){
     this.panelObject = {
-      //"week": panel.week,
       "tagline": panel.tagline,
       "content": panel.content,
       "id": panel.id
@@ -44,10 +53,10 @@ export class SynopsisComponent implements OnInit {
       let panelidString = panel.id.toString()
           if (panelidString.length === 1){
             let submitId = "week 0"+panelidString;
-            this.dndDatabaseService.addPanel(submitId, this.panelObject)
+            this.dndDatabaseService.addMCPanel(submitId, this.panelObject)
           }else if (panelidString.length === 2){
             let submitId = "week "+panelidString;
-            this.dndDatabaseService.addPanel(submitId, this.panelObject)
+            this.dndDatabaseService.addMCPanel(submitId, this.panelObject)
           }
     this.isAdded = true;
     
@@ -56,8 +65,10 @@ export class SynopsisComponent implements OnInit {
 
   ngOnInit() {
 
+/*
     this.http.get("https://samsite-dnd-c6a98.firebaseio.com/thursdayCampaign/panel.json").subscribe(panels => {
       this.thursdayPanels = Object.keys(panels).length+1})
+      */
     this.http.get("https://samsite-dnd-c6a98.firebaseio.com/menagerieCoast/panel.json").subscribe(panels => {
       this.menageriePanels = Object.keys(panels).length+1})
 

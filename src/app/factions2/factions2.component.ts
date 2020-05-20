@@ -147,7 +147,6 @@ export class Factions2Component implements OnInit {
 	dialogConfig.autoFocus = true;
 	dialogConfig.data = {faction};
 	dialogConfig.panelClass="faction-dialog";
-	//dialogConfig.backdropClass = "faction-dialog";
 
 
 	const dialogRef = this.dialog.open(FactiondialogComponent, dialogConfig)

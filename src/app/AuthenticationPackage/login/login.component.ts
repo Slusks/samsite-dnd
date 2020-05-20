@@ -32,12 +32,6 @@ export class LoginComponent {
     });
   }
 
-  /*
-  guestLogin() {
-    let guestObject = {"email":"guestLogin@guestlogin.com", "password":"guestPassword"}
-    this.tryLogin(guestObject)
-    }
-    */
     
    async emailLogin(value){
     this.authService.emailSignin(value)
@@ -52,15 +46,5 @@ export class LoginComponent {
       this.router.navigate(['/home']);
     })
   }
-/* I dont know if this is still needed
-  tryLogin(value){
-    this.authService.doLogin(value)
-    .then(res => {
-      this.router.navigate(['/home']);
-    }, err => {
-      console.log(err);
-      this.errorMessage = err.message;
-    })
-  }
-  */
+
 }

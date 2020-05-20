@@ -54,18 +54,5 @@ export class ProfileComponent implements OnInit {
 
   save(value){
     this.userService.updateUserData(value) }
-    /*this.userService.updateCurrentUser(value)
-    .then(res => {
-      console.log(res);
-    }, err => console.log(err))
-  }
 
-  logout(){
-    this.authService.signOut()
-    .then((res) => {
-      this.location.back();
-    }, (error) => {
-      console.log("Logout error", error);
-    });
-  }*/
 }

@@ -12,7 +12,6 @@ export class FactiondialogComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log("data", this.data)
   }
 
 }

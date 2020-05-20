@@ -25,6 +25,7 @@ img {
     background-size: cover;
     color: white;
     padding: 5em ;
+    width: 100%;
     
 }
 
@@ -146,6 +147,10 @@ div#genInfo{
     font-size: 20px;
     transform: rotateY(180deg);
     padding: 18px;
+  }
+
+  .container {
+      max-width: 100%!important;
   }
 
   //

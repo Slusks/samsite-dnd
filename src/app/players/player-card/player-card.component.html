@@ -2,7 +2,7 @@
 
   <div class="container-fluid" id="cardContainerData" style="max-height: inherit">
     <div *ngIf="authService.user$ | async as user;">
-      
+        <div class="wrapper">
                   <ng-container *ngIf="user.thursdayCampaign === true">
                         <div *ngFor="let character of characters;">
                               <div class="card">
@@ -58,8 +58,9 @@
                               </div>
                         </div>
                   </ng-container>
-                  
+        </div>
                  <!--New Character Cards-->
+        <div class="wrapper">
                   <ng-container *ngIf="user.menagerieCoast === true">
                     <div *ngFor="let character2 of characters2;">
                       <div class="card">
@@ -73,7 +74,7 @@
                             <img mat-card-image id="character2" src={{character2?.portrait}}>
                             </div>
                             <div class="points center">
-                              2,700 Points
+                              5,090 Points
                             </div>
 
                           </div>
@@ -129,7 +130,7 @@
                       </div>
                     </div>
                   </ng-container>
-
+        </div>
     </div>
     
   

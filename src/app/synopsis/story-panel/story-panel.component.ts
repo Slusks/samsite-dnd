@@ -65,7 +65,7 @@ export class StoryPanelComponent implements OnInit {
   ngOnInit() {
     this.authService.user$.subscribe(res => {this.createArray(res), console.log("res", res)})
         console.log("user$:", this.authService.user$)
-        //this.createArray(this.authService.user$) // this is the problem child at the moment
+
         
   }
   //=========================================================================================

@@ -17,7 +17,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { HomepageComponent } from './homepage/homepage.component';
-import { ActionsComponent } from './actions/actions.component';
+
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatMenuModule, MatMenu } from '@angular/material/menu';
 import { SynopsisComponent } from './synopsis/synopsis.component';
@@ -62,7 +62,6 @@ import { NewlinePipe } from './newline.pipe';
     AppComponent,
     HeaderComponent,
     HomepageComponent,
-    ActionsComponent,
     SynopsisComponent,
     StoryPanelComponent,
     MapCompComponent,

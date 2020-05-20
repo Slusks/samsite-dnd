@@ -34,7 +34,6 @@ export class HeaderDialogComponent implements OnInit {
    }
 
   ngOnInit() {
-    //this.createForm(this.headerData)
     //console.log("headerData", this.headerData)
     this.authService.user$.subscribe(response =>{
       this.createForm(response)

@@ -44,8 +44,12 @@ export class DndDatabaseService {
     return this.http.get(`${this.baseURL}/`+`${campaign}`+"/panel.json")
   }
 
-  addPanel(submitId, panel){
+  addTCPanel(submitId, panel){
     return this.http.put(`${this.baseURL}/thursdayCampaign/panel/`+submitId+".json", panel).subscribe((po:Response) => {console.log("po",po)})
+  }
+
+  addMCPanel(submitId, panel){
+    return this.http.put(`${this.baseURL}/menagerieCoast/panel/`+submitId+".json", panel).subscribe((po:Response) => {console.log("po",po)})
   }
 
   deletePanel(id){

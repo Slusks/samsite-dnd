@@ -8,15 +8,13 @@ import { DndDatabaseService } from '../dnd-database.service';
 })
 export class PlayersComponent implements OnInit {
   characters;
-  campaign:string = "menagerieCoast"
+
   
 
   constructor(private dndDatabaseService: DndDatabaseService) { }
 
   ngOnInit() {
 
-   this.dndDatabaseService.getCharacters(this.campaign).subscribe(characters => {this.characters = characters as playerData[]})
-    
   }
 
 }

@@ -93,7 +93,7 @@ li {
 }
 
 .card .additional .more-info {
-  width: 300px;
+  width: 448px;
   float: left;
   position: absolute;
   left: 150px;
@@ -103,6 +103,7 @@ li {
 .card .additional .more-info h1 {
   color: #fff;
   margin-bottom: 0;
+  width: 448px;
 }
 
 
@@ -146,6 +147,8 @@ li {
   font-weight: bold;
   text-transform: uppercase;
   padding-bottom: 5px;
+  width: 120px;
+  margin: 10px;
 }
 
 .card .additional .stats div.value {
@@ -187,6 +190,20 @@ img {
     }
 }
 
+.wrapper {
+  margin-left: 1em;
+  margin-right: 1em;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 1em;
+  grid-column-gap: 0.5em;
+  justify-content: center;
+}
+
+.container-fluid{
+  padding-bottom: 60px;
+}
 
 
 

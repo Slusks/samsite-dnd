@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ActionsComponent } from './actions/actions.component';
 import { HeaderComponent } from './header/header.component';
 import { SynopsisComponent } from './synopsis/synopsis.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -27,29 +26,11 @@ const routes: Routes = [
 {
   path: 'home',
   component: HomepageComponent,
-  resolve: {data: ProfileResolver} /*,
-  children:[
-    {path: '',
-    component: HeaderComponent,
-    resolve: {data : ProfileResolver},
-    children: [
-        {path: '',
-        component: HeaderDialogComponent,
-        resolve: { data: ProfileResolver}
-        },
-        {path: '',
-        component: ProfileComponent,
-        resolve: { data: ProfileResolver}
-        }]
-      }
-      ]*/
+  resolve: {data: ProfileResolver}
     },
+
 {
   path: 'factions',
-  component: ActionsComponent, resolve: {data: ProfileResolver}
-},
-{
-  path: 'factions2',
   component: Factions2Component, resolve: {data: ProfileResolver}
 },
 {

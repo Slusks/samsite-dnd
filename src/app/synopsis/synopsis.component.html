@@ -1,12 +1,17 @@
 <div class="col-3" id="action-jumbotron" >
-    <div class="jumbotron">
-        <div class="container">
-    <div  *ngIf="authService.user$ | async as User;">
-        <!--<ng-container *ngIf="User.role == admin">
+   <div class="jumbotron">
+    <h1> Welcome to the Story Page!</h1>
+    <p> Select a panel in order to view
+         a synopsis of that weeks events</p>
+        <div class="container" >
+    <div  *ngIf="authService.user$ | async as User;"> 
+        <ng-container *ngIf="this.currentUser == true">
+            <h2>Add Panel Form:</h2>
+            <br>
                 <form  id="formNewPanel" name = "formNewPanel" #panelData ="ngForm"  (ngSubmit)="addNewPanel(panelData.value)">
                     <mat-form-field>
                         <input matInput maxlength="2" placeholder="ID" name="id" id="id" ngModel>
-                        <mat-hint>Next Thursday Campaign ID: {{thursdayPanels}}</mat-hint>
+                        <mat-hint >Next Menagerie Coast ID: {{menageriePanels}}</mat-hint>
                         
                     </mat-form-field><br>
                     <mat-form-field>
@@ -17,14 +22,10 @@
                     </mat-form-field><br>
                 <button mat-raised-button type="submit" value="Add Panel">More Story! <i class="fas fa-feather-alt fa-2x"></i></button>
             </form>
-        </ng-container>-->
+        </ng-container>
         
     
-        <h1> Welcome to the Story Page!</h1>
-        <p> Select a panel in order to view
-             a synopsis of that weeks events</p>
-            <p style="margin-bottom: 1px;"> In Work Items:</p>
-                <ul>- Add Panel Display</ul>          
+      
     
 </div>
       <br>

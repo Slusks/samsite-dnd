@@ -83,12 +83,6 @@ export class HeaderComponent implements OnInit, AfterViewInit{
 
   } ////end OnInit
   
-     //campaign Selection:
-     getUserCampaigns(userID:string){
-      this.dndDatabaseService.getUserCampaign(userID).subscribe(campaigns => {this.thursdayCampaign = campaigns["thursdayCampaign"],
-                                                                              this.menagerieCoast = campaigns["menagerieCoast"] 
-                                                                              })
-    }   
 
   
   //Logging Out

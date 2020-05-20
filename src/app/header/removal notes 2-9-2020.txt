@@ -1,9 +1,0 @@
-removed from header component scss:
-
-.sidenav-container {
-  height: 100vh;
-}
-
-.jumbotron-fluid{
-  height: 100vh;
-}
