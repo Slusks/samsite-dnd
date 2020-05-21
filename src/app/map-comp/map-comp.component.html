@@ -1,45 +1,18 @@
-<div  *ngIf="authService.user$ | async as user;" class="jumbotron" id="bodycontainer" style="position: relative" >
-  
-  
-  <div class="container" id="mapContainer" width=1000 style="margin-bottom: 80px;">
-    
+<div  *ngIf="authService.user$ | async as user;" class="jumbotron" id="bodycontainer" style="position: relative;  justify-content: center;" >
+      
     <ng-container *ngIf="user.thursdayCampaign === true">
-    <h1>Campaign Maps!</h1>
-    <!--Map image-->
-    <img (click)="logCursorPosition($event)" id="map" src="../assets/img/dessarinValley.jpg" width="1000" height="1270">
-  </ng-container>
-  </div>
-  <hr class="solid">
+      <app-tcmap></app-tcmap>
+    </ng-container>
+
+<hr class="solid">
 
 
-<ng-container *ngIf="user.menagerieCoast === true">
-  <div class="container" id=MCC>
-    <h2>Menagerie Coast Coming Soon!</h2>
-    <img (click)="logCursorPosition($event)" id="map" src="../assets/pics/portZoon.jpg" width="844" height="1065">
-  </div>
-</ng-container>
+    <ng-container *ngIf="user.menagerieCoast === true">
+      <app-mcmap></app-mcmap>
+    </ng-container>
 
-<!--form appears on marker placement-->
-<div class="form-popup" id="myForm">
-  <form class="form-container" id="formContainer" #mapMarker="ngForm" (ngSubmit)="markerFormSubmit(mapMarker.value)">
-    <input type="text" required minlength="3" class="form-control" placeholder="Enter Description" name="description" id="description" ngModel>
-    <button type="submit" class="btn btn-sm">Submit</button>
-    <button type="button" class="btn cancel btn-sm" (click)="closeForm('myForm')">Close</button>
-    <button type="button" class="btn delete btn-sm">Delete</button>
-  </form>
 </div>
 
-<!--Card Form Information-->
-<mat-card id="markerCard">
-  <mat-card-content id="cardContent">
-    <p id="fancy">
-      {{cardDescription}}
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button color="warn" id="close" (click)="closeForm('markerCard')">Close</button>
-    <button mat-raised-button color="primary" id="deleteMarker" (click)="deleteMarker()">Delete Marker</button>
-  </mat-card-actions>
-</mat-card>
+
 
 

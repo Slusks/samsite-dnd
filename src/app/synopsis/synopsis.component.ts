@@ -29,7 +29,7 @@ export class SynopsisComponent implements OnInit {
               public userService: UserService,
               public authService: AuthService) {   
               this.authService.user$.subscribe(res => {
-                  console.log("current user res",res)
+                  //console.log("current user res",res)
                   if (res.role == "admin"){
                     this.currentUser = true
                   }

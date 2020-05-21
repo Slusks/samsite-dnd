@@ -50,6 +50,8 @@ import { CantripPipe } from './cantrip.pipe';
 import { Factions2Component } from './factions2/factions2.component';
 import { FactiondialogComponent } from './factions2/factiondialog/factiondialog.component';
 import { NewlinePipe } from './newline.pipe';
+import { TcmapComponent } from './map-comp/tcmap/tcmap.component';
+import { McmapComponent } from './map-comp/mcmap/mcmap.component';
 
 
 
@@ -75,7 +77,9 @@ import { NewlinePipe } from './newline.pipe';
     CantripPipe,
     Factions2Component,
     FactiondialogComponent,
-    NewlinePipe
+    NewlinePipe,
+    TcmapComponent,
+    McmapComponent
 
 
   ],

@@ -27,7 +27,7 @@ export class StoryPanelComponent implements OnInit {
   id:number;
   private headers = ({'Content-Type': 'application/json'});
 
-  configURL = "http://localhost:3000/panel";
+
   panelArr1=[];
   panelArr2=[];
   TCisLoaded: boolean;
@@ -63,8 +63,8 @@ export class StoryPanelComponent implements OnInit {
 
 
   ngOnInit() {
-    this.authService.user$.subscribe(res => {this.createArray(res), console.log("res", res)})
-        console.log("user$:", this.authService.user$)
+    this.authService.user$.subscribe(res => {this.createArray(res)/*, console.log("res", res)*/})
+        /*console.log("user$:", this.authService.user$)*/
 
         
   }
@@ -98,7 +98,7 @@ export class StoryPanelComponent implements OnInit {
 
 
 createArray(campaignSelection){
-  console.log("array in work")
+  //console.log("array in work")
     if (campaignSelection.thursdayCampaign == true) { 
       this.dndDatabaseService.getPanel("thursdayCampaign").subscribe(response =>{
         let responseProps = Object.keys(response);

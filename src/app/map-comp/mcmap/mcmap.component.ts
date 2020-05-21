@@ -1,35 +1,27 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { DndDatabaseService } from '../dnd-database.service';
+import { Component, OnInit } from '@angular/core';
+import { DndDatabaseService } from 'src/app/dnd-database.service';
+import { UserService } from 'src/app/AuthenticationPackage/core/user.service';
+import { AuthService } from 'src/app/AuthenticationPackage/core/auth.service';
 import { HttpClient } from '@angular/common/http';
-import { markerData } from './markerData';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MatButtonModule } from '@angular/material/button';
-import { UserService } from '../AuthenticationPackage/core/user.service';
-import { AuthService } from '../AuthenticationPackage/core/auth.service';
-import { AngularFireAuthModule } from '@angular/fire/auth/public_api';
-@Component({
-  selector: 'app-map-comp',
-  templateUrl: './map-comp.component.html',
-  styleUrls: ['./map-comp.component.scss']
-})
-export class MapCompComponent implements OnInit {
 
-  title = 'map-app'; /*
+@Component({
+  selector: 'app-mcmap',
+  templateUrl: './mcmap.component.html',
+  styleUrls: ['./mcmap.component.scss']
+})
+export class McmapComponent implements OnInit {
+
   iconDescription:Object={};
   xPosition:number;
   yPosition:number;
   id:boolean;
   posts;
   counter:number;
-  //cardDescription:string;
+  cardDescription:string;
   mousePos;
 
-  //campaign Selection variables
-  thursdayCampaign: Boolean;
-  menagerieCoast: Boolean;
-  
 
-  */
+  
   constructor(
     private dndDatabaseService: DndDatabaseService,
     private http: HttpClient,
@@ -52,7 +44,7 @@ ngOnInit(){
       //const mapImage = new Image();
       //mapImage.src = "../assets/img/dessarinValley.jpg"
 
-
+    
 
       this.dndDatabaseService.getMapMarker()
       .subscribe(posts => {(this.posts = posts),
@@ -62,11 +54,11 @@ ngOnInit(){
 
 
 
-
 */
+
       }//end onInit
+
 /*
- //subscribes to the JSON file
 
 
   
@@ -207,5 +199,6 @@ deleteMarker(){
     
     
   }
-  }*/
   }
+*/
+}
