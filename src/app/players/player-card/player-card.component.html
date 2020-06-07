@@ -15,7 +15,7 @@
                                     <img mat-card-image src={{character.portrait}}>
                                     </div>
                                     <div class="points center">
-                                      3,225 Points
+                                      3,225 Exp
                                     </div>
 
                                   </div>
@@ -68,13 +68,13 @@
                         <div class="additional">
                           <div class="user-card">
                             <div class="level center">
-                              Level 4
+                              Level 5
                             </div>
                             <div class="portrait center">
                             <img mat-card-image id="character2" src={{character2?.portrait}}>
                             </div>
                             <div class="points center">
-                              5,090 Points
+                              6,525 Exp
                             </div>
 
                           </div>
@@ -88,6 +88,11 @@
                             </div>
                             <div class="coords">
                               <span>Affiliation: {{character2.affiliation}}</span>
+                            </div>
+                            <div class="coords">
+                              <div *ngIf="character2.link">
+                              <a  href="{{character2.link}}" id="link" target="_blank">Bladesong Playlist</a>
+                              </div>
                             </div>
                             <div class="stats">
                               <div>
