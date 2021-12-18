@@ -47,4 +47,14 @@ export class LoginComponent {
     })
   }
 
+  async guestLogin(){
+    let value = {
+      'email':'guest@guest.com', 'password':'guestpassword1'
+      }
+    this.authService.emailSignin(value)
+    .then(res => {
+    this.router.navigate(['/home']);
+    })
+  }
+
 }
